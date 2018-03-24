@@ -1,0 +1,14 @@
+<wxc-popup animation-mode="none" align="center" locked="true" class="popup" _pid="{{_pid}}">
+    <view class="dialog" catchtap="onContentTap">
+        <view class="dialog__title" wx:if="{{title}}" style="color: {{titleColor}}">{{title}}</view>
+        <view class="dialog__content">
+            <image class="dialog__content--image" wx:if="{{image}}" src="{{image}}" mode="aspectFill"></image>
+            <view class="dialog__content--text" wx:if="{{content}}" style="color: {{contentColor}}">{{content}}</view>
+            <slot></slot>
+        </view>
+        <view class="dialog__btns">
+            <view class="dialog__btns--cancel" wx:if="{{cancelText}}" style="color: {{cancelColor}}" bindtap="cancelCallback">{{cancelText}}</view>
+            <view class="dialog__btns--confirm" wx:if="{{confirmText}}" style="color: {{confirmColor}}" bindtap="confirmCallback">{{confirmText}}</view>
+        </view>
+    </view>
+</wxc-popup>

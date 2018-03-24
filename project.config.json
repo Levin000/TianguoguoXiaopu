@@ -1,0 +1,51 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.6",
+	"appid": "wx246983b8b8332e17",
+	"projectname": "%E7%94%9C%E6%9E%9C%E6%9E%9C%E5%B0%8F%E9%93%BA-offline-minUI",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": [
+				{
+					"name": "test",
+					"pathName": "",
+					"title": "",
+					"cacheKey": ""
+				}
+			]
+		},
+		"conversation": {
+			"current": 0,
+			"list": [
+				{
+					"name": "test",
+					"query": "",
+					"boxQI": "",
+					"service": {}
+				}
+			]
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"name": "test",
+					"pathName": "COMPONENT/music",
+					"query": "a=哈哈",
+					"scene": 1044,
+					"shareInfo": {},
+					"referrerInfo": {}
+				}
+			]
+		}
+	}
+}

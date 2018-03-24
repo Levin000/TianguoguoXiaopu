@@ -1,0 +1,101 @@
+<view class="container">
+  <view class='userbox'>
+    <view class="userinfo">
+      <wxc-avatar class="userinfo-avatar" src="{{ userInfo.avatarUrl }}"> </wxc-avatar>
+      <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+      <wxc-label wx:if="{{userMobile}}" class="my-phoneNumber" type='fill'>
+        已绑定手机{{userMobile}}
+      </wxc-label>
+      <view wx:else class="phoneNumber">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="pin-phoneNumber">绑定手机号码</button>
+      </view>
+    </view>
+    <view class='scoreInfo'>
+      <button class='my-sign' wx:if="{{score_sign_continuous == 0}}" bindtap="scoresign">每日签到</button>
+      <button class='my-sign' wx:if="{{score_sign_continuous > 0}}" disabled='true'>已连续签到 {{score_sign_continuous}} 天</button>
+      <view class='my-score'>
+        积分:
+        <view style='padding:0 10rpx;color: green;font-weight: bold;'> {{score}} </view>
+      </view>
+      <view class='my-balance'>
+        <view style='padding:10rpx;display: flex;flex-direction: row;'>
+          余额:
+          <view style='padding: 0 10rpx;color: #ff4422;font-weight: bold;'> {{balance}} </view>
+          元
+        </view>
+        <!--<button type='primary' style='height:60rpx;width:33%;margin-right:15rpx;font-size: 24rpx;' bindtap="recharge">充值</button>-->
+      </view>
+      <!--<view class='my-freeze'>
+        <view style='padding:10rpx;'>
+          冻结: {{freeze}} 元
+        </view>
+        <button type='warn' style='height:60rpx;width:33%;margin-right:15rpx;font-size: 24rpx;' bindtap="withdraw">提现</button>
+      </view>-->
+    </view>
+  </view>
+
+  <view class="user-menu">
+    <view class="item">
+      <navigator url="/pages/ucenter/order-list/index" hover-class="none" class="a">
+        <wxc-icon type='feedback' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">订单管理</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/select-address/index" hover-class="none" class="a">
+        <wxc-icon type='address' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">收货地址</text>
+      </navigator>
+    </view>
+    <view class="item no-border">
+      <navigator url="/pages/ucenter/location/location" hover-class="none" class="a">
+        <wxc-icon type='location' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">到店里</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/mycoupons/index" hover-class="none" class="a">
+        <wxc-icon type='coupon' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">优惠券</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="" hover-class="none" class="a">
+        <wxc-icon type='rate' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt" style='color:lightgray;text-decoration: line-through;'>积分兑换</text>
+      </navigator>
+    </view>
+    <view class="item no-border">
+      <navigator url="/pages/target/index" hover-class="none" class="a">
+        <wxc-icon type='footprint' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt" style='color:lightgray;text-decoration: line-through;'>足迹</text>
+      </navigator>
+    </view>
+    <view class="item item-bottom">
+      <navigator url="/pages/ucenter/feedback/feedback" hover-class="none" class="a">
+        <wxc-icon type='comment' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">意见反馈</text>
+      </navigator>
+    </view>
+    <view class="item item-bottom" bindtap="aboutUs">
+      <navigator url="url" hover-class="none" class="a">
+        <wxc-icon type='help' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">关于我们</text>
+      </navigator>
+    </view>
+    <view class="item no-border-bottom" bindtap='makePhoneCall'>
+      <navigator url="" hover-class="none" class="a">
+        <wxc-icon type='group' size='50' color='#69C3AA' style='margin-bottom:20rpx;'></wxc-icon>
+        <text class="txt">联系客服</text>
+      </navigator>
+    </view>
+  </view>
+  <view style="height:20rpx;width:100%;"></view>
+  <view class="my-item" style='border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;'>
+    <button type="warn" bindtap="relogin" style='font-size:24rpx;'>重新登录</button>
+  </view>
+
+  <view class="version" style='margin-top:10rpx;font-size:18rpx;'>Copyright © 2017-2018 AK47</view>
+  <view class='version' style='height:20rpx;line-height:20rpx;font-size:16rpx;font-style: oblique;'>Powered by EastWorld v {{version}}</view>
+  <view style="height:12rpx;width:100%;"></view>
+</view>

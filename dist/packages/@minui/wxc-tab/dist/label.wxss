@@ -1,0 +1,5 @@
+.tab {}
+.tab__navbar-title {
+    display: inline-block;
+    white-space: nowrap
+}

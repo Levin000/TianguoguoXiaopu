@@ -1,0 +1,108 @@
+<template>
+  <view class="flex dir--{{dir}} main--{{main}} cross--{{cross}} wrap--{{wrap}}">
+    <slot></slot>
+  </view>
+</template>
+
+<script>
+  export default {
+    config: {
+      usingComponents: {}
+    },
+    behaviors: [],
+    properties: {
+      // 主轴方向
+      dir: {
+        type: String,
+        value: 'left'
+      },
+      // 主轴对齐方式
+      main: {
+        type: String,
+        value: 'left'
+      },
+      // 交叉轴对齐方式
+      cross: {
+        type: String,
+        value: 'stretch'
+      },
+      // 换行设置
+      wrap: {
+        type: String,
+        value: 'nowrap'
+      }
+    },
+    data: {},
+    methods: {}
+  }
+
+
+</script>
+
+<style>
+  .flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 主轴对齐方式 */
+  .dir--left {
+    flex-direction: row;
+  }
+  .dir--right {
+    flex-direction: row-reverse;
+  }
+  .dir--top {
+    flex-direction: column;
+  }
+  .dir--bottom {
+    flex-direction: column-reverse;
+  }
+
+  /* 主轴排列方式 */
+  .main--start {
+    justify-content: flex-start;
+  }
+  .main--end {
+    justify-content: flex-end;
+  }
+  .main--between {
+    justify-content: space-between;
+  }
+  .main--center {
+    justify-content: center;
+  }
+  .main--around {
+    justify-content: space-around;
+  }
+
+  /* 换行设置 */
+  .wrap--nowrap {
+    flex-wrap: nowrap;
+  }
+  .wrap--wrap {
+    flex-wrap: wrap;
+  }
+  .wrap--reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+
+  /* 交叉轴排列方式 */
+  .cross--start {
+    align-items: flex-start;
+  }
+  .cross--end {
+    align-items: flex-end;
+  }
+  .cross--center {
+    align-items: center;
+  }
+  .cross--baseline {
+    align-items: baseline;
+  }
+  .cross--stretch {
+    align-items: stretch;
+  }
+</style>

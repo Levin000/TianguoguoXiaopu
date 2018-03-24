@@ -1,0 +1,13 @@
+<view class="toast" wx:if="{{isShow}}" style="z-index: {{zIndex}};">
+    <view class="toast__box">
+        <view wx:if="{{icon || iconImage}}" class="toast__icon">
+            <block wx:if="{{icon && !iconImage}}">
+                <wxc-icon type="{{icon}}" color="{{iconColor || '#fff'}}" size="68" _pid="{{_pid}}"></wxc-icon>
+            </block>
+            <image wx:if="{{iconImage}}" class="toast__icon--image" src="{{iconImage}}" mode="widthFix"></image>
+        </view>
+        <text class="toast__title">
+            <slot wx:if="{{!text}}"></slot>{{text ? text : ''}}
+        </text>
+    </view>
+</view>

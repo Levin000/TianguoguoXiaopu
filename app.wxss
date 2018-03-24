@@ -1,0 +1,17 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+/*最原始只有上面，下面均为添加过度界面设置*/
+.wxParse-img {
+  display: block !important;
+}
+
+
+
+

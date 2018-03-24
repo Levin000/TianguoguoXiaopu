@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "wxc-abnor": "../../dist/packages/@minui/wxc-abnor/dist/index",
+    "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
+    "wxc-counter": "../../dist/packages/@minui/wxc-counter/dist/index",
+    "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+  }
+}

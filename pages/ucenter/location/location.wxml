@@ -1,0 +1,34 @@
+<view class='shopInfo'>
+  <view class='shopname'>
+    甜果果小铺：馆陶县文卫街西段名都花园门面房
+  </view>
+  <view class='shopconnect'>
+    手机号：******(刘女士)
+  </view>
+  <view style='margin-left: 20rpx; width: 90%; height: 50rpx; font-size: 28rpx; align-items: center;'>
+    (可直接在"我的"-->"客服电话"里联系店家)
+  </view>
+</view>
+<view class="mainView">
+   <map
+        class="mapView"
+        style="width: 100%; height: 375px;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        covers="{{covers}}"
+        scale='18'
+        >
+    </map>
+</view>
+
+<view class="head" style="flex-direction:row;">
+    <view class='distanceTxt'>
+      <image class="icon" src="/images/more/run.png" mode="aspectFill" style='width:50rpx;height:30rpx;margin-right:20rpx;margin-top:8rpx;'></image>
+      <text>距离我约：{{meters}}km</text>
+    </view>
+    <button bindtap="openTgLocation" style='width:200rpx;margin-top:30rpx;'>导航</button>
+</view>
+
+
+

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
+    "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
+    "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+  }
+}

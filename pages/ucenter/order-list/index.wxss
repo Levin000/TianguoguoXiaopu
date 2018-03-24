@@ -1,0 +1,241 @@
+.stv-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.withAnimate {
+  transition: all 100ms ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+
+.stv-container .tab-bar {
+  position: relative;
+  height: 88rpx;
+  line-height: 88rpx;
+  justify-content: space-between;
+  background-color: #fff;
+  display: flex;
+  font-size: 28rpx;
+  color: #353535;
+}
+
+.stv-container .tab-bar .tab.active {
+  color: #FF5777;
+  font-weight: bold;
+}
+
+.stv-container .tab-bar .tab {
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.stv-container .tab-bar .tab .red-dot {
+  width: 16rpx;
+  height: 16rpx;
+  position: absolute;
+  left: 116rpx;
+  top: 23rpx;
+  background-color: #FF5777;
+  border-radius: 50%;
+}
+
+.stv-container .tab-bar .under-line {
+  position: absolute;
+  bottom: 0;
+  height: 6rpx;
+  background-color: #FF5777;
+}
+
+.stv-container .scroll-view {
+  position: relative;
+  width: 100%;
+  height: 93%;
+  background: #f2f2f2;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper .one-scene {
+  height: 100%;
+}
+
+.no-order {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 88rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  
+  background-color: #f2f2f2;
+}
+
+.no-order-img {
+  width: 81rpx;
+  height: 96rpx;
+  margin-bottom: 31rpx;
+}
+
+.no-order .text {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+
+.order-list {
+  width: 100%;
+}
+
+.order-list .a-order {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.order-list .a-order .order-date {
+  padding: 0 30rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #000;
+  align-items: center;
+}
+
+.order-list .a-order .order-date .red {
+  font-size: 26rpx;
+  color: #e64340;
+}
+
+.a-order  .goods-info, .goods-img-container {
+  width: 720rpx;
+  margin-left: 30rpx;
+  border-top: 1rpx solid #f4f4f4;
+  border-bottom: 1rpx solid #f4f4f4;
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.goods-info .img-box {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+  background-color: #f7f7f7;
+}
+
+.goods-info .img-box .goods-img, .goods-img-container .img-box .goods-img {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.goods-info  .goods-des {
+  width: 720rpx;
+  /*height: 78rpx;*/
+  height: 50rpx;
+  line-height: 39rpx;
+  font-size: 26rpx;
+  color: #000;
+  overflow: hidden;
+}
+
+.goods-info  .goods-des  .order-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #000;
+  align-items: center;
+}
+
+.goods-info  .goods-des  .order-info  .order-advance {
+  padding: 0 10rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 6rpx;
+  border: 1px solid green;
+  font-size: 24rpx;
+  color: green;
+}
+
+.goods-img-container {
+  height: 180rpx;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.goods-img-container .img-box {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  background-color: #f7f7f7;
+  display: inline-block;
+}
+
+.order-list .a-order .price-box {
+  position: relative;
+  width: 720rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 20rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+.order-list .a-order .price-box .total-price {
+  font-size: 26rpx;
+  color: #e64340;
+}
+
+.a-order .price-box .btn {
+  width: 166rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  margin-left: 20rpx;
+}
+
+.a-order .price-box .cancel-btn {
+  border: 1rpx solid #ccc;
+  position: absolute;
+  right: 216rpx;
+  top: 20rpx;
+}
+
+.a-order .price-box .topay-btn {
+  border: 1px solid #e64340;
+  color: #e64340;
+}

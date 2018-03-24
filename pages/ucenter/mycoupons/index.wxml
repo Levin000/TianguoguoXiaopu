@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="coupons-list">
+      <view class="coupons-item" wx:for-items="{{coupons}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}">
+        <view class='coupons-money'>
+          <text > ￥\n\n {{item.money}} </text>
+        </view>
+        <view class='coupons-info'>
+          <text style='font-size:48rpx;'> {{item.name}}\n </text>
+          <text style='font-size:20rpx;'> 满 </text>
+          <text style='font-size:28rpx;color:green;'>{{item.moneyHreshold}} </text>
+          <text style='font-size:20rpx;'>元使用 \n</text>
+          <text style='font-size:28rpx;color:green;' > {{item.dateEnd}} </text>
+          <text style='font-size:20rpx;'> 前有效\n </text>
+        </view>
+      </view>
+    </view>
+    <view style="height:100rpx;background-color:#fff;width:100%;"></view>
+    <view class="bottom-box">
+      <view class='arrow-right'>
+        <view class="add-btn" bindtap="goBuy">立即前往下单</view>
+       </view>
+    </view>
+
+</view>

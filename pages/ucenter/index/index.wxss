@@ -1,0 +1,165 @@
+page {
+	height: 100%;
+	overflow: hidden;
+}
+.container{
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+  background-color: #f4f4f4;
+  font-size: 28rpx;
+}
+
+.userbox {
+  width: 750rpx;
+	display: flex;
+	flex-direction: row;
+  background-color: #69C3AA;
+}
+.userbox .userinfo {
+	display: flex;
+	flex-direction: column;
+	padding: 20rpx 0;
+	align-items: center;
+  width: 75%;
+  background: url(https://cdn.it120.cc/apifactory/2017/12/23/f92b0f817a8455117da45d9319ff3df3.png) 0 0 no-repeat;
+  background-size: 300rpx 300rpx;
+  background-position-x: center;
+  background-position-y: -30rpx;
+}
+
+.userinfo-avatar {
+  display: block;
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx;
+}
+
+.userinfo-nickname {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.userinfo .my-phoneNumber{
+  margin-top: 20rpx;
+  font-size: 20rpx;
+  color: #333;
+}
+
+.userinfo .phoneNumber .pin-phoneNumber{
+  width: auto;
+  align-items: center;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.userbox .scoreInfo{
+  display: flex;
+	flex-direction: column;
+	padding: 20rpx 0;
+  width:auto;
+}
+
+.userbox .scoreInfo .my-sign{
+  width: auto;
+  position: absolute;
+  right: 20rpx;
+  margin-top: 20rpx;
+  font-size: 18rpx;
+  color: #e85654;
+}
+
+.userbox .scoreInfo .my-score{
+  width: auto;
+  margin-top: 170rpx;
+  padding: 10rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.userbox .scoreInfo .my-balance{
+  margin-top: 40rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.userbox .scoreInfo .my-freeze{
+  display: flex;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.version {
+  width:100%;
+  height: 30rpx;
+	line-height: 30rpx;
+	font-size: 24rpx;
+	text-align: center;  
+}
+
+.user-menu{
+  width: 100%;
+  height: auto;
+  margin-top: 20rpx;
+  overflow: hidden;
+  background: #FFF;
+}
+
+.user-menu .item{
+  float: left;
+  width: 249rpx;
+  height: 187.5rpx;/*187.5*/
+  border-top: 1px solid #EFEFEF; /*rgba(0,0,0,.15)*/
+  border-right: 1px solid #EFEFEF;
+  text-align: center;
+}
+
+.user-menu .item .a{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user-menu .item.no-border {
+  border-right: 0;
+}
+.user-menu .item.item-bottom {
+  border-bottom: 1px solid #EFEFEF;
+}
+.user-menu .item.no-border-bottom{
+  border-bottom: 1px solid #EFEFEF;
+  border-right: none;
+}
+.user-menu .icon{
+  margin: 0 auto;
+  display: block;
+  height: 60rpx;
+  width: 60rpx;
+  margin-bottom: 16rpx;
+}
+
+.user-menu .txt{
+  display: block;
+  height: auto;
+  width: 100%;
+  color:#333;
+}
+
+.my-item{
+    width: 30%;
+    background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 750rpx center;
+    background-size: 16rpx auto,750rpx auto;
+    margin: 20rpx 0; 
+    border-bottom: 1px solid #f4f4f4;
+    height: 80rpx;
+    line-height: 100rpx;
+    padding-left: 100rpx;
+}

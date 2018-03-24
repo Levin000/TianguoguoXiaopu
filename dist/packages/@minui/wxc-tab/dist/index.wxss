@@ -1,0 +1,35 @@
+.tab {}
+.tab__navbar-wrap {
+    position: relative
+}
+.tab__navbar {
+    white-space: nowrap;
+    width: 100%
+}
+.tab__navbar-item {
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap
+}
+.tab__navbar-item {}
+.tab__navbar-item--default {
+    padding: 13rpx 0
+}
+.tab__line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4rpx
+}
+.tab__line {}
+.tab__line--animate {
+    transition: left .3s cubic-bezier(.645, .045, .355, 1)
+}
+.tab__content-wrap {
+    width: 100%;
+    overflow: hidden
+}
+.tab__content {
+    width: 100%
+}

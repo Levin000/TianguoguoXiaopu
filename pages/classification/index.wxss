@@ -1,0 +1,242 @@
+@keyframes kf-marque-animation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.3%);
+  }
+}
+
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  background: #69c3aa; /**/
+  color: #000;
+  transition: all 0.6s ease-in-out;
+}
+
+.header.hidden {
+  transform: translate3d(0, -290rpx, 0);
+  margin-top: -290rpx;
+}
+
+.header .sell-status{
+  position: absolute;
+  right: 175rpx;
+  top: 0rpx;
+  width: 200rpx;
+  height: 135rpx;
+}
+
+.header .shop-Info {
+  position: relative;
+  width: 100%;
+  height: 180rpx;
+  margin: 25rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header .shop-Info .logo {
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.header .shop-Info .shop-words {
+  width: 400rpx;
+  height: 100%;
+}
+
+.header .shop-Info .shop-words .welcome-ellipsis {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.header .shop-Info .shop-words .delivery-ellipsis {
+  width: 100%;
+  padding-top: 20rpx;
+  color: #444444;
+  font-size: 24rpx;
+  line-height: 50rpx;
+}
+
+.header .shop-Info .clock {
+  position: absolute;
+  width: 180rpx;
+  height: 100%;
+  right: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header .shop-Info .clock .canvas {
+  position: relative;
+  width: 180rpx;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.header .line {
+  clear: both;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #000;
+}
+
+.header .marquee {
+  position: relative;
+  width: 100%;
+  height: 69rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 40rpx;
+  background: #feb70f;
+  border: none;
+  font-size: 28rpx;
+  text-overflow: clip;
+}
+
+.header .marquee .desc {
+  position: relative;
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-top: 20rpx;
+  padding-right: 0rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  animation: kf-marque-animation 11.3s linear infinite;
+  white-space: nowrap;
+}
+
+.content-container {
+  display: -webkit-flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.classify-container {
+  width: 180rpx;
+  background: #EFEFEF;
+  height: 100%;
+}
+
+.classify-container .classify {
+  padding: 30rpx 0rpx;
+  text-align: center;
+  /*border-bottom: 1px dashed #aaa;*/
+}
+
+.classify-container .classify.active {
+  background: #fff;
+  border-left: 6rpx solid #FF5777;
+}
+
+.classify-container .classify .name {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #646464;
+  line-height: 1.2;
+  text-align: left;
+  pointer-events: none;
+}
+
+.classify-container .classify .name.active {
+  color: #FF5777;
+  font-weight: bold;
+}
+
+.goods-container {
+  flex: 1;
+  background: #fff;
+  height: 100%;
+}
+
+.goods-container .title {
+  text-align: left;
+  padding: 20rpx 30rpx;
+  color: grey;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  background: rgba(105, 195, 170, 0.3);
+}
+
+.goods-container .goods {
+  position: relative;
+  height: 130rpx;
+  padding: 20rpx 30rpx;
+  font-size: 36rpx;
+  line-height: 40rpx;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.goods-container .goods .pic {
+  float: left;
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.goods-container .goods .pic .fresh-tag {
+  position: absolute;
+  top: 15rpx;
+  left: 25rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.goods-container .goods .name {
+  color: #000;
+  font-size: 28rpx;
+  line-height: 46rpx;
+}
+
+.goods-container .goods .soldInfo {
+  display: flex;
+  flex-direction: row;
+  color: #989898;
+  font-size: 22rpx;
+  line-height: 46rpx;
+  width: 350rpx;
+  align-items: flex-start;
+}
+
+.goods-container .goods .soldInfo .good-price-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.goods-container .goods .soldInfo .good-price-box .price {
+  color: #ff4422;
+  margin-top: 10rpx;
+  width: 120rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+}

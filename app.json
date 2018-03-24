@@ -1,0 +1,72 @@
+{
+  "pages":[
+    
+    "pages/start/start",
+    "pages/classification/index",
+    "pages/choiceness/index",
+    "pages/finder/index",
+    "pages/ucenter/index/index",
+    "pages/search/index",
+    "pages/goods-details/index",
+    "pages/shop-cart/index",
+    "pages/to-pay-order/index",
+    "pages/select-address/index",
+    "pages/address-add/index",
+    "pages/ucenter/order-list/index",
+    "pages/order-details/index",
+    "pages/wuliu/index",
+    "pages/ucenter/mycoupons/index",
+    "pages/notice/show",
+    "pages/recharge/index",
+    "pages/withdraw/index",
+    "pages/ucenter/feedback/feedback",
+    "templates/canvas-clock/index",
+    "pages/ucenter/location/location"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#69C3AA"
+  },
+  "tabBar": {
+    "color": "#929292",
+    "selectedColor": "#69C3AA",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "box-shadow":"0 0 4px 0",
+    "list": [{
+      "pagePath": "pages/choiceness/index",
+      "iconPath": "images/nav/select-off.png",
+      "selectedIconPath": "images/nav/select-on.png",
+      "text": "精选"
+    },{
+      "pagePath": "pages/finder/index",
+      "iconPath": "images/nav/find-off.png",
+      "selectedIconPath": "images/nav/find-on.png",
+      "text": "发现"
+    },{
+      "pagePath": "pages/classification/index",
+      "iconPath": "images/nav/classification-off.png",
+      "selectedIconPath": "images/nav/classification-on.png",
+      "text": "分类"
+    },{
+      "pagePath": "pages/shop-cart/index",
+      "iconPath": "images/nav/cart-off.png",
+      "selectedIconPath": "images/nav/cart-on.png",
+      "text": "购物车"
+    },
+    {
+      "pagePath": "pages/ucenter/index/index",
+      "iconPath": "images/nav/my-off.png",
+      "selectedIconPath": "images/nav/my-on.png",
+      "text": "我的"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

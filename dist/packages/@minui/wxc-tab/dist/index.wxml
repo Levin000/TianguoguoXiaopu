@@ -1,0 +1,36 @@
+<view class="tab">
+
+    <!-- defalut tab-label -->
+    <block wx:if="{{type === 'simple'}}">
+        <scroll-view scroll-x="{{true}}" class="tab__navbar" scroll-left="{{(move-width*2.1) / 2}}" scroll-with-animation="{{animate}}">
+            <view class="tab__navbar-wrap">
+                <view class="tab__navbar-item tab__navbar-item--default" wx:for="{{tabs}}" wx:for-item="tab" wx:key="index" data-key="{{tab.key}}" data-idx="{{index}}" bindtap="onSwitch" style="width: {{width}}rpx; color:{{index === activeKey ? activeTextColor : textColor}}">
+                    <label class="tab__navbar-title">{{tab.label}}</label>
+                </view>
+
+                <view class="tab__line {{!animate ? '' : 'tab__line--animate'}}" style="left:{{move}}rpx; width: {{width}}rpx; background-color: {{activeLineColor}};">
+                </view>
+
+            </view>
+        </scroll-view>
+    </block>
+
+    <!-- config tab-label -->
+    <block>
+        <scroll-view scroll-x="{{true}}" class="tab__navbar" scroll-left="{{(move-width*2.1) / 2}}" scroll-with-animation="{{animate}}">
+            <view class="tab__navbar-wrap">
+                <slot name="tablabel"></slot>
+                <view class="tab__line {{!animate ? '' : 'tab__line--animate'}}" style="left:{{move}}rpx; width: {{width}}rpx; background-color: {{activeLineColor}};">
+                </view>
+            </view>
+        </scroll-view>
+    </block>
+
+    <!-- tab-panel -->
+    <view class="tab__content-wrap" style="border-top: 2rpx solid {{lineColor}};">
+        <view class="tab__content">
+            <slot></slot>
+        </view>
+    </view>
+
+</view>

@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+<import src="../../templates/recommend-goods-item/recommend-goods-item.wxml" />
+
+<view class="container" style="{{noticeList ? 'margin-top: 100rpx;' :''}}">
+  <view wx:if="{{noticeList}}" class="notice">
+    <view class="notice_iteml">
+      <view style='width:70rpx;height:50rpx;display: flex; flex-direction:row;'>
+        <image style='width=100%;height:50rpx;' src='/images/more/noticePic.png'></image>
+      </view>
+      <view style='width:130rpx;height:50rpx;color:#FF0077;'>果果快报</view>
+    </view>
+    <view style='width:3rpx;height:50rpx;margin: 15rpx 0rpx;background-color:#ECECEC;'></view>
+    <swiper wx:if="{{noticeList}}" class="notice_swiper" vertical="true" autoplay="true" circular="true" interval="3000">
+      <navigator wx:for-items="{{noticeList.dataList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}" open-type="navigate">
+        <swiper-item>
+          <view class="notice_itemr">{{item.title}}</view>
+        </swiper-item>
+      </navigator>
+    </swiper>
+    <view style='padding-right:20rpx;'>
+      <wxc-icon size="35" type="{{'arrow-right'}}"></wxc-icon>
+    </view>
+  </view>
+
+  <view class="swiper-container">
+    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for="{{banners}}" wx:key="id">
+        <swiper-item>
+          <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}_m" class="slide-image" width="750rpx" height="562.5rpx" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{banners}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+
+  <view class="introduced">
+    <image class="introudced-img" src="{{recommendTitlePicStr}}"></image>
+  </view>
+
+  <wxc-flex class="type-goods" main="center" cross="center">
+    <view class="goods-container">
+      <view style='margin-left:20rpx;width:730rpx;height:4rpx;background-color:#f4f4f4;'></view>
+      <view style='height:21rpx;background-color:#fff;'></view>
+      <view class="goods-box" wx:for-items="{{recommendGoods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+        <template is="recommend-goods-item" data="{{item}}"> </template>
+      </view>
+    </view>
+  </wxc-flex>
+
+  <wxc-loadmore is-end="{{true}}" icon="{{true}}" style="position: relative; bottom: 0;"></wxc-loadmore>
+
+</view>

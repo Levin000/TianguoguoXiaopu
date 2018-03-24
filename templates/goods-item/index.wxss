@@ -1,0 +1,102 @@
+.goods-container{
+  display: flex;
+  justify-content: space-between;  
+  flex-wrap:wrap;
+  box-sizing: content-box;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #f4f4f4;
+}
+.goods-box{
+  width: 374rpx;
+  height: 509rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;   
+  /*float: left;
+  overflow: hidden;
+  margin: 6rpx 6rpx 6rpx 7rpx;
+  border-radius: 12rpx;*/
+  border-right: 1rpx solid rgba(0,0,0,.15);
+  border-bottom: 1rpx solid rgba(0,0,0,.15);
+}
+.goods-box .img-box{
+  position: relative;
+  width: 374rpx;
+  height: 374rpx;
+  /*border-radius: 6rpx;*/
+  overflow: hidden;
+}
+.goods-box .img-box .image{
+   width: 374rpx;
+   height: 374rpx;
+}
+.goods-box .img-box .image .fresh-tag{
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.goods-box .goods-title{
+  width: 374rpx;
+  height: 40rpx;
+  font-size: 32rpx;
+  text-align: center;
+  padding-top: 12rpx;
+  color: #000;
+  /*background-color: bisque;*/
+}
+.goods-box .goods-price-box{
+  width: 374rpx;
+  height: 50rpx;
+  display: flex;  
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  overflow: hidden;
+  /*background-color: bisque;*/
+}
+.goods-box .goods-price-box .goods-minPrice{
+  height: 40rpx;
+  overflow: hidden;
+  font-size: 32rpx;
+  text-align: left;
+  color: #e64340;
+}
+.goods-box .goods-price-box .goods-originalPrice{
+  height: 30rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  text-align: left;
+  text-decoration: line-through;
+  color: dimgrey;
+}
+.goods-box .sellInformation{
+  width: 374rpx;
+  height: 45rpx;
+  display: flex;  
+  flex-direction: row;
+  overflow: hidden;
+  color: gray;
+  /*background-color: bisque;*/
+}
+.goods-box .sellInformation .goodsSoldNumber{
+  overflow: hidden;
+  font-size: 20rpx;
+  width: 35%;
+  padding: 5rpx 0rpx 5rpx 10rpx;
+  text-align: left;
+  
+}
+.goods-box .sellInformation .goodsScore{
+  overflow: hidden;
+  font-size: 20rpx;
+  width: 65%;
+  padding: 5rpx 0;
+  text-align: left;
+}

@@ -1,0 +1,13 @@
+<view class="loading" wx:if="{{isShow}}" style="z-index: {{zIndex}};">
+    <block wx:if="{{image && slip}}">
+        <view class="loading__image loading__box" style="background-image: url({{image}})">
+            <view class="loading__slip loading__box" style="background-image: url({{slip}})"></view>
+        </view>
+    </block>
+    <block wx:else="">
+        <view class="loading__image--{{type}} loading__image loading__box">
+            <view class="loading__slip--{{type}} loading__slip loading__box"></view>
+        </view>
+    </block>
+
+</view>

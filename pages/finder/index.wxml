@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+<import src="../../templates/recommend-goods-item/recommend-goods-item.wxml" />
+
+<view class="container">
+
+  <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105,195,170, 0.3))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
+    <view class="serarch-content">
+      <wxc-icon class='search-icon' type='search-square' size='40' color='#69c3aa'></wxc-icon>
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
+      </input>
+      <button class='search-btn' bindtap="toSearch">搜索</button>
+    </view>
+  </view>
+
+  <view style='height:100rpx;'></view>
+
+  <view class="introduced">
+    <wxc-loadmore class='introduced-text' is-end="{{true}}" text="店铺优惠券"></wxc-loadmore>
+    <!--<image class="introudced-img" src="{{couponsTitlePicStr}}"></image>-->
+  </view>
+
+  <wxc-flex wx:if='{hasNoCoupons}' class='coupons' cross="center" wrap='wrap'>
+    <view class="coupons-item" wx:for-items="{{coupons}}" wx:for-index="idx" wx:key="id" bindtap="gitCoupon" data-id="{{item.id}}">
+      <view class='coupons-date-money'>
+        <view class='coupons-info'>
+          <text style='font-size:24rpx;'> 满 </text>
+          <text style='font-size:28rpx;font-weight: bolder;color:#353535;'>{{item.moneyHreshold}} </text>
+          <text style='font-size:24rpx;'>元使用 \n</text>
+          <text style='font-size:28rpx;font-weight: bolder;color:#353535;' wx:if="{{item.dateEndType == 0}}"> {{item.dateEnd}} </text>
+          <text style='font-size:24rpx;' wx:if="{{item.dateEndType == 0}}"> 前有效\n </text>
+          <text style='font-size:24rpx;' wx:if="{{item.dateEndType == 1}}"> 领取后 </text>
+          <text style='font-size:28rpx;font-weight: bolder;color:#353535;' wx:if="{{item.dateEndType == 1}}"> {{item.dateEndDays}}</text>
+          <text style='font-size:24rpx;' wx:if="{{item.dateEndType == 1}}"> 天内有效</text>
+        </view>
+        <view class='coupons-money'>
+          <text> ¥\n {{item.moneyMax}} </text>
+        </view>
+      </view>
+      <view class='coupons-name'>
+        <text> {{item.name}}\n </text>
+      </view>
+    </view>
+    <view style='width: 100%;height: 10rpx;'></view>
+  </wxc-flex>
+
+</view>
+
+<view class='more-things' style="{{hasNoCoupons ? 'margin-top:500rpx;' : 'margin-top:50rpx;'}}">
+  <image src='https://cdn.it120.cc/apifactory/2017/12/27/605e53ea7d6cab4c289d8357b6ff0e2e.png' style='width:450rpx;height:220rpx;'>
+  </image>
+</view>

@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#69C3AA",
+  "usingComponents": {
+    "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-flex": "../../dist/packages/@minui/wxc-flex/dist/index",
+    "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
+    "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+  }
+}

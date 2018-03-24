@@ -1,0 +1,136 @@
+<template>
+  <view class="counter">
+    <view class="counter__number">
+      <view class="counter__modify counter__opt{{number <= min || disabled ? ' counter__no' : ''}}" bindtap="minusHandler">
+        <wxc-icon type="minus"></wxc-icon>
+      </view>
+        <text class="counter__modify counter__text{{disabled ? ' counter__no' : ''}}">{{number}}</text>
+        <view class="counter__modify counter__opt{{number >= max || disabled ? ' counter__no' : ''}}" bindtap="addHandler">
+          <wxc-icon type="add"></wxc-icon>
+        </view>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      "wxc-icon": "@minui/wxc-icon"
+    }
+  },
+  behaviors: [],
+  properties: {
+    number: {
+      type: [Number, String],
+      value: 0,
+      observer: function (newVal) {
+        this.setData({
+          number: parseInt(newVal, 10)
+        })
+      }
+    },
+    max: {
+      type: [Number, String],
+      value: 1,
+      observer: function (newVal) {
+        this.setData({
+          max: parseInt(newVal, 10)
+        })
+      }
+    },
+    min: {
+      type: [Number, String],
+      value: 0,
+      observer: function (newVal) {
+        this.setData({
+          min: parseInt(newVal, 10)
+        })
+      }
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    }
+  },
+  data: {},
+  attached: function () {
+  },
+  methods: {
+    addHandler (e) {
+      let min = this.data.min;
+      let max = this.data.max;
+      let disabled = this.data.disabled;
+      if (max <= this.data.number || disabled) return;
+      this.setData({
+        number: ++this.data.number
+      })
+      this.triggerEvent('changenumber', {
+        e,
+        number: this.data.number,
+        min,
+        max,
+        type: 'add'
+      });
+    },
+    minusHandler (e) {
+        let min = this.data.min;
+        let max = this.data.max;
+        let disabled = this.data.disabled;
+        if (min >= this.data.number || disabled) return;
+        this.setData({
+          number: --this.data.number
+        });
+        this.triggerEvent('changenumber', {
+          e,
+          number: this.data.number,
+          min,
+          max,
+          type: 'minus'
+        });
+    }
+  }
+}
+</script>
+
+<style lang="pcss">
+@b counter {
+  display: flex;
+  margin-top: 10rpx;
+
+  @e number {
+    box-sizing:border-box;
+    height: 50rpx;
+    border: 1rpx solid #dad7d7;
+    -webkit-border-radius: 4rpx;
+    border-radius: 4rpx;
+  }
+  @e modify {
+    display: inline-block;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    vertical-align: top;
+    color: #ff5777;
+    font-size:0;
+    padding:0;
+    background:none;
+  }
+  @e opt {
+    width: 56rpx;
+  }
+  @e text {
+    min-width: 58rpx;
+    border-left: 1rpx solid #dad7d7;
+    border-right: 1rpx solid #dad7d7;
+    color: #424242;
+    font-size: 28rpx;
+    box-sizing:border-box;
+    padding: 0 6rpx;
+  }
+  @e no {
+    color: #d2d2d2;
+  }
+}
+
+</style>

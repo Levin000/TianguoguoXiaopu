@@ -1,0 +1,8 @@
+<template name="starscore" >
+  <view class="xing">
+    <block wx:for="{{item.xingpic}}" wx:key="{{item.id}}" wx:for-item="pingfen">
+      <image class="img" src="{{pingfen}}"></image>
+    </block>
+    <text data-pingfen="{{item.pingfen}}" >{{item.pingfen}}</text>
+  </view>
+</template>

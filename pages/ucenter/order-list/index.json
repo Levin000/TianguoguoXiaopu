@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "wxc-abnor": "../../../dist/packages/@minui/wxc-abnor/dist/index"
+  }
+}

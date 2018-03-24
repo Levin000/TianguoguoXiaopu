@@ -1,0 +1,33 @@
+.shopInfo{
+  width: 100%;
+  height: auto;
+}
+
+.shopname{
+  margin-left: 20rpx;
+  width: 90%;
+  height: 60rpx;
+  padding-top: 40rpx;
+  font-size: 32rpx;
+  align-items: center;
+}
+
+.shopconnect{
+  margin-left: 20rpx;
+  width: 90%;
+  height: 50rpx;
+  font-size: 28rpx;
+  align-items: center;
+}
+
+.mapView{
+  align-items: center;
+}
+
+.distanceTxt{
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+}
+

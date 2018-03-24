@@ -1,0 +1,145 @@
+/**index.wxss**/
+@import "../../templates/recommend-goods-item/recommend-goods-item.wxss";
+
+page {
+  min-height: 100%;
+  background-color: rgba(105, 195, 170, 0.3);
+}
+
+.container {
+  background-color: #f4f4f4;
+  min-height: 100%;
+}
+
+.notice {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  height: 85rpx;
+  padding-top: 17rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  line-height: 80rpx;
+  background: -webkit-linear-gradient(top, rgba(105, 195, 170, 1), rgba(105, 195, 170, 0.5));
+}
+
+.notice_iteml {
+  display: flex;
+  flex-direction: row;
+  padding: 15rpx 0rpx 15rpx 20rpx;
+  font-size: 28rpx;
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.notice_swiper {
+  display: flex;
+  flex-direction: row;
+  padding: 15rpx 0rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 460rpx;
+}
+
+.notice_itemr {
+  padding-left: 25rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  color: #333333;
+  width: 500rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.swiper-container {
+  width: 750rpx;
+  position: relative;
+}
+
+.swiper_box {
+  width: 100%;
+  height: 375rpx; /*562.5rpx;*/
+}
+
+swiper-item image {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height: 375rpx; /*562.5rpx;*/
+}
+
+.swiper-container .dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-container .dots .dot {
+  margin: 0 8rpx;
+  width: 24rpx;
+  height: 8rpx;
+  background: white;
+  transition: all 0.6s;
+  opacity: 0.5;
+}
+
+.swiper-container .dots .dot.active {
+  background: red;
+  opacity: 1;
+}
+
+.introduced {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  
+  align-items: center;
+  background: white;
+  margin-top: 15rpx;
+  color: #e64340;
+}
+
+.introduced .introudced-img {
+  width: 175rpx;
+  height: 56rpx;
+  margin: auto;
+}
+
+.goods-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: content-box;
+  /*padding: 24rpx;*/
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.goods-box {
+  position: relative;
+  width: 700rpx;
+  height: 250rpx;
+  background-color: white;
+  overflow: hidden;
+  margin: 0 0 25rpx 25rpx;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.pos-fiexd {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+

@@ -1,0 +1,37 @@
+.counter {
+    display:flex;
+    margin-top:10rpx
+}
+.counter__number {
+    box-sizing:border-box;
+    height: 50rpx;
+    border: 1rpx solid #dad7d7;
+    -webkit-border-radius: 4rpx;
+    border-radius: 4rpx
+}
+.counter__modify {
+    display: inline-block;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    vertical-align: top;
+    color: #ff5777;
+    font-size:0;
+    padding:0;
+    background:none
+}
+.counter__opt {
+    width: 56rpx
+}
+.counter__text {
+    min-width: 58rpx;
+    border-left: 1rpx solid #dad7d7;
+    border-right: 1rpx solid #dad7d7;
+    color: #424242;
+    font-size: 28rpx;
+    box-sizing:border-box;
+    padding: 0 6rpx
+}
+.counter__no {
+    color: #d2d2d2
+}

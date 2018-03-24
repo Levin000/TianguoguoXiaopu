@@ -1,0 +1,78 @@
+<view class="container">
+  <!--<view class="header  {{scrollDown?'hidden':''}}">-->
+  <view class="header">
+    <!--<image class='sell-status' src='/images/more/onsell.png'></image>-->
+    <view class='shop-Info'>
+      <image class="logo" src="{{shopLogo}}" />
+      <view class='shop-words'>
+        <view class="welcome-ellipsis">欢迎光临！</view>
+        <view class="delivery-ellipsis">
+          <wxc-elip line='3'> {{shopDelivery}} </wxc-elip>
+        </view>
+      </view>
+      <view class='clock'>
+        <canvas canvas-id="myCanvas" class="canvas"></canvas>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class='marquee'>
+      <view class="desc">
+        <text>{{shopPrompt}}</text>
+        <text style="display: inline-block; width: 8em;"></text>
+        <text>{{shopPrompt}}</text>
+        <text style="display: inline-block; width: 8em;"></text>
+        <text>{{shopPrompt}}</text>
+        <text style="display: inline-block; width: 8em;"></text>
+      </view>
+    </view>
+
+  </view>
+  <view class="content-container">
+    <scroll-view class="classify-container" scroll-y="true">
+      <view class="classify {{activeCategoryId==classify.id?'active':''}}" wx:for="{{categories}}" wx:for-item="classify" wx:key="id" data-id="{{classify.key}}" bindtap="tapClassify">
+        <view class="name {{activeCategoryId==classify.id?'active':''}}">{{classify.name}}</view>
+      </view>
+    </scroll-view>
+    <button type='warn' style='width:400rpx;height:100rpx;margin-top:300rpx;' wx:if='{{!onLoadStatus}}' bindtap='reLoad'> 加载失败！重试加载</button>
+    <!--<scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll" hidden='{{onLoadStatus === false}}'>-->
+    <scroll-view class="goods-container" scroll-y="true" scroll-top="{{scrolltop}}" wx:if='{{onLoadStatus}}'>
+      <view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" id="{{classify.key}}">
+        <view class="title" wx:if='{{activeCategoryId==classify.id}}'>
+          {{classify.name}}
+        </view>
+        <view style='text-align:center; font-size:28rpx; font-weight:bold;' wx:if='{{activeCategoryId==classify.id}}'>
+          <wxc-elip>{{classify.type}}</wxc-elip>
+        </view>
+        <view>
+          <view class="goods" wx:if='{{activeCategoryId==classify.id}}' wx:for="{{classify.goods}}" wx:for-item="item" wx:key="index" bindtap="toDetailsTap" data-id="{{item.id}}">
+            <image class="pic" src="{{item.pic}}">
+              <image class='fresh-tag' src="/images/goodsDescription/fresh.png"></image>
+            </image>
+            <view class="name ellipsis">{{item.name}}</view>
+            <view class='soldInfo'>
+              <view class='good-price-box'>
+                <wxc-price class='price' value='{{item.minPrice}}' decimal='small' icon="sub"></wxc-price>
+              </view>
+            </view>
+            <view class='soldInfo'>
+              <wxc-label class="sold" wx:if="{{item.numberOrders == 0}}" type='fill'>新品上市</wxc-label>
+              <wxc-label class="sold" wx:if="{{item.numberOrders != 0}}">已售{{item.numberOrders}}份</wxc-label>
+              <wxc-label class='star' style='position:absolute;left:380rpx;' type='fill' type-color='none' text-color='#666666'>
+                <block wx:for="{{item.starpic}}" wx:key="{{item.id}}" wx:for-item="star">
+                  <image class="img" src="{{star}}" style="width:20rpx;height:20rpx;"></image>
+                </block>
+                <text style='padding-left:10rpx;' wx:if="{{item.starscore}}" data-pingfen="{{item.starscore}}">{{item.starscore}}分</text>
+                <text style='padding-left:10rpx;' wx:else data-pingfen="{{item.starscore}}">0分</text>
+              </wxc-label>
+            </view>
+          </view>
+
+          <wxc-abnor type="SHOP" wx:if='{{(activeCategoryId==classify.id)&(classify.goods.length === 0)}}' title='还没有添加' tip='稍后再来试试吧~' bind:abnortap="reLoad"></wxc-abnor>
+          <wxc-loadmore wx:if='{{activeCategoryId==classify.id}}' is-end="{{true}}" icon="{{true}}"></wxc-loadmore>
+
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>

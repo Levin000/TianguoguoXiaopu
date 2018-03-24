@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<import src="../../templates/goods-item/index.wxml" />
+
+<view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105, 195, 170, 0.1))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
+  <view class="serarch-content">
+    <wxc-icon class='search-icon' type='search-square' size='40' color='#69c3aa'></wxc-icon>
+    <input placeholder="请输入搜索内容" class="search-input" maxlength="20" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm="toSearch" value="{{keyword}}">
+    </input>
+    <button class='search-btn' bindtap="toSearch">搜索
+    </button>
+  </view>
+</view>
+
+<view style='height:100rpx;'></view>
+
+<view class="content">
+
+  <view class="success-view" wx:if="{{load_statue}}">
+    <view class="goods-container">
+      <view class="goods-box" wx:for="{{goods}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="toDetailsTap">
+        <template is="goods-item" data="{{item}}"></template>
+      </view>
+    </view>
+    <wxc-abnor type='SEARCH' wx:if='{{goodsNum === 0}}'></wxc-abnor>
+    <view class="list-bottom">
+      <wxc-loadmore class="no-more-goods" is-end="{{true}}" icon="{{true}}"></wxc-loadmore>
+      <button type="default" wx:if="{{!loadingHidden}}" class="load-more-goods" bindtap="loadMoreGoodsList">加载更多</button>
+    </view>
+  </view>
+
+  <wxc-abnor type='REQUEST_ERROR' bind:abnortap="refreshGoodsList" wx:else></wxc-abnor>
+
+</view>

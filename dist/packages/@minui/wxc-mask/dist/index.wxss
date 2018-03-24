@@ -1,0 +1,23 @@
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0
+}
+.mask__bg {
+    width: 100%;
+    height: 100%
+}
+.mask__content {
+    display: inline-block;
+    position: absolute;
+    z-index: 1
+}
+.mask__status {}
+.mask__status--show {}
+.mask__status--hide {
+    opacity: 0;
+    display: none;
+    z-index: -10
+}

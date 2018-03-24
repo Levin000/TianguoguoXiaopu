@@ -1,0 +1,27 @@
+<import src="../starscore/starscore.wxml" />
+
+<template name="goods-item">
+  <view class="img-box">
+    <image src="{{item.pic}}" class="image">
+      <image class='fresh-tag' src="/images/goodsDescription/fresh.png"></image>
+    </image>
+  </view>
+  <view class="goods-title">{{item.name}}</view>
+  <view class="goods-price-box">
+    <view style='font-size: 24rpx;color: #f45044;padding-left: 15rpx;'>¥</view>
+    <view class="goods-minPrice">{{item.minPrice}}</view>
+    <view style='font-size: 24rpx; padding-left: 15rpx;text-align: left; text-decoration: line-through; padding-left: 10rpx; color: dimgrey;'>¥</view>
+    <view class="goods-originalPrice" wx:if="{{item.originalPrice != 0}}">{{item.originalPrice}}</view>
+  </view>
+  <view class="sellInformation">
+    <view class="goodsSoldNumber" wx:if="{{item.numberOrders == 0}}">新品上市</view>
+    <view class="goodsSoldNumber" wx:if="{{item.numberOrders != 0}}">已售{{item.numberOrders}}份</view>
+    <view class="goodsScore">评分：
+      <block wx:for="{{item.starpic}}" wx:key="{{item.id}}" wx:for-item="star">
+        <image class="img" src="{{star}}" style="width:20rpx;height:20rpx;"></image>
+      </block>
+      <text style='font-size:18rpx;padding-left:10rpx;padding-top:-5rpx;' wx:if="{{item.starscore}}" data-pingfen="{{item.starscore}}">{{item.starscore}}分</text>
+      <text style='font-size:18rpx;padding-left:10rpx;padding-top:-5rpx;' wx:else data-pingfen="{{item.starscore}}">0分</text>
+    </view>
+  </view>
+</template>

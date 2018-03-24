@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "发现另一个世界",
+  "navigationBarBackgroundColor": "#69C3AA",
+  "usingComponents": {
+    "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
+    "wxc-abnor": "../../dist/packages/@minui/wxc-abnor/dist/index",
+    "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+  }
+}

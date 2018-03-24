@@ -1,0 +1,30 @@
+<import src="../starscore/starscore.wxml" />
+
+<template name="recommend-goods-item">
+  <view class="img-box">
+    <image src="{{item.pic}}" class="image">
+      <image class='fresh-tag' src="/images/goodsDescription/fresh.png"></image>
+    </image>
+  </view>
+
+  <view class='goods-info-box'>
+    <view class="goods-title">{{item.name}}</view>
+    <view class='goods-introduction'>{{item.characteristic}}</view>
+    <view class="goods-price-box">
+      <wxc-price class='goods-minPrice' value='{{item.minPrice}}' decimal='small' icon="sub"></wxc-price>
+      <wxc-price class="goods-originalPrice" wx:if='{{item.originalPrice != 0}}' value='{{item.originalPrice}}' decimal='small' status='del'></wxc-price>
+    </view>
+    <view class="sellInformation">
+      <wxc-label wx:if="{{item.numberOrders == 0}}" class="goodsSoldNumber" type="fill">新品上市</wxc-label>
+      <wxc-label wx:else  class="goodsSoldNumber">已售{{item.numberOrders}}份</wxc-label>
+      <wxc-label class="goodsScore" type='fill' type-color='none' text-color='#666666'>评分：
+        <block wx:for="{{item.starpic}}" wx:key="{{item.id}}" wx:for-item="star">
+          <image class="img" src="{{star}}" style="width:20rpx;height:20rpx;"></image>
+        </block>
+        <text style='padding-left:10rpx;' wx:if="{{item.starscore}}" data-pingfen="{{item.starscore}}">{{item.starscore}}分</text>
+        <text style='padding-left:10rpx;' wx:else data-pingfen="{{item.starscore}}">0分</text>
+      </wxc-label>
+    </view>
+  </view>
+
+</template>

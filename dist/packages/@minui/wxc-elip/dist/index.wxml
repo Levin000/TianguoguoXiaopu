@@ -1,0 +1,3 @@
+<view class="wxc-elip {{line > 1 ? 'elip--multiple' : ''}}" style="{{line > 1 ? '-webkit-line-clamp:' + line + ' ;' : ''}}">
+    <slot></slot>
+</view>

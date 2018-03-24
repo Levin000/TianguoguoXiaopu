@@ -1,0 +1,3 @@
+<view class="progress progress__bg" style="border-radius:{{radius}}rpx; background-color: {{backgroundColor}}; height: {{strokeWidth}}rpx">
+    <view class="progress__line" style="width: {{percent}}%; height: {{strokeWidth}}rpx; border-radius:{{radius}}rpx; {{ activeLineColor[1] ? 'background-image: linear-gradient(to right, ' + activeLineColor[0] + ', ' + activeLineColor[1] + ');' : 'background-color:' + activeColor + ';'}}"></view>
+</view>

@@ -1,0 +1,45 @@
+.loadmore {
+    display: flex;
+    width: 100%;
+    height: 92rpx;
+    justify-content: center;
+    align-items: center
+}
+.loadmore__line {
+    width: 100rpx;
+    height: 1rpx;
+    border-top: 1rpx solid #d2d2d2
+}
+.loadmore__icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 16rpx
+}
+.loadmore__text {
+    margin: 0 16rpx 0 8rpx;
+    color: #999;
+    font-size: 28rpx
+}
+.loadmore__wrap {
+    color: #999;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.loadmore__loading-icon {
+    width:30rpx;
+    height:30rpx;
+    margin-right: 8rpx;
+    display: inline-block;
+    vertical-align: middle;
+    animation: weuiLoading 1s steps(12, end) infinite;
+    background: url('https://s10.mogucdn.com/mlcdn/c45406/171016_4a61e09hcadd157gadhdeje55e82c_32x32.png') no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%
+}
+.loadmore__loading-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8rpx
+}

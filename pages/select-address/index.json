@@ -1,0 +1,6 @@
+{
+   "navigationBarTitleText": "选择收货地址",
+  "usingComponents": {
+    "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index"
+  }
+}

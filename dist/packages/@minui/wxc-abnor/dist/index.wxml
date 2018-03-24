@@ -1,0 +1,8 @@
+<view class="abnor">
+    <view class="abnor__box">
+        <image class="abnor__image" wx:if="{{image}}" src="{{image}}" mode="widthFix"></image>
+        <view class="abnor__text" wx:if="{{title}}">{{title}}</view>
+        <view class="abnor__tip" wx:if="{{tip}}">{{tip}}</view>
+        <view class="abnor__btn" wx:if="{{button}}" bindtap="emitAbnorTap">{{button}}</view>
+    </view>
+</view>

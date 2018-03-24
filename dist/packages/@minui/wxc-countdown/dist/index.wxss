@@ -1,0 +1,9 @@
+.countdown {
+    display: flex;
+    flex-flow: row nowrap
+}
+.countdown__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center
+}

@@ -1,0 +1,82 @@
+<template>
+  <view class="label label__type--{{type}} label__system--{{_system_}}" style="border: 1px solid {{typeColor}}; background-color:{{type === 'plain' ? 'transparent' : typeColor}}; color: {{type === 'plain' ? typeColor : textColor}};">
+    <slot wx:if="{{!text}}"></slot>
+    {{text ? text : ''}}
+  </view>
+</template>
+
+<script>
+  export default {
+    config: {
+      usingComponents: {}
+    },
+    behaviors: [],
+    properties: {
+      text: {
+        type: String,
+        value: 0
+      },
+      type: {
+        type: String,
+        value: 'plain'
+      },
+      typeColor: {
+        type: String,
+        value: '#ff5777'
+      },
+      textColor: {
+        type: String,
+        value: '#ffffff'
+      },
+      _system_: {
+        type: String,
+        value: ''
+      }
+    },
+    data: {},
+    methods: {},
+    attached: function () {
+      let host = this;
+
+      wx.getSystemInfo && wx.getSystemInfo({
+        success: function (res) {
+          host.setData({
+            _system_: !!~res.system.indexOf('Android') ? 'android' : 'ios'
+          });
+        }
+      });
+    }
+  }
+</script>
+
+<style>
+  .label {
+    display: inline-block;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding: 0 10rpx;
+    font-size: 20rpx;
+    font-family: PingFangSC;
+    border-radius: 4px;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+  .label__system--android {
+    line-height: 34rpx;
+  }
+  .label__type--corner {
+    width: 84rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    border-top-left-radius: 6rpx;
+    border-bottom-right-radius: 6rpx;
+    background: rgba(255,85,119, 0.8);
+    text-align: center;
+  }
+  .label__type--corner.label__system--android {
+    line-height: 42rpx;
+  }
+</style>

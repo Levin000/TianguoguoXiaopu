@@ -1,0 +1,18 @@
+/**index.wxss**/
+@import "../../templates/template-cart/template-cart.wxss";
+page{
+  height: 100%;
+  /*overflow: hidden;*/
+}
+.container {
+  width: 100%;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.pos-fiexd{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
