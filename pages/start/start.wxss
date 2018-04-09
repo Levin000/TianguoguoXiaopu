@@ -160,7 +160,7 @@ page{
   color: #fff;
   text-align: center;
   border-radius: 100rpx;
-  margin: 40% 20%;
+  margin: 61.8% 30% 0;
 }
 .confirm-btn:active {
   opacity: .8;

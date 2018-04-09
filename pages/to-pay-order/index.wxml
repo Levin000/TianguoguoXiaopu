@@ -56,7 +56,7 @@
         </picker-view>
       </view>
     </view>
-    <view class="goods-info">
+    <view class="goods-info" wx:if="{{(isNeedLogistics > 0 && yunPrice > 0) || (!hasNoCoupons)}}">
       <view class="row-box" wx:if="{{isNeedLogistics > 0 && yunPrice > 0}}">
         <view class="row-label">商品金额</view>
         <view class="right-text">¥ {{allGoodsPrice}}</view>

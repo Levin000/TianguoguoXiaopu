@@ -170,9 +170,10 @@ Page({
                 orderId: orderId
               },
               success: function (res2) {
-                wx.reLaunch({
-                  url: "/pages/ucenter/order-list/index"
-                });
+                //wx.reLaunch({
+                //  url: "/pages/ucenter/order-list/index"
+                //});
+                that.onShow();
               }
             })
           } else {

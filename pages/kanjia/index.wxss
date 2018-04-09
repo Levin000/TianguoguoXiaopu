@@ -1,52 +1,46 @@
 @import "/wxParse/wxParse.wxss";
 
 .container {
-  background-color: #f2f2f2;
+  background-color: #F2f2f2;
   min-height: 100%;
   padding-bottom: 100rpx;
 }
-
-.swiper-container {
+.swiper-container{
   width: 100%;
-  position: relative;
+  position: relative;  
 }
-
 .swiper_box {
   width: 100%;
-  height: 748rpx;
+  height:748rpx;
 }
 
 swiper-item image {
   width: 100%;
   display: inline-block;
   overflow: hidden;
-  height: 748rpx;
+  height:748rpx;
 }
-
-.swiper-container .dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20rpx;
-  display: flex;
-  justify-content: center;
+.swiper-container .dots{  
+  position: absolute;  
+  left: 0;  
+  right: 0;  
+  bottom: 20rpx;  
+  display: flex;  
+  justify-content: center;  
+}  
+.swiper-container .dots .dot{  
+  margin: 0 8rpx;  
+  width: 14rpx;  
+  height: 14rpx;  
+  background: #000;  
+  border-radius: 50%;  
+  transition: all .6s;  
+  opacity: .3;
+}  
+.swiper-container .dots .dot.active{  
+  opacity: .6;
 }
-
-.swiper-container .dots .dot {
-  margin: 0 8rpx;
-  width: 14rpx;
-  height: 14rpx;
-  background: #000;
-  border-radius: 50%;
-  transition: all 0.6s;
-  opacity: 0.3;
-}
-
-.swiper-container .dots .dot.active {
-  opacity: 0.6;
-}
-
-.goods-info {
+.goods-info{
   background-color: #fff;
   padding: 35rpx 0;
   margin-bottom: 24rpx;
@@ -65,14 +59,14 @@ swiper-item image {
 .goods-info-fx button {
   position: absolute;
   width: 50px;
-  height: 50px;
+  height: 60px;
   top: 0;
   left: 0;
   z-index: 2;
   opacity: 0;
 }
 
-.goods-info-fx wxc-icon {
+.goods-info-fx image {
   width: 30px;
   height: 30px;
   position: absolute;
@@ -87,11 +81,10 @@ swiper-item image {
   bottom: 3px;
   left: 0;
   z-index: 1;
-  font-size: 20rpx;
+  font-size: 10px;
   text-align: center;
 }
-
-.goods-info .goods-title {
+.goods-info .goods-title{
   box-sizing: border-box;
   padding: 0 35rpx;
   font-size: 32rpx;
@@ -100,27 +93,25 @@ swiper-item image {
   margin-bottom: 28rpx;
   padding-right: 60px;
 }
-
-.goods-info .goods-share {
+.goods-info .goods-share{
   box-sizing: border-box;
   padding: 0 35rpx;
   font-size: 25rpx;
   line-height: 1.4;
-  color: #c00;
+  color: #CC0000;
   margin-bottom: 28rpx;
 }
-
-.goods-info .goods-price {
-  box-sizing: border-box;
-  font-weight: bold;
-  width: 30%;
-  float: left;
+.goods-info .goods-price{
+   box-sizing:border-box;
+   color:#e64340;
+   font-size: 28rpx;
+   font-weight: bold;
+   float:left;
 }
-
-.row-arrow {
+.row-arrow{
   width: 100%;
   box-sizing: border-box;
-  padding: 0 120rpx 0 35rpx;
+  padding: 0  120rpx 0 35rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -131,47 +122,30 @@ swiper-item image {
   background: #fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 697rpx center;
   background-size: 18rpx auto;
 }
-
-.goods-des-info {
+.goods-des-info{
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
 }
-
-.label-title {
-  font-size: 28rpx;
-  color: #000;
+.label-title{
+  font-size:28rpx;
+  color:#000000;
   padding: 30rpx;
 }
-
-.goods-text {
+.goods-text{
   padding: 0 10rpx;
-  font-size: 28rpx;
-  color: #666;
+  font-size:28rpx;
+  color:#666666;
   line-height: 56rpx;
   margin-bottom: 30rpx;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
 }
-
-.goods-text .goods-text-label {
-  position: absolute;
-  right: 0;
-  top: 0;
-  text-align: center;
-  width: 100rpx;
+.des-imgs{
+  width:100%;
 }
-
-.des-imgs {
+.des-imgs image{
   width: 100%;
 }
-
-.des-imgs image {
-  width: 100%;
-}
-
-.footer-box {
+.footer-box{
   width: 100%;
   height: 100rpx;
   background-color: #fff;
@@ -179,9 +153,8 @@ swiper-item image {
   bottom: 0;
   left: 0;
   display: flex;
-  box-shadow: 0 0 6rpx 0;
+  box-shadow:0 0 8rpx 0 ;
 }
-
 .footer-box .contact {
   position: relative;
   width: 120rpx;
@@ -198,7 +171,6 @@ swiper-item image {
   background: url("https://cdn.it120.cc/images/weappshop/kefu.png") no-repeat center 21rpx;
   background-size: 55rpx auto;
 }
-
 .footer-box .shop-cart-btn {
   position: relative;
   width: 135rpx;
@@ -210,185 +182,171 @@ swiper-item image {
   font-size: 20rpx;
   color: #acacb7;
   box-sizing: border-box;
-  background: url("https://cdn.it120.cc/apifactory/2017/12/08/6ae9d1e9129e6c0f5531b1a9d6683283.png") no-repeat center 21rpx; /*https://cdn.it120.cc/images/weappshop/cart.png*/
+  background: url("https://cdn.it120.cc/images/weappshop/cart.png") no-repeat center 21rpx; 
   background-size: 44rpx auto;
 }
-
-.footer-box .shop-cart-btn .shop-num {
+.footer-box .shop-cart-btn .shop-num{
   position: absolute;
-  color: #e64340;
+  color:#e64340;
   left: 85rpx;
-  top: 10rpx;
+  top:10rpx;
 }
-
-.footer-box .join-shop-cart {
+.footer-box .join-shop-cart{
   text-align: center;
   width: 250rpx;
   height: 100%;
   line-height: 100rpx;
   background-color: #ff6850;
-  color: #fff;
+  color:#fff;
   font-size: 34rpx;
 }
-
-.footer-box .now-buy {
+.footer-box .now-buy{
   text-align: center;
   height: 100%;
   width: 250rpx;
   line-height: 100rpx;
   background-color: #e64340;
-  color: #fff;
+  color:#fff;
+  font-size: 34rpx;
+  margin-left:250rpx;
+}
+.footer-box .now-buy-no{
+  text-align: center;
+  height: 100%;
+  width: 750rpx;
+  line-height: 100rpx;
+  color:#f00;
   font-size: 34rpx;
 }
-
-.show-popup {
+.show-popup{
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width:100%;
   height: 100%;
   z-index: 4;
 }
-
-.popup-mask {
+.popup-mask{
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width:100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 5;
 }
-
-.popup-contents {
+.popup-contents{
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width:100%;
   background-color: #fff;
   z-index: 6;
 }
-
-.pop-goods-info {
+.pop-goods-info{
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-left: 30rpx;
   padding: 30rpx 0;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid #eee;
 }
-
-.pop-img-box {
+.pop-img-box{
   width: 120rpx;
   height: 120rpx;
   overflow: hidden;
   margin-right: 26rpx;
 }
-
-.pop-img-box .goods-thumbnail {
+.pop-img-box .goods-thumbnail{
   width: 120rpx;
   height: 120rpx;
 }
-
-.pop-goods-title {
+.pop-goods-title{
   width: 484rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 26rpx;
-  color: #000;
+  font-size:26rpx;
+  color:#000000;
 }
-
-.pop-goods-price {
-  font-size: 26rpx;
-  color: #e64340;
-  margin-top: 20rpx;
+.pop-goods-price{
+  font-size:26rpx;
+  color:#e64340;
+  margin-top:20rpx; 
 }
-
-.pop-goods-close {
+.pop-goods-close{
   width: 36rpx;
   height: 36rpx;
   flex: 1;
-  background: url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
+  background:url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
   background-size: 36rpx auto;
   align-self: flex-start;
   margin-top: -10rpx;
 }
-
-.size-label-box  .label {
-  font-size: 26rpx;
-  color: #000;
+.size-label-box  .label{
+  font-size:26rpx;
+  color:#000;
   padding-left: 30rpx;
   padding: 30rpx 0 20rpx 30rpx;
 }
-
-.size-label-box .label-item-box {
+.size-label-box .label-item-box{
   display: flex;
   margin-left: 30rpx;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
 }
-
-.size-label-box .label-item {
-  font-size: 26rpx;
-  color: #000;
+.size-label-box .label-item{
+  font-size:26rpx;
+  color:#000;
   padding: 14rpx 20rpx;
   border: 1px solid #ddd;
   border-radius: 6rpx;
   margin: 0 20rpx 20rpx 0;
 }
-
-.size-label-box .label-item.active {
+.size-label-box .label-item.active{
   color: #e64340;
   border: 1px solid #e64340;
 }
-
-.buy-num-box {
-  display: flex;
-  justify-content: space-between;
-  padding: 30rpx 30rpx 48rpx 0;
-  margin-left: 30rpx;
-  border-top: 1px solid #f4f4f4;
-  margin-top: 30rpx;
-  align-items: center;
+.buy-num-box{
+   display: flex;
+   justify-content: space-between;
+   padding: 30rpx 30rpx 48rpx 0;
+   margin-left: 30rpx; 
+   border-top: 1px solid #eee;
+   margin-top: 30rpx;
+   align-items: center;
 }
-
-.num-label {
-  font-size: 26rpx;
-  color: #000;
+.num-label{
+  font-size:26rpx;
+  color:#000000;
 }
-
-.buy-num-box .num-box {
-  display: flex;
+.buy-num-box .num-box{
+     display: flex;
 }
-
-.buy-num-box .num-box .num-jian, .buy-num-box .num-box .num-input,
-.buy-num-box .num-box .num-jia {
+.buy-num-box .num-box .num-jian,
+.buy-num-box .num-box .num-input,
+.buy-num-box .num-box .num-jia{
   width: 80rpx;
   height: 64rpx;
   line-height: 62rpx;
   text-align: center;
-  border: 1px solid #f4f4f4;
+  border: 1px solid #eee;
 }
-
-.buy-num-box .num-box .num-input {
+.buy-num-box .num-box .num-input{
   font-size: 28rpx;
 }
-
-.buy-num-box .num-box .num-input input {
+.buy-num-box .num-box .num-input input{
   height: 100%;
 }
-
-.popup-join-btn {
+.popup-join-btn{
   width: 100%;
   height: 89rpx;
   text-align: center;
   line-height: 89rpx;
-  font-size: 34rpx;
-  color: #fff;
+  font-size:34rpx;
+  color:#ffffff;
   background-color: #e64340;
 }
-
-.buy-num-box .num-box .hui {
+.buy-num-box .num-box .hui{
   background-color: #f5f5f9;
 }

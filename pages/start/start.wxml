@@ -16,7 +16,7 @@
         <view class="confirm-btn" bindtap='goToIndex'>
           <text >进入店铺</text>
         </view>
-        <text class="copyright">© 2017 AK47 倾情巨献</text>
+        <text class="copyright">© 2017 qindiandadudu 倾情巨献</text>
       </view>
     </view>
   </block>

@@ -16,6 +16,16 @@ App({
       }
     })
     that.login()
+    // 获取砍价设置
+    wx.request({
+      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/shop/goods/kanjia/list',
+      data: {},
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.globalData.kanjiaList = res.data.data.result;
+        }
+      }
+    })
     wx.request({
       url: 'https://api.it120.cc/' + that.globalData.subDomain + '/shop/goods/category/all',
       success: function (res) {
@@ -127,9 +137,7 @@ App({
         emphasis_keyword: emphasis_keyword //小程序："keyword1.DATA" 模板需要放大的关键词，不填则默认无放大
       },
       success: (res) => {
-        //console.log('*********************');
         //console.log(res.data);
-        //console.log('*********************');
       }
     })
   },
@@ -303,7 +311,7 @@ App({
 
     userInfo: null,
     subDomain: "tz",// 商城后台id
-    version: "1.8",
+    version: "2.0",
     shareProfile: '   一流的服务，做超新鲜的水果' // 首页转发的时候术语
   }
   // 根据自己需要修改下单时候的模板消息内容设置，可增加关闭订单、收货时候模板消息提醒
