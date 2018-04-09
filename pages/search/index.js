@@ -1,5 +1,6 @@
 // index.js
 var starscore = require("../../templates/starscore/starscore.js");
+var WxSearch = require('../../templates/wxSearch/wxSearch.js');
 var app = getApp()
 Page({
   data: {
@@ -14,11 +15,15 @@ Page({
       loadingHidden: false,
   },
   onLoad: function (options) {
+    var that = this;
     console.log(options)
-      this.setData({
-        keyword: options.keyword,
-      })
-      this.refreshGoodsList();
+    //初始化的时候渲染wxSearchdata 第二个为你的search高度
+    WxSearch.init(that, 43, ['桔', '火龙果', '香蕉', '酸奶', '甘蔗']);
+    WxSearch.initMindKeys(['桔子', '微信小程序开发', '微信开发', '微信小程序']);
+    this.setData({
+      keyword: options.keyword,
+    })
+    this.refreshGoodsList();
   },
   listenerSearchInput: function (e) {
     this.setData({
@@ -138,9 +143,7 @@ Page({
   toSearch:function(e){
     var that = this
     console.log(e)
-    this.setData({
-      keyword: that.data.searchInput,
-    })
+    
     this.refreshGoodsList();
   },
   toDetailsTap: function (e) {
@@ -148,5 +151,48 @@ Page({
     wx.navigateTo({
       url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id
     })
+  },
+  //////////////////////////////////////
+  wxSearchFn: function (e) {
+    var that = this
+    that.toSearch();
+    WxSearch.wxSearchAddHisKey(that);
+
+  },
+  wxSearchInput: function (e) {
+    var that = this
+    WxSearch.wxSearchInput(e, that);
+
+    that.setData({
+      keyword: that.data.wxSearchData.value,
+    })
+  },
+  wxSerchFocus: function (e) {
+    var that = this
+    WxSearch.wxSearchFocus(e, that);
+  },
+  wxSearchBlur: function (e) {
+    var that = this
+    WxSearch.wxSearchBlur(e, that);
+  },
+  wxSearchKeyTap: function (e) {
+    var that = this
+    WxSearch.wxSearchKeyTap(e, that);
+
+    that.setData({
+      keyword: that.data.wxSearchData.value,
+    })
+  },
+  wxSearchDeleteKey: function (e) {
+    var that = this
+    WxSearch.wxSearchDeleteKey(e, that);
+  },
+  wxSearchDeleteAll: function (e) {
+    var that = this;
+    WxSearch.wxSearchDeleteAll(that);
+  },
+  wxSearchTap: function (e) {
+    var that = this
+    WxSearch.wxSearchHiddenPancel(that);
   }
 })

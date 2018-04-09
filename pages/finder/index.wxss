@@ -2,6 +2,8 @@
 
 /**index.wxss**/
 
+@import "../../templates/wxSearch/wxSearch.wxss";
+
 page {
   min-height: 100%;
   background-color: rgba(105, 195, 170, 0.3);
@@ -32,7 +34,7 @@ page {
 }
 
 .search-view {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
@@ -45,40 +47,50 @@ page {
 }
 
 .serarch-content {
-  background: white;
-  width: 650rpx;
+  position: fixed;
+  top: 0;
+  z-index: 501;
+  background: #69C3AA;
+  width: 100%;
+  height: 70rpx;
+  padding: 0 50rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-top: auto;
-  padding-left: 20rpx;
-  padding-bottom: auto;
-  margin: auto;
-  height: 70rpx;
-  border-radius: 5px 5px;
+}
+
+.search-icon-view{
+  width:70rpx;
+  height:70rpx;
+  background-color:white;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
 }
 
 .search-icon {
-  margin-right: 20rpx;
+  margin-left: 15rpx;
 }
 
 .search-input {
-  width: 500rpx;
+  width: 450rpx;
+  height: 70rpx;
   font-size: 28rpx;
+  background-color: white;
 }
 
 .search-btn {
-  width: 150rpx;
+  width: 130rpx;
   height: 70rpx;
-  margin-right: 0rpx;
+  margin-left: 0;
   background-color: blueviolet;
   font-size: 28rpx;
-  align-items: center;
   border-top-left-radius: 0rpx;
   border-bottom-left-radius: 0rpx;
   color: #fff;
   border: none;
-  position: relative;
 }
 
 .coupons {

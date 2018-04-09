@@ -1,12 +1,13 @@
 //index.js
 //获取应用实例
 var starscore = require("../../templates/starscore/starscore.js");
+var WxSearch = require('../../templates/wxSearch/wxSearch.js');
 var app = getApp()
 Page({
   data: {
     page:1,
     pageSize:10000,
-    searchInput:'',
+    keyword:'',
     loadingHidden: false, // loading
     userInfo: {},
     categories: [],
@@ -37,8 +38,16 @@ Page({
       }
     }
   },
+  onShow: function () {
+    var that = this;
+    that.onLoad()
+  },
   onLoad: function () {
     var that = this
+    //初始化的时候渲染wxSearchdata 第二个为你的search高度
+    WxSearch.init(that, 43, ['桔', '火龙果', '香蕉', '酸奶', '甘蔗']);
+    WxSearch.initMindKeys(['桔子', '微信小程序开发', '微信开发', '微信小程序']);
+
     that.getCouponsTitlePicStr();
     /*
     //调用应用实例的方法获取全局数据
@@ -91,12 +100,6 @@ Page({
     })
   },
   //事件处理函数
-  listenerSearchInput: function (e) {
-    this.setData({
-      searchInput: e.detail.value
-    })
-    
-  },
   toDetailsTap: function (e) {
     wx.navigateTo({
       url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id
@@ -105,7 +108,7 @@ Page({
   toSearch: function (e) {
     console.log(e)
     wx.navigateTo({
-      url: '/pages/search/index?keyword=' + this.data.searchInput,
+      url: '/pages/search/index?keyword=' + this.data.keyword,
     })
     console.log(e);
   },
@@ -193,9 +196,9 @@ Page({
     })
   },
   getCoupons: function () {
-    wx.showLoading({
-      title: '获取优惠券中···',
-    })
+    //wx.showLoading({
+    //  title: '获取优惠券中···',
+    //})
     var that = this;
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/coupons',
@@ -208,9 +211,9 @@ Page({
             hasNoCoupons: false,
             coupons: res.data.data
           });
-          wx.showToast({
-            title: '完成',
-          })
+          //wx.showToast({
+          //  title: '完成',
+          //})
         } else if (res.data.code == 700) {
           that.setData({
             hasNoCoupons: true,
@@ -222,7 +225,9 @@ Page({
         }
       },
       fail: function(res) {
-        
+        wx.showToast({
+          title: '联网失败，请刷新重试',
+        })
       }
     })
   },
@@ -283,5 +288,48 @@ Page({
       }
     })
   },
-  
+
+  //////////////////////////////////////
+  wxSearchFn: function (e) {
+    var that = this
+    that.toSearch();
+    WxSearch.wxSearchAddHisKey(that);
+
+  },
+  wxSearchInput: function (e) {
+    var that = this
+    WxSearch.wxSearchInput(e, that);
+
+    that.setData({
+      keyword: that.data.wxSearchData.value,
+    })
+  },
+  wxSerchFocus: function (e) {
+    var that = this
+    WxSearch.wxSearchFocus(e, that);
+  },
+  wxSearchBlur: function (e) {
+    var that = this
+    WxSearch.wxSearchBlur(e, that);
+  },
+  wxSearchKeyTap: function (e) {
+    var that = this
+    WxSearch.wxSearchKeyTap(e, that);
+
+    that.setData({
+      keyword: that.data.wxSearchData.value,
+    })
+  },
+  wxSearchDeleteKey: function (e) {
+    var that = this
+    WxSearch.wxSearchDeleteKey(e, that);
+  },
+  wxSearchDeleteAll: function (e) {
+    var that = this;
+    WxSearch.wxSearchDeleteAll(that);
+  },
+  wxSearchTap: function (e) {
+    var that = this
+    WxSearch.wxSearchHiddenPancel(that);
+  }
 })
