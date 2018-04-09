@@ -16,7 +16,11 @@
         <view class="confirm-btn" bindtap='goToIndex'>
           <text >进入店铺</text>
         </view>
+<<<<<<< HEAD
         <text class="copyright">© 2017 qindiandadudu 倾情巨献</text>
+=======
+        <text class="copyright">© 2018 qindiandadudu 倾情巨献</text>
+>>>>>>> d2fedf3a1e94bdaedb7ef30f51f1307df95adcc2
       </view>
     </view>
   </block>
