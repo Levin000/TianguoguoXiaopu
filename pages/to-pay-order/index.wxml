@@ -70,6 +70,8 @@
         <view class="right-text">- ¥ {{youhuijine}}</view>
       </view>
     </view>
+    <view class="goods-info-no" wx:else >
+    </view>
     <view class="jiesuan-box">
       <view class="left-price">
         <view class="total">合计：¥ {{allGoodsAndYunPrice - youhuijine}}</view>

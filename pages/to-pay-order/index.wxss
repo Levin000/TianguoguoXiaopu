@@ -161,6 +161,12 @@ form {
   padding-bottom: 24rpx;
 }
 
+.goods-info-no {
+  width: 100%;
+  background-color: #eee;
+  margin-bottom: 120rpx;
+}
+
 .goods-info .row-box {
   width: 100%;
   display: flex;
@@ -184,6 +190,7 @@ form {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 500;
   border-top: 1px solid #f4f4f4;
   background-color: #fff;
 }
