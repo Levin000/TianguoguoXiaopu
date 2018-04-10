@@ -45,8 +45,8 @@ Page({
   onLoad: function () {
     var that = this
     //初始化的时候渲染wxSearchdata 第二个为你的search高度
-    WxSearch.init(that, 43, ['桔', '火龙果', '香蕉', '酸奶', '甘蔗']);
-    WxSearch.initMindKeys(['桔子', '微信小程序开发', '微信开发', '微信小程序']);
+    WxSearch.init(that, 43, app.globalData.hotGoods);
+    WxSearch.initMindKeys(app.globalData.goodsName);  //获取全部商品名称，做为智能联想输入库
 
     that.getCouponsTitlePicStr();
     /*

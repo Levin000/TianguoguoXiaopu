@@ -194,6 +194,12 @@ App({
         console.log('goods----------------------')
         console.log(goods)
 
+        var goodsName = []; //获取全部商品名称，做为智能联想输入库
+        for (var i = 0; i < goods.length; i++) {
+          goodsName.push(goods[i].name);
+        }
+        that.globalData.goodsName = goodsName
+
         var page = that.globalData.page;
         var pageSize = that.globalData.pageSize;
         for (let i = 0; i < goods.length; i++) {
@@ -305,6 +311,8 @@ App({
     pageSize: 10000, //初始加载时的商品数，设置为10000保证小商户能加载完全部商品
     categories: [],
     goods: [],
+    hotGoods: ['桔', '火龙果', '香蕉', '酸奶', '甘蔗'], //自定义热门搜索商品
+    goodsName: [],
     goodsList: [],
     onLoadStatus: true,
     activeCategoryId: null,
