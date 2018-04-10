@@ -19,6 +19,16 @@ $ min install @minui/wxc-label
 |`type-color`         | String 类型配色。默认值 #FF5777 |
 |`text-color`         | String 文字配色。type="fill" 下生效，默认值 #FFFFFF |
 
+## Link
+||地址|
+|--|---|
+||label 组件文档 <br> [https://meili.github.io/min/docs/minui/index.html#label](https://meili.github.io/min/docs/minui/index.html#label)<br>|
+||label 组件源码 <br> [https://github.com/meili/minui/tree/master/packages/wxc-label](https://github.com/meili/minui/tree/master/packages/wxc-label)<br>|
+||MinUI 组件库 <br> [https://github.com/meili/minui](https://github.com/meili/minui) <br>|
+
+## Preview
+![label](https://s10.mogucdn.com/mlcdn/c45406/171107_1ik5352h7834dh63l5fj23e3i8ldd_480x480.jpg_225x999.jpg)
+
 ##  ChangeLog
 
 #### v1.0.2（2017.11.02）

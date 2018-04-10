@@ -70,7 +70,6 @@ export default {
         clearTimeout(this._timer)
         this._timer = null
       }
-
       this.setData({ isShow: false })
     }
   }

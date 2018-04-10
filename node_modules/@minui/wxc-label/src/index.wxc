@@ -37,7 +37,6 @@
     methods: {},
     attached: function () {
       let host = this;
-
       wx.getSystemInfo && wx.getSystemInfo({
         success: function (res) {
           host.setData({

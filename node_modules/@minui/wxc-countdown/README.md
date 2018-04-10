@@ -22,6 +22,16 @@ $ min install @minui/wxc-countdown
 | bind:runcount | [说明]：计时事件，每次倒计时1秒触发 |
 | bind:endcount | [说明]：结束事件，倒计时结束时触发 |
 
+## Link
+||地址|
+|--|---|
+||countdown 组件文档 <br> [https://meili.github.io/min/docs/minui/index.html#countdown](https://meili.github.io/min/docs/minui/index.html#countdown)<br>|
+||countdown 组件源码 <br> [https://github.com/meili/minui/tree/master/packages/wxc-countdown](https://github.com/meili/minui/tree/master/packages/wxc-countdown)<br>|
+||MinUI 组件库 <br> [https://github.com/meili/minui](https://github.com/meili/minui) <br>|
+
+## Preview
+![countdown](https://s10.mogucdn.com/mlcdn/c45406/171107_34c43132g11j166hficgei36665aa_480x480.jpg_225x999.jpg)
+
 ##  ChangeLog
 
 #### v1.0.2（2017.11.02）

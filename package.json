@@ -1,12 +1,12 @@
 {
   "name": "甜果果小铺",
   "description": "馆陶水果外卖专送",
-  "version": "1.0.0",
+  "version": "2.0.3",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/qindiandadudu/TianguoguoXiaopu"
   },
-  "author": "AK47",
+  "author": "qindiandadudu",
   "license": "MIT",
   "dependencies": {
     "@minui/wxc-abnor": "^1.0.5",

@@ -19,6 +19,16 @@ $ min install @minui/wxc-flex
 |`cross`         | 交叉轴对齐方式。取值范围：<br><br>  - stretch：拉伸铺满(默认) <br> - start：启点排列 <br>  - end：终点排列 <br>  - center：居中对齐 <br>  - baseline：基线对齐       |
 |`wrap`         | 换行设置。取值范围：<br><br> - nowrap：不换行(默认)  <br> - wrap：正序换行 <br> - reverse：倒序换行       |
 
+## Link
+||地址|
+|--|---|
+||flex 组件文档 <br> [https://meili.github.io/min/docs/minui/index.html#flex](https://meili.github.io/min/docs/minui/index.html#flex)<br>|
+||flex 组件源码 <br> [https://github.com/meili/minui/tree/master/packages/wxc-flex](https://github.com/meili/minui/tree/master/packages/wxc-flex)<br>|
+||MinUI 组件库 <br> [https://github.com/meili/minui](https://github.com/meili/minui) <br>|
+
+## Preview
+![flex](https://s10.mogucdn.com/mlcdn/c45406/171107_644d29k85d23lgafie50h51ci8gg1_480x480.jpg_225x999.jpg)
+
 ##  ChangeLog
 
 #### v1.0.2（2017.11.02）

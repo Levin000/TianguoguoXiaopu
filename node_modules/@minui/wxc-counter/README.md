@@ -20,6 +20,16 @@ $ min install @minui/wxc-counter
 |`min`                 | [说明]：下限值，[默认值]：0，[类型]：字符串或者数值 |
 |`changenumber`        | [说明]：数值改变触发的事件，[类型]：函数 |
 
+## Link
+||地址|
+|--|---|
+||counter 组件文档 <br> [https://meili.github.io/min/docs/minui/index.html#counter](https://meili.github.io/min/docs/minui/index.html#counter)<br>|
+||counter 组件源码 <br> [https://github.com/meili/minui/tree/master/packages/wxc-counter](https://github.com/meili/minui/tree/master/packages/wxc-counter)<br>|
+||MinUI 组件库 <br> [https://github.com/meili/minui](https://github.com/meili/minui) <br>|
+
+## Preview
+![counter](https://s10.mogucdn.com/mlcdn/c45406/171107_8f74132b6gi7gb1kaej6icddf7e88_480x480.jpg_225x999.jpg)
+
 ##  ChangeLog
 
 #### v1.0.2（2017.11.02）

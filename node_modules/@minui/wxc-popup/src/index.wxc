@@ -127,8 +127,6 @@ export default {
     onContentTap() {}
   }
 }
-
-
 </script>
 
 <style lang="pcss">
