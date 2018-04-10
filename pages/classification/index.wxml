@@ -41,7 +41,7 @@
           {{classify.name}}
         </view>
         <view style='text-align:center; font-size:28rpx; font-weight:bold;' wx:if='{{activeCategoryId==classify.id}}'>
-          <wxc-elip>{{classify.type}}</wxc-elip>
+          <wxc-elip wx:if='{{classify.goods.length != 0}}'>{{classify.type}}</wxc-elip>
         </view>
         <view>
           <view class="goods" wx:if='{{activeCategoryId==classify.id}}' wx:for="{{classify.goods}}" wx:for-item="item" wx:key="index" bindtap="toDetailsTap" data-id="{{item.id}}">
