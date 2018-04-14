@@ -318,7 +318,7 @@ App({
     activeCategoryId: null,
 
     userInfo: null,
-    subDomain: "tz",// 商城后台id
+    subDomain: "tgg",// 商城后台id
     version: "2.0",
     shareProfile: '   一流的服务，做超新鲜的水果' // 首页转发的时候术语
   }
