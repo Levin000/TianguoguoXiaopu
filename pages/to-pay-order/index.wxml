@@ -39,7 +39,7 @@
       <view class="row-box">
         <view class="row-label">备注</view>
         <view class="right-text">
-          <input name="remark" type="text" class="liuyan" placeholder="如需备注请输入" />
+          <input name="remark" type="text" adjust-position="true" class="liuyan" placeholder="如需备注，请输入" />
         </view>
       </view>
     </view>

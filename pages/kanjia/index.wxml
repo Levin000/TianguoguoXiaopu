@@ -1,4 +1,4 @@
-<import src="../../wxParse/wxParse.wxml" />
+<import src="../../templates/wxParse/wxParse.wxml" />
 <view class="container"> 
    <view class="swiper-container" wx:if="{{!goodsDetail.basicInfo.videoId}}">
         <swiper class="swiper_box" 

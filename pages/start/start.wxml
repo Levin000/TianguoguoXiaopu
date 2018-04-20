@@ -12,9 +12,9 @@
         <image class="wave wave-bg" src="/images/more/wave.png" mode="aspectFill"></image>
       </view>
       <view class="bd">
-         <image class="smalltitle" src="/images/more/confirm-word1.png"></image>
+        <image class="smalltitle" src="/images/more/confirm-word1.png"></image>
         <view class="confirm-btn" bindtap='goToIndex'>
-          <text >进入店铺</text>
+          <text>进入店铺</text>
         </view>
         <text class="copyright">© 2017 qindiandadudu 倾情巨献</text>
       </view>

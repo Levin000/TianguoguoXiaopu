@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var WxParse = require('../../wxParse/wxParse.js');
+var WxParse = require('../../templates/wxParse/wxParse.js');
 
 Page({
   data: {
@@ -474,7 +474,7 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 0) {
-          console.log(res.data);
+          //console.log(res.data);
           wx.navigateTo({
             url: "/pages/kanjia/index?kjId=" + res.data.data.kjId + "&joiner=" + res.data.data.uid + "&id=" + res.data.data.goodsId
           })
@@ -502,7 +502,7 @@ Page({
           that.setData({
             shopDeliveryPrice: shopDeliveryPrice
           })
-          console.log('配送起步价：', shopDeliveryPrice, res.data.data.value)
+          //console.log('配送起步价：', shopDeliveryPrice, res.data.data.value)
         }
       }
     })

@@ -7,106 +7,114 @@ page {
   overflow: hidden;
   overflow-y: hidden;
   background-color: #f4f4f4;
-  font-size: 28rpx;
+  font-size: 24rpx;
 }
 
 .userbox {
-  width: 750rpx;
+  width: 100%;
 	display: flex;
 	flex-direction: row;
-  background-color: #69C3AA;
+  background: -webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105, 195, 170, 0.3));
 }
 .userbox .userinfo {
 	display: flex;
-	flex-direction: column;
-	padding: 20rpx 0;
+	flex-direction: row;
 	align-items: center;
-  width: 75%;
-  background: url(https://cdn.it120.cc/apifactory/2017/12/23/f92b0f817a8455117da45d9319ff3df3.png) 0 0 no-repeat;
-  background-size: 300rpx 300rpx;
-  background-position-x: center;
-  background-position-y: -30rpx;
+  justify-content: center;
+  width: 65%;
 }
 
 .userinfo-avatar {
   display: block;
 	width: 160rpx;
 	height: 160rpx;
-	margin: 20rpx;
+  margin: 20rpx 0;
+}
+
+.userinfo-others{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 .userinfo-nickname {
-  margin-top: 10rpx;
   font-size: 28rpx;
   font-weight: bold;
   color: #333;
 }
 
-.userinfo .my-phoneNumber{
-  margin-top: 20rpx;
-  font-size: 20rpx;
-  color: #333;
-}
-
-.userinfo .phoneNumber .pin-phoneNumber{
-  width: auto;
-  align-items: center;
-  margin-top: 10rpx;
-  font-size: 24rpx;
-  color: #333;
-}
-
-.userbox .scoreInfo{
+.userbox .user-phone-info{
   display: flex;
 	flex-direction: column;
-	padding: 20rpx 0;
-  width:auto;
+	align-items: center;
+  width: 35%;
 }
 
-.userbox .scoreInfo .my-sign{
-  width: auto;
+.userbox .user-phone-info .my-sign{
   position: absolute;
-  right: 20rpx;
+  right: 30rpx;
   margin-top: 20rpx;
-  font-size: 18rpx;
-  color: #e85654;
+  font-size: 24rpx;
 }
 
-.userbox .scoreInfo .my-score{
-  width: auto;
-  margin-top: 170rpx;
-  padding: 10rpx;
+.phoneNumber{
+  align-items: center;
+  font-size: 24rpx;
+  color: #333333;
+}
+
+.pin-phoneNumber{
+  align-items: center;
+  padding: 0 10rpx;
+  font-size: 20rpx;
+  color: #ff5577;
+  background-color: #ffe8ee;
+  border-radius: 1% solid #ffe8ee;
+}
+
+.h-contents{
+  width: 100%;
+  height: 125rpx;
+  margin-top: 8rpx;
+  background-color: #FFF;
   display: flex;
   flex-direction: row;
-  font-size: 24rpx;
-  color: #333;
+
 }
 
-.userbox .scoreInfo .my-balance{
-  margin-top: 40rpx;
-  font-size: 24rpx;
-  color: #333;
-}
-
-.userbox .scoreInfo .my-freeze{
+.h-contents .a-item{
+  width: 27%;
+  height: 100%;
   display: flex;
-  margin-top: 20rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: 24rpx;
   color: #333;
 }
 
-.version {
-  width:100%;
-  height: 30rpx;
-	line-height: 30rpx;
-	font-size: 24rpx;
-	text-align: center;  
+
+.h-contents .a-item .my{
+  display: flex;
+  flex-direction: row;
+}
+
+.h-contents .a-item-no-right-border{
+  width: 19%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #333;
 }
 
 .user-menu{
   width: 100%;
   height: auto;
-  margin-top: 20rpx;
+  margin-top: 8rpx;
   overflow: hidden;
   background: #FFF;
 }
@@ -114,8 +122,8 @@ page {
 .user-menu .item{
   float: left;
   width: 249rpx;
-  height: 187.5rpx;/*187.5*/
-  border-top: 1px solid #EFEFEF; /*rgba(0,0,0,.15)*/
+  height: 167.5rpx;/*187.5*/
+  border-top: 1px solid #EFEFEF; 
   border-right: 1px solid #EFEFEF;
   text-align: center;
 }
@@ -128,7 +136,7 @@ page {
   align-items: center;
   justify-content: center;
 }
-.user-menu .item.no-border {
+.user-menu .item.no-border-right {
   border-right: 0;
 }
 .user-menu .item.item-bottom {
@@ -162,4 +170,12 @@ page {
     height: 80rpx;
     line-height: 100rpx;
     padding-left: 100rpx;
+}
+
+.version {
+  width:100%;
+  height: 30rpx;
+	line-height: 30rpx;
+	font-size: 24rpx;
+	text-align: center;  
 }

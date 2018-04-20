@@ -1,9 +1,10 @@
 {
   "navigationBarTitleText": "我的",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "backgroundColor": "#69C3AA",
   "usingComponents": {
     "wxc-avatar": "../../../dist/packages/@minui/wxc-avatar/dist/index",
-    "wxc-icon": "../../../dist/packages/@minui/wxc-icon/dist/index"
+    "wxc-icon": "../../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-label": "../../../dist/packages/@minui/wxc-label/dist/index"
   }
 }

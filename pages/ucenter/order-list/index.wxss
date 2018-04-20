@@ -22,20 +22,22 @@
   perspective: 1000;
 }
 
+.message__badge {
+  position: absolute;
+  top: -22rpx;
+  right: 20rpx;
+  z-index: 100;
+}
+
 .stv-container .tab-bar {
   position: relative;
-  height: 88rpx;
-  line-height: 88rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   justify-content: space-between;
   background-color: #fff;
   display: flex;
   font-size: 28rpx;
   color: #353535;
-}
-
-.stv-container .tab-bar .tab.active {
-  color: #FF5777;
-  font-weight: bold;
 }
 
 .stv-container .tab-bar .tab {
@@ -45,6 +47,12 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.stv-container .tab-bar .tab.active {
+  color: #ff5777;
+  font-weight: bold;
 }
 
 .stv-container .tab-bar .tab .red-dot {
@@ -53,15 +61,18 @@
   position: absolute;
   left: 116rpx;
   top: 23rpx;
-  background-color: #FF5777;
+  background-color: #ff5777;
   border-radius: 50%;
+  font-size: 18;
+  color: #000;
+  text-align: center;
 }
 
 .stv-container .tab-bar .under-line {
   position: absolute;
   bottom: 0;
   height: 6rpx;
-  background-color: #FF5777;
+  background-color: #ff5777;
 }
 
 .stv-container .scroll-view {
@@ -79,31 +90,17 @@
 }
 
 .stv-container .scroll-view .scroll-view-wrapper .one-scene {
+  overflow: visible;
+  border-radius: 50%;
   height: 100%;
 }
 
 .no-order {
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  top: 88rpx;
-  left: 0;
-  right: 0;
+  height: 100%;
+  padding-top: 100rpx;
   text-align: center;
-  
   background-color: #f2f2f2;
-}
-
-.no-order-img {
-  width: 81rpx;
-  height: 96rpx;
-  margin-bottom: 31rpx;
-}
-
-.no-order .text {
-  font-size: 28rpx;
-  color: #999;
-  text-align: center;
 }
 
 .order-list {
@@ -176,7 +173,7 @@
 .goods-info  .goods-des  .order-info  .order-advance {
   padding: 0 10rpx;
   height: 40rpx;
-  margin-right: 20rpx;
+  margin-right: 30rpx;
   box-sizing: border-box;
   text-align: center;
   border-radius: 6rpx;
@@ -205,9 +202,10 @@
   width: 720rpx;
   height: 100rpx;
   margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
   box-sizing: border-box;
   padding: 20rpx 30rpx 20rpx 0;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 26rpx;

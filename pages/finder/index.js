@@ -17,6 +17,9 @@ Page({
     hasNoCoupons: true,
     couponsTitlePicStr:'',
     coupons: [],
+    networkStatus: true, //正常联网
+    couponsStatus: 0,
+    getCoupStatus: -1
   },
   
   onPullDownRefresh: function () {
@@ -40,7 +43,7 @@ Page({
   },
   onShow: function () {
     var that = this;
-    that.onLoad()
+    
   },
   onLoad: function () {
     var that = this
@@ -49,31 +52,6 @@ Page({
     WxSearch.initMindKeys(app.globalData.goodsName);  //获取全部商品名称，做为智能联想输入库
 
     that.getCouponsTitlePicStr();
-    /*
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
-    */
-    /*wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/category/all',
-      success: function (res) {
-        var categories = [{ id: 0, name: "全品类" }];
-        if (res.data.code == 0) {
-          for (var i = 0; i < res.data.data.length; i++) {
-            categories.push(res.data.data[i]);
-          }
-        }
-        that.setData({
-          categories: categories,
-          activeCategoryId: 0
-        });
-        that.getGoodsList(that.data.activeCategoryId);
-      }
-    })*/
     that.getCoupons();
   },
   getCouponsTitlePicStr: function () {
@@ -153,41 +131,6 @@ Page({
           goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberOrders) * 5
           goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
           goods[i].starpic = starscore.picStr(goods[i].starscore)
-          /*wx.request({
-            url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/reputation',
-            data: {
-              goodsId: goods[i].id,
-              page: that.data.page,
-              pageSize: that.data.pageSize
-            },
-            success: function (res) {
-              if (res.data.code === 0) {
-                if (res.data.data.length < that.data.pageSize) {
-                  goods[i].numberReputation = res.data.data.length;
-                  console.log('goods:', i, 'reputationNum:', goods[i].numberReputation)
-                  goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberReputation) * 5
-                  goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
-                  goods[i].starpic = starscore.picStr(goods[i].starscore)
-                }
-                else {
-                  goods[i].numberReputation = -1;
-                }
-              }
-              else if (res.data.code === 700) {
-                goods[i].numberReputation = 0;
-                //console.log('goods:', i, 'reputationNum:', goods[i].numberReputation)
-                goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberReputation) * 5
-                goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
-                goods[i].starpic = starscore.picStr(goods[i].starscore)
-              }
-              that.setData({
-                goods: goods,
-              });
-            },
-            fail: function (res) {
-
-            }
-          })*/
         }
         console.log('getGoodsReputation----------------------')
         console.log(goods)
@@ -196,9 +139,6 @@ Page({
     })
   },
   getCoupons: function () {
-    //wx.showLoading({
-    //  title: '获取优惠券中···',
-    //})
     var that = this;
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/coupons',
@@ -209,25 +149,36 @@ Page({
         if (res.data.code == 0) {
           that.setData({
             hasNoCoupons: false,
-            coupons: res.data.data
+            coupons: res.data.data,
+            couponsStatus: 1
           });
-          //wx.showToast({
-          //  title: '完成',
-          //})
+          setTimeout(() => {
+            that.setData({
+              couponsStatus: -1
+            })
+          }, 1500)
         } else if (res.data.code == 700) {
           that.setData({
             hasNoCoupons: true,
-            coupons: res.data.data
+            coupons: res.data.data,
+            couponsStatus: 2
           });
-          wx.showToast({
-            title: '暂无优惠券可领',
-          })
+          setTimeout(() => {
+            that.setData({
+              couponsStatus: -1
+            })
+          }, 1500)
         }
       },
       fail: function(res) {
-        wx.showToast({
-          title: '联网失败，请刷新重试',
+        that.setData({
+          networkStatus: false
         })
+        setTimeout(() => {
+          that.setData({
+            networkStatus: true
+          })
+        }, 1500)
       }
     })
   },
@@ -241,43 +192,58 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 20001 || res.data.code == 20002) {
-          wx.showModal({
-            title: '错误',
-            content: '来晚了',
-            showCancel: false
+          that.setData({
+            getCoupStatus: 0
           })
+          setTimeout(() => {
+            that.setData({
+              getCoupStatus: -1
+            })
+          }, 1500)
           return;
         }
         if (res.data.code == 20003) {
-          wx.showModal({
-            title: '错误',
-            content: '你领过了，别贪心哦~',
-            showCancel: false
+          that.setData({
+            getCoupStatus: 2
           })
+          setTimeout(() => {
+            that.setData({
+              getCoupStatus: -1
+            })
+          }, 1500)
           return;
         }
         if (res.data.code == 30001) {
-          wx.showModal({
-            title: '错误',
-            content: '您的积分不足',
-            showCancel: false
+          that.setData({
+            getCoupStatus: 3
           })
+          setTimeout(() => {
+            that.setData({
+              getCoupStatus: -1
+            })
+          }, 1500)
           return;
         }
         if (res.data.code == 20004) {
-          wx.showModal({
-            title: '错误',
-            content: '已过期~',
-            showCancel: false
+          that.setData({
+            getCoupStatus: 4
           })
+          setTimeout(() => {
+            that.setData({
+              getCoupStatus: -1
+            })
+          }, 1500)
           return;
         }
         if (res.data.code == 0) {
-          wx.showToast({
-            title: '领取成功，赶紧去下单吧~',
-            icon: 'success',
-            duration: 2000
+          that.setData({
+            getCoupStatus: 1
           })
+          setTimeout(() => {
+            that.setData({
+              getCoupStatus: -1
+            })
+          }, 1500)
         } else {
           wx.showModal({
             title: '错误',

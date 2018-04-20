@@ -1,13 +1,13 @@
+<import src="../../dist/packages/@zanui/noticebar/index.wxml" />
+
 <view class="container">
-  <!--<view class="header  {{scrollDown?'hidden':''}}">-->
   <view class="header">
-    <!--<image class='sell-status' src='/images/more/onsell.png'></image>-->
     <view class='shop-Info'>
       <image class="logo" src="{{shopLogo}}" />
       <view class='shop-words'>
         <view class="welcome-ellipsis">欢迎光临！</view>
         <view class="delivery-ellipsis">
-          <wxc-elip line='3'> {{shopDelivery}} </wxc-elip>
+          <wxc-elip line='2'> {{shopDelivery}} </wxc-elip>
         </view>
       </view>
       <view class='clock'>
@@ -15,7 +15,7 @@
       </view>
     </view>
     <view class="line"></view>
-    <view class='marquee'>
+    <!--<view class='marquee'>
       <view class="desc">
         <text>{{shopPrompt}}</text>
         <text style="display: inline-block; width: 8em;"></text>
@@ -24,34 +24,42 @@
         <text>{{shopPrompt}}</text>
         <text style="display: inline-block; width: 8em;"></text>
       </view>
-    </view>
+    </view>-->
+
+    <template is="zan-noticebar" data="{{ ...movable, componentId: 'movable'  }}" style='font-size:28rpx;color:#333;'></template>
 
   </view>
+
+  <wxc-dialog class="onLoad-err" title="提示" content="加载商品数据失败！" confirm-text="重试" cancel-text="返回" bindconfirm="onConfirm" bindcancel="onCancel"></wxc-dialog>
+
   <view class="content-container">
-    <scroll-view class="classify-container" scroll-y="true">
-      <view class="classify {{activeCategoryId==classify.id?'active':''}}" wx:for="{{categories}}" wx:for-item="classify" wx:key="id" data-id="{{classify.key}}" bindtap="tapClassify">
-        <view class="name {{activeCategoryId==classify.id?'active':''}}">{{classify.name}}</view>
+
+    <wxc-loading is-show="{{loadingStatus}}" type="mgj"></wxc-loading>
+    <wxc-toast is-show="{{loadingFinish}}" icon="yes" icon-color="#FF0077" text="所有商品加载完成"> </wxc-toast>
+
+    <scroll-view class="classify-container" scroll-y="true" scroll-with-animation="true">
+      <view class="classify {{classifyViewed==classify.id?'active':''}}" wx:for="{{categories}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
+        <view class="name {{classifyViewed==classify.id?'active':''}}">{{classify.name}}</view>
       </view>
     </scroll-view>
-    <button type='warn' style='width:400rpx;height:100rpx;margin-top:300rpx;' wx:if='{{!onLoadStatus}}' bindtap='reLoad'> 加载失败！重试加载</button>
-    <!--<scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll" hidden='{{onLoadStatus === false}}'>-->
+
     <scroll-view class="goods-container" scroll-y="true" scroll-top="{{scrolltop}}" wx:if='{{onLoadStatus}}'>
-      <view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" id="{{classify.key}}">
-        <view class="title" wx:if='{{activeCategoryId==classify.id}}'>
-          {{classify.name}}
+      <view data="{{goodsListCurrent}}">
+        <view class="title">
+          {{goodsListCurrent.name}}
         </view>
-        <view style='text-align:center; font-size:28rpx; font-weight:bold;' wx:if='{{activeCategoryId==classify.id}}'>
-          <wxc-elip wx:if='{{classify.goods.length != 0}}'>{{classify.type}}</wxc-elip>
+        <view style='text-align:center; font-size:28rpx; font-weight:bold;'>
+          <wxc-elip wx:if='{{goodsListCurrent.goods.length != 0}}'>{{goodsListCurrent.type}}</wxc-elip>
         </view>
         <view>
-          <view class="goods" wx:if='{{activeCategoryId==classify.id}}' wx:for="{{classify.goods}}" wx:for-item="item" wx:key="index" bindtap="toDetailsTap" data-id="{{item.id}}">
+          <view class="goods" wx:for="{{goodsListCurrent.goods}}" wx:key="id" wx:for-item="item" data-id='{{item.id}}' bindtap="toDetailsTap">
             <image class="pic" src="{{item.pic}}">
               <image class='fresh-tag' src="/images/goodsDescription/fresh.png"></image>
             </image>
             <view class="name ellipsis">{{item.name}}</view>
             <view class='soldInfo'>
               <view class='good-price-box'>
-                <wxc-price class='price' value='{{item.minPrice}}' decimal='small' icon="sub"></wxc-price>
+                <wxc-price class='price' value='{{item.minPrice}}'></wxc-price>
               </view>
             </view>
             <view class='soldInfo'>
@@ -67,8 +75,8 @@
             </view>
           </view>
 
-          <wxc-abnor type="SHOP" wx:if='{{(activeCategoryId==classify.id)&(classify.goods.length === 0)}}' title='还没有添加' tip='稍后再来试试吧~' bind:abnortap="reLoad"></wxc-abnor>
-          <wxc-loadmore wx:if='{{activeCategoryId==classify.id}}' is-end="{{true}}" icon="{{true}}"></wxc-loadmore>
+          <wxc-abnor type="SHOP" wx:if='{{goodsListCurrent.goods.length === 0}}' title='还没有添加' tip='稍后再来试试吧~' bind:abnortap="reLoad"></wxc-abnor>
+          <wxc-loadmore is-end="{{true}}" icon="{{true}}" style="position: relative; bottom: 0rpx;"></wxc-loadmore>
 
         </view>
       </view>

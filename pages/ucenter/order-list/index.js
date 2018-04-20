@@ -10,13 +10,26 @@ Page({
       offset: 0,
       tStart: false
     },
-    activeTab: 0
+    activeTab: 0,
+    loadingStatus: false,
+  },
+  onLoad: function (options) {
+    try {
+      let { tabs } = this.data;
+      var res = wx.getSystemInfoSync()
+      this.windowWidth = res.windowWidth;
+      this.data.stv.lineWidth = this.windowWidth / this.data.tabs.length;
+      this.data.stv.windowWidth = res.windowWidth;
+      this.setData({ stv: this.data.stv })
+      this.tabsCount = tabs.length;
+    } catch (e) {
+    }
   },
   onShow: function () {
     // 获取订单列表
-    wx.showLoading({
-      title: '加载中',
-    });
+    this.setData({
+      loadingStatus: true
+    })
     this.getOrderStatistics();
     this.getOrderList()
   },
@@ -54,7 +67,7 @@ Page({
           } else {
             //tabClass[4] = ""
           }
-          
+
           console.log(tabClass)
           that.setData({
             tabClass: tabClass,
@@ -70,12 +83,13 @@ Page({
       pageSize: app.globalData.pageSize,
       page: app.globalData.page
     };
+    console.log('getting orderList')
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/list',
       data: postData,
       success: (res) => {
-        if (res.data.code == 0) {
-          console.log(res.data.data.orderList)
+        if (res.data.code === 0) {
+          console.log('orderList',res.data.data.orderList)
           that.setData({
             totalOrderList: res.data.data.orderList,
             logisticsMap: res.data.data.logisticsMap,
@@ -92,22 +106,26 @@ Page({
               }
             }
             console.log(tempList)
-            orderList.push({ 'status': i,'isnull':tempList.length === 0,'orderList':tempList})
+            orderList.push({ 'status': i, 'isnull': tempList.length === 0, 'orderList': tempList })
           }
           console.log(orderList)
           this.setData({
             orderList: orderList
           });
         } else {
-          this.setData({
-            orderList: null,
+          console.log('orderList not exist')
+          that.setData({
+            orderList: 'null',
             logisticsMap: {},
             goodsMap: {}
           });
         }
-        wx.showToast({
-          title: '加载成功',
+        this.setData({
+          loadingStatus: false
         })
+      },
+      fail: (res) =>{
+        console.log('获取orderList错误',res.data)
       }
     })
   },
@@ -189,18 +207,7 @@ Page({
       }
     })
   },
-  onLoad: function (options) {
-    try {
-      let { tabs } = this.data;
-      var res = wx.getSystemInfoSync()
-      this.windowWidth = res.windowWidth;
-      this.data.stv.lineWidth = this.windowWidth / this.data.tabs.length;
-      this.data.stv.windowWidth = res.windowWidth;
-      this.setData({ stv: this.data.stv })
-      this.tabsCount = tabs.length;
-    } catch (e) {
-    }
-  },
+  ////////
   handlerStart(e) {
     console.log('handlerStart')
     let { clientX, clientY } = e.touches[0];
@@ -274,6 +281,7 @@ Page({
     stv.tStart = false;
     this.setData({ stv: this.data.stv })
   },
+  ////////
   _updateSelectedPage(page) {
     console.log('_updateSelectedPage')
     let { tabs, stv, activeTab } = this.data;
@@ -283,7 +291,21 @@ Page({
     this.setData({ stv: this.data.stv })
   },
   handlerTabTap(e) {
-    console.log('handlerTapTap')
+    console.log('handlerTapTap', e.currentTarget.dataset.index)
     this._updateSelectedPage(e.currentTarget.dataset.index);
-  }
+  },
+  //事件处理函数
+  swiperchange: function (e) {
+    //console.log('swiperCurrent',e.detail.current)
+    let { tabs, stv, activeTab } = this.data;
+    activeTab = e.detail.current;
+    this.setData({ activeTab: activeTab })
+    stv.offset = stv.windowWidth * activeTab;
+    this.setData({ stv: this.data.stv })
+  },
+  toIndexPage: function () {
+    wx.switchTab({
+      url: "/pages/classification/index"
+    });
+  },
 })

@@ -8,7 +8,9 @@ Page({
     balance: 0,
     freeze: 0,
     score: 0,
-    score_sign_continuous: 0
+    score_sign_continuous: 0,
+    iconSize: 45,
+    iconColor: '#999999'
   },
   onPullDownRefresh: function () {
     var that = this
@@ -61,6 +63,7 @@ Page({
   },
   getPhoneNumber: function (e) {
     if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
+      console.log(e.detail.errMsg)
       wx.showModal({
         title: '提示',
         content: '无法获取手机号码',

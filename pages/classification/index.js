@@ -1,11 +1,13 @@
 var app = getApp();
 var starscore = require("../../templates/starscore/starscore.js");
+var Zan = require('../../dist/packages/@zanui/index.js');
 //var server = require('../../utils/server');
-Page({
+Page(Object.assign({},Zan.NoticeBar,{
   data: {
     onLoadStatus: true,
     indicatorDots: true,
-    loadingHidden: false, // loading
+    loadingStatus: false, // loading
+    loadingFinish: false,
     shopLogo: 'https://cdn.it120.cc/apifactory/2017/12/08/13cf50050ade63f957450f19f0edd756.jpg',
     shopPrompt: [],
     shopDelivery: [],
@@ -15,12 +17,14 @@ Page({
     activeCategoryId: null,
     goods: [],
     goodsList: [],
+    goodsListCurrent: [],
     scrollTop: 0,
     page: 1,
     pageSize: 5000,
     classifyViewed: null,
     width: 0,
     height: 0,
+    movable: [],
   },
   onPullDownRefresh: function () {
     var that = this
@@ -41,17 +45,37 @@ Page({
       onLoadStatus: app.globalData.onLoadStatus,
       activeCategoryId: app.globalData.activeCategoryId
     })
+    for (var i = 0; i < that.data.categories.length; i++) {
+      if (that.data.activeCategoryId === that.data.categories[i].id) {
+        that.setData({
+          classifyViewed: that.data.categories[i].id,
+          scrolltop: 0,
+          goodsListCurrent: that.data.goodsList[i],
+          
+        })
+      }
+    }
 
     //获取系统信息  
     wx.getSystemInfo({
       //获取系统信息成功，将系统窗口的宽高赋给页面的宽高  
       success: function (res) {
         //console.log(res.windowWidth)
-        that.width = res.windowWidth/2.9  //2.6
-        that.height = res.windowWidth/2.9  //2.6
+        that.width = res.windowWidth / 2.9  //2.6
+        that.height = res.windowWidth / 2.9  //2.6
       }
     })
     //console.log(this.width, this.height)
+    that.getPrompt();
+    that.getDelivery();
+    if (!that.data.onLoadStatus) {
+      that.showDialog('.onLoad-err')
+    }
+    //动态初始化公告栏
+    setTimeout(function(){
+      that.initZanNoticeBarScroll('movable');
+    },500)
+    
   },
   onShareAppMessage: function () {
     return {
@@ -67,8 +91,6 @@ Page({
   },
   onShow: function () {
     var that = this
-    that.getPrompt();
-    that.getDelivery();
   },
   //onReady生命周期函数，监听页面初次渲染完成  
   onReady: function () {
@@ -78,24 +100,37 @@ Page({
     this.interval = setInterval(this.canvasClock, 1000)
   },
   tapClassify: function (e) {
-    var id = e.target.dataset.id;
-    this.setData({
-      classifyViewed: id
-    });
-    console.log('id:', this.data.classifyViewed)
     var that = this;
-    setTimeout(function () {
-      for (let i = 0; i < that.data.categories.length; i++) {
-        if (id === that.data.categories[i].key) {
+    var id = e.target.dataset.id;
+    if (id === that.data.classifyViewed){
+      that.setData({
+        scrolltop: 0,
+      })
+    }else{
+      that.setData({
+        classifyViewed: id,
+      });
+      console.log('id:', that.data.classifyViewed)
+      for (var i = 0; i < that.data.categories.length; i++) {
+        if (id === that.data.categories[i].id) {
           that.setData({
-            activeCategoryId: that.data.categories[i].id,
             page: 1,
             scrolltop: 0,
-          });
+            goodsListCurrent: that.data.goodsList[i]
+          })
         }
       }
+    }
+    /*for (let i = 0; i < that.data.categories.length; i++) {
+      if (id === that.data.categories[i].key) {
+        that.setData({
+          activeCategoryId: that.data.categories[i].id,
+          page: 1,
+          scrolltop: 0,
+        });
+      }
+    }*/
 
-    }, 100);
   },
   //事件处理函数
   toDetailsTap: function (e) {
@@ -105,10 +140,13 @@ Page({
   },
   reLoad: function () {
     var that = this
-    wx.showLoading({
+    that.setData({
+      loadingStatus: true
+    })
+    /*wx.showLoading({
       title: '努力加载中···',
       mask: true,
-    });
+    });*/
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/category/all',
       success: function (res) {
@@ -175,41 +213,6 @@ Page({
           goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberOrders) * 5
           goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
           goods[i].starpic = starscore.picStr(goods[i].starscore)
-          /*wx.request({
-            url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/reputation',
-            data: {
-              goodsId: goods[i].id,
-              page: page,
-              pageSize: pageSize
-            },
-            success: function (res) {
-              if (res.data.code === 0) {
-                if (res.data.data.length < pageSize) {
-                  goods[i].numberReputation = res.data.data.length;
-                  console.log('goods:', i, 'reputationNum:', goods[i].numberReputation)
-                  goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberReputation) * 5
-                  goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
-                  goods[i].starpic = starscore.picStr(goods[i].starscore)
-                }
-                else {
-                  goods[i].numberReputation = -1;
-                }
-              }
-              else if (res.data.code === 700) {
-                goods[i].numberReputation = 0
-                //console.log('goods:', i, 'reputationNum:', goods[i].numberReputation)
-                goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberReputation) * 5
-                goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
-                goods[i].starpic = starscore.picStr(goods[i].starscore)
-              }
-              that.setData({
-                goods: goods,
-              });
-            },
-            fail: function (res) {
-
-            }
-          })*/
         }
         that.setData({
           goods: goods,
@@ -246,19 +249,41 @@ Page({
               console.log("你好," + categories[i].name)
             }
 
-            that.setData({
-              goodsList: goodsList,
-              onLoadStatus: true,
-              activeCategoryId: categories[0].id,
-            })
+            console.log(goodsList, 'womendeshijie')
+            for (var i = 0; i < goodsList.length; i++) {
+              if (goodsList[i].goods.length === 0) {
+                continue;
+              } else {
+                that.setData({
+                  goodsList: goodsList,
+                  onLoadStatus: true,
+                  activeCategoryId: categories[i].id,
+                  classifyViewed: categories[i].id
+                })
+                for (var j = 0; j < that.data.categories.length; j++) {
+                  if (categories[i].id === that.data.categories[j].id) {
+                    that.setData({
+                      scrolltop: 0,
+                      goodsListCurrent: that.data.goodsList[j],
+                    })
+                  }
+                }
+                break;
+              }
+            }
 
             console.log('getGoodsList----------------------')
             console.log(that.data.goodsList)
-            wx.showToast({
-              title: '所有商品加载完成',
-              icon: 'success',
-              duration: 1000,
+            that.setData({
+              loadingStatus: false,
+              loadingFinish: true
             })
+            setTimeout(() => {
+              that.setData({
+                loadingFinish: false
+              })
+            }, 1500)
+
           },
           fail: function () {
             that.setData({
@@ -269,33 +294,6 @@ Page({
         })
       }
     })
-  },
-  onGoodsScroll: function (e) {
-    if (e.detail.scrollTop > 400 && !this.data.scrollDown) {
-      this.setData({
-        scrollDown: true
-      });
-    } else if (e.detail.scrollTop < 400 && this.data.scrollDown) {
-      this.setData({
-        scrollDown: false
-      });
-    }
-
-    var scale = e.detail.scrollWidth / 570,
-      scrollTop = e.detail.scrollTop / scale,
-      h = 0,
-      classifySeleted,
-      len = this.data.goodsList.length;
-    this.data.goodsList.forEach(function (classify, i) {
-      var _h = 70 + classify.goods.length * (46 * 3 + 20 * 2);
-      if (scrollTop >= h - 100 / scale) {
-        classifySeleted = classify.id;
-      }
-      h += _h;
-    });
-    this.setData({
-      activeCategoryId: classifySeleted
-    });
   },
   getPrompt: function () {
     var that = this
@@ -308,7 +306,8 @@ Page({
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
-            shopPrompt: res.data.data.value
+            shopPrompt: res.data.data.value,
+            movable: { text: res.data.data.value}
           })
         }
       }
@@ -340,7 +339,7 @@ Page({
     //重置画布函数  
     function reSet() {
       context.height = context.height;//每次清除画布，然后变化后的时间补上  
-      context.translate(width/2.9, height/2.9);//设置坐标轴原点  
+      context.translate(width / 2.9, height / 2.9);//设置坐标轴原点  
       context.save();//保存中点坐标1  
     }
     //绘制中心圆和外面大圆  
@@ -360,19 +359,19 @@ Page({
     //绘制字体  
     function num() {
       // var R = width/2-60;//设置文字距离时钟中心点距离  
-      context.setFontSize(width/14)//设置字体样式  
+      context.setFontSize(width / 14)//设置字体样式  
       context.textBaseline = "middle";//字体上下居中，绘制时间  
       for (var i = 1; i < 13; i++) {
         //利用三角函数计算字体坐标表达式  
         var x = R * Math.cos(i * Math.PI / 6 - Math.PI / 2);
         var y = R * Math.sin(i * Math.PI / 6 - Math.PI / 2);
         if (i == 11 || i == 12) {//调整数字11和12的位置  
-          context.fillText(i, x - width/23, y + width/30);
+          context.fillText(i, x - width / 23, y + width / 30);
         } else if (i == 10) {//调整数字10的位置
-          context.fillText(i, x - width/25, y + width/35);
+          context.fillText(i, x - width / 25, y + width / 35);
         }
         else {
-          context.fillText(i, x - width/45, y + width/48);
+          context.fillText(i, x - width / 45, y + width / 48);
         }
       }
     }
@@ -434,7 +433,7 @@ Page({
       context.setLineWidth(0.5);
       context.beginPath();
       context.rotate((Math.PI / 30) * s);
-      context.moveTo(-width/24, 0);
+      context.moveTo(-width / 24, 0);
       context.lineTo(width / 6.2, 0);
       context.stroke();
     }
@@ -457,6 +456,21 @@ Page({
   //页面卸载，清除画布绘制计时器  
   onUnload: function () {
     clearInterval(this.interval)
+  },
+  showDialog: function (dialogName) {
+    let dialogComponent = this.selectComponent(dialogName)
+    dialogComponent && dialogComponent.show();
+  },
+  hideDialog: function (dialogName) {
+    let dialogComponent = this.selectComponent(dialogName)
+    dialogComponent && dialogComponent.hide();
+  },
+  onConfirm: function () {
+    this.hideDialog('.onLoad-err')
+    this.reLoad()
+  },
+  onCancel: function () {
+    this.hideDialog('.onLoad-err')
   }
-});
+}));
 

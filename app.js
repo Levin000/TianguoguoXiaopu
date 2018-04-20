@@ -206,39 +206,7 @@ App({
           goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberOrders) * 5
           goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
           goods[i].starpic = starscore.picStr(goods[i].starscore)
-          /*wx.request({
-            url: 'https://api.it120.cc/' + that.globalData.subDomain + '/shop/goods/reputation',
-            data: {
-              goodsId: goods[i].id,
-              page: page,
-              pageSize: pageSize
-            },
-            success: function (res) {
-              if (res.data.code === 0) {
-                if (res.data.data.length < pageSize) {
-                  goods[i].numberReputation = res.data.data.length;
-                  console.log('goods:', i, 'reputationNum:', goods[i].numberReputation)
-                  goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberReputation) * 5
-                  goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
-                  goods[i].starpic = starscore.picStr(goods[i].starscore)
-                }
-                else {
-                  goods[i].numberReputation = -1;
-                }
-              }
-              else if (res.data.code === 700) {
-                goods[i].numberReputation = 0
-                //console.log('goods:', i, 'reputationNum:', goods[i].numberReputation)
-                goods[i].starscore = (goods[i].numberGoodReputation / goods[i].numberReputation) * 5
-                goods[i].starscore = Math.ceil(goods[i].starscore / 0.5) * 0.5
-                goods[i].starpic = starscore.picStr(goods[i].starscore)
-              }
-              //
-            },
-            fail: function (res) {
-
-            }
-          })*/
+          
         }
         that.globalData.goods = goods
         console.log('getGoodsReputation----------------------')
@@ -286,11 +254,6 @@ App({
 
             console.log('getGoodsList----------------------')
             console.log(that.globalData.goodsList)
-            /*wx.showToast({
-              title: '所有商品加载完成',
-              icon: 'success',
-              duration: 1000,
-            })*/
           },
           fail: function () {
             that.globalData.onLoadStatus = false
@@ -318,7 +281,7 @@ App({
     activeCategoryId: null,
 
     userInfo: null,
-    subDomain: "tgg",// 商城后台id
+    subDomain: "tgg",// 商城后台个性域名tgg
     version: "2.0",
     shareProfile: '   一流的服务，做超新鲜的水果' // 首页转发的时候术语
   }

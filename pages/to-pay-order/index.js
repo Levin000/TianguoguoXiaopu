@@ -21,7 +21,7 @@ Page({
     var that = this;
     var shopList = [];
     //立即购买下单
-    if ("buyNow" == that.data.orderType) {
+    if ("buyNow" === that.data.orderType) {
       var buyNowInfoMem = wx.getStorageSync('buyNowInfo');
       if (buyNowInfoMem && buyNowInfoMem.shopList) {
         shopList = buyNowInfoMem.shopList
@@ -172,7 +172,7 @@ Page({
         token: app.globalData.token
       },
       success: (res) => {
-        if (res.data.code == 0) {
+        if (res.data.code === 0) {
           that.setData({
             curAddressData: res.data.data
           });
@@ -234,7 +234,7 @@ Page({
         status: 0
       },
       success: function (res) {
-        if (res.data.code == 0) {
+        if (res.data.code === 0) {
           var coupons = res.data.data.filter(entity => {
             return entity.moneyHreshold <= that.data.allGoodsAndYunPrice;
           });
@@ -250,7 +250,7 @@ Page({
   },
   bindChangeCoupon: function (e) {
     const selIndex = e.detail.value[0] - 1;
-    if (selIndex == -1) {
+    if (selIndex === -1) {
       this.setData({
         youhuijine: 0,
         curCoupon: null

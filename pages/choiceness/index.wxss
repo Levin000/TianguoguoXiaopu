@@ -3,12 +3,12 @@
 
 page {
   min-height: 100%;
-  background-color: rgba(105, 195, 170, 0.3);
+  background-color: #fff;
 }
 
 .container {
+  width: 100%;
   background-color: #f4f4f4;
-  min-height: 100%;
 }
 
 .notice {
@@ -18,82 +18,83 @@ page {
   top: 0;
   z-index: 500;
   width: 100%;
-  height: 85rpx;
-  padding-top: 17rpx;
+  height: 100rpx;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  line-height: 80rpx;
-  background: -webkit-linear-gradient(top, rgba(105, 195, 170, 1), rgba(105, 195, 170, 0.5));
-}
-
-.notice_iteml {
-  display: flex;
-  flex-direction: row;
-  padding: 15rpx 0rpx 15rpx 20rpx;
+  align-items: center;
+  justify-content: center;
   font-size: 28rpx;
-  width: 200rpx;
-  height: 50rpx;
-  line-height: 50rpx;
+  background-color: rgba(105, 195, 170,1);
 }
 
 .notice_swiper {
   display: flex;
   flex-direction: row;
-  padding: 15rpx 0rpx;
   height: 50rpx;
-  line-height: 50rpx;
-  width: 460rpx;
+  line-height: 40rpx;
+  width: 400rpx;
 }
 
-.notice_itemr {
-  padding-left: 25rpx;
-  font-size: 28rpx;
-  overflow: hidden;
-  color: #333333;
-  width: 500rpx;
+.notice_item {
+  width: 100%;
   height: 50rpx;
   line-height: 50rpx;
+  text-align: center;
+  color: #333;
+}
+
+.popup__content {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  text-align: center;
 }
 
 .swiper-container {
   width: 750rpx;
   position: relative;
+  background-color: white;
 }
 
 .swiper_box {
   width: 100%;
-  height: 375rpx; /*562.5rpx;*/
+  height: 375rpx; /*562.5rpx;*//**/
+  overflow: visible;
 }
 
-swiper-item image {
+.slide-image {
+  /*swiper-item image */
   width: 100%;
   display: inline-block;
   overflow: hidden;
   height: 375rpx; /*562.5rpx;*/
+  border-radius: 15rpx;
+  background-color: #fff;
+  box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .swiper-container .dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20rpx;
+  position: relative;
+  bottom: 10rpx;
+  margin-top: 20rpx;
   display: flex;
   justify-content: center;
 }
 
 .swiper-container .dots .dot {
-  margin: 0 8rpx;
-  width: 24rpx;
-  height: 8rpx;
-  background: white;
+  margin: 0 10rpx;
+  width: 30rpx;
+  height: 10rpx;
+  border-radius: 2rpx;
+  background-color: #999;
   transition: all 0.6s;
   opacity: 0.5;
 }
 
 .swiper-container .dots .dot.active {
-  background: red;
+  background-color: red;
   opacity: 1;
 }
 
@@ -101,7 +102,6 @@ swiper-item image {
   width: 100%;
   height: 100rpx;
   display: flex;
-  
   align-items: center;
   background: white;
   margin-top: 15rpx;
@@ -112,6 +112,12 @@ swiper-item image {
   width: 175rpx;
   height: 56rpx;
   margin: auto;
+}
+
+.type-goods{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .goods-container {
@@ -142,4 +148,3 @@ swiper-item image {
   top: 0;
   left: 0;
 }
-

@@ -6,6 +6,9 @@
     "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
     "wxc-elip": "../../dist/packages/@minui/wxc-elip/dist/index",
     "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
-    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index",
+    "wxc-toast": "../../dist/packages/@minui/wxc-toast/dist/index",
+    "wxc-loading": "../../dist/packages/@minui/wxc-loading/dist/index",
+    "wxc-dialog": "../../dist/packages/@minui/wxc-dialog/dist/index"
   }
 }

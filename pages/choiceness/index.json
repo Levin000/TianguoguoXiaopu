@@ -6,6 +6,7 @@
     "wxc-flex": "../../dist/packages/@minui/wxc-flex/dist/index",
     "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
     "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
-    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index",
+    "wxc-popup": "../../dist/packages/@minui/wxc-popup/dist/index"
   }
 }

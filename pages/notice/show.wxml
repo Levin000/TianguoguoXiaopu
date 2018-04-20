@@ -1,4 +1,4 @@
-<import src="../../wxParse/wxParse.wxml" />
+<import src="../../templates/wxParse/wxParse.wxml" />
 
 
 <view class="notice">

@@ -136,19 +136,20 @@ page {
 
 .classify-container {
   width: 180rpx;
-  background: #EFEFEF;
+  background: #ECECEC;
   height: 100%;
 }
 
 .classify-container .classify {
   padding: 30rpx 0rpx;
   text-align: center;
-  /*border-bottom: 1px dashed #aaa;*/
 }
 
 .classify-container .classify.active {
   background: #fff;
-  border-left: 6rpx solid #FF5777;
+  border-left: 4rpx solid #FF5777;
+  border-top: 1rpx solid #EFEFEF;
+  border-bottom: 1rpx solid #EFEFEF;
 }
 
 .classify-container .classify .name {
@@ -168,7 +169,8 @@ page {
 .goods-container {
   flex: 1;
   background: #fff;
-  height: 100%;
+  min-height: 100%;
+  
 }
 
 .goods-container .title {
@@ -210,6 +212,7 @@ page {
 .goods-container .goods .name {
   color: #000;
   font-size: 28rpx;
+  font-weight: bold;
   line-height: 46rpx;
 }
 
@@ -236,7 +239,7 @@ page {
   color: #ff4422;
   margin-top: 10rpx;
   width: 120rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   font-weight: bold;
   line-height: 40rpx;
 }

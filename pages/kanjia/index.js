@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp();
-var WxParse = require('../../wxParse/wxParse.js');
+var WxParse = require('../../templates/wxParse/wxParse.js');
 
 Page({
   data: {

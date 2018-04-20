@@ -6,6 +6,7 @@
     "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index",
     "wxc-flex": "../../dist/packages/@minui/wxc-flex/dist/index",
     "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
-    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index"
+    "wxc-label": "../../dist/packages/@minui/wxc-label/dist/index",
+    "wxc-toast": "../../dist/packages/@minui/wxc-toast/dist/index"
   }
 }

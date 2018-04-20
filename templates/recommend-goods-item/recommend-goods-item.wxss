@@ -57,7 +57,7 @@
 }
 
 .goods-box .goods-price-box .goods-minPrice {
-  font-size: 36rpx;
+  font-size: 28rpx;
   font-weight: bold;
   color:  #ff4422;
 }

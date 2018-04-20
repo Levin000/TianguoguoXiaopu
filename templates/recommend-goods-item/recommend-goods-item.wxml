@@ -11,8 +11,8 @@
     <view class="goods-title">{{item.name}}</view>
     <view class='goods-introduction'>{{item.characteristic}}</view>
     <view class="goods-price-box">
-      <wxc-price class='goods-minPrice' value='{{item.minPrice}}' decimal='small' icon="sub"></wxc-price>
-      <wxc-price class="goods-originalPrice" wx:if='{{item.originalPrice != 0}}' value='{{item.originalPrice}}' decimal='small' status='del'></wxc-price>
+      <wxc-price class='goods-minPrice' value='{{item.minPrice}}'></wxc-price>
+      <wxc-price class="goods-originalPrice" wx:if='{{item.originalPrice != 0}}' value='{{item.originalPrice}}' status='del'></wxc-price>
     </view>
     <view class="sellInformation">
       <wxc-label wx:if="{{item.numberOrders == 0}}" class="goodsSoldNumber" type="fill">新品上市</wxc-label>

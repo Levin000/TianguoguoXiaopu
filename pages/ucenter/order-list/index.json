@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "订单列表",
   "usingComponents": {
-    "wxc-abnor": "../../../dist/packages/@minui/wxc-abnor/dist/index"
+    "wxc-abnor": "../../../dist/packages/@minui/wxc-abnor/dist/index",
+    "wxc-loading": "../../../dist/packages/@minui/wxc-loading/dist/index",
+    "wxc-badge": "../../../dist/packages/@minui/wxc-badge/dist/index",
+    "wxc-price": "../../../dist/packages/@minui/wxc-price/dist/index"
   }
 }

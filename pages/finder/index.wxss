@@ -157,9 +157,10 @@ page {
 }
 
 .more-things {
-  position: relative;
+  position: fixed;
+  width: 100%;
   bottom: 0;
-  padding-left: 150rpx;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
