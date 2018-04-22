@@ -25,8 +25,13 @@
         <text style="display: inline-block; width: 8em;"></text>
       </view>
     </view>-->
-
-    <template is="zan-noticebar" data="{{ ...movable, componentId: 'movable'  }}" style='font-size:28rpx;color:#333;'></template>
+    <view style='width:100%;display: flex; flex-direction: column; align-items: center; justify-content: center;background-color: #fff7cc;'>
+      <view style='width:90%;'>
+        <template is="zan-noticebar" data="{{ ...movable, componentId: 'movable'  }}"></template>
+      </view>
+      
+    </view>
+    
 
   </view>
 

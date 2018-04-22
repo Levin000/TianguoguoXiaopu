@@ -34,7 +34,8 @@ Page({
     that.setData({
       goodsList: app.globalData.goodsList,
       pageSize: app.globalData.pageSize,
-      page: app.globalData.page
+      page: app.globalData.page,
+      recommendGoodsShow: []
     })
     that.getRecommendTitlePicStr();
     wx.setNavigationBarTitle({
@@ -76,6 +77,10 @@ Page({
   },
   onPullDownRefresh: function () {
     var that = this
+    that.setData({
+      loadingMore: true,
+      isEnd: false
+    })
     wx.showNavigationBarLoading()
     that.onLoad()
     wx.hideNavigationBarLoading() //完成停止加载
@@ -92,6 +97,10 @@ Page({
         // 转发失败
       }
     }
+  },
+  onReachBottom: function(){
+    var that = this
+    that.getRGshow()
   },
 
   //事件处理函数
@@ -202,12 +211,10 @@ Page({
     that.setData({
       loadingMore: true
     })
-    var pageSize = that.data.recommendGoods.length; //一次加载万所有的推荐商品，避免minui显示问题
+    var pageSize = 10; //一次加载万所有的推荐商品，避免minui显示问题that.data.recommendGoods.length
     var recommendGoodsShow = that.data.recommendGoodsShow;
     var rgShowLen = recommendGoodsShow.length;
-    that.setData({
-      recommendGoodsShow:[]
-    })
+    console.log('rgShowLen', rgShowLen)
     if (rgShowLen + pageSize <= that.data.recommendGoods.length) {
       for (var i = rgShowLen; i < rgShowLen + pageSize; i++) {
         recommendGoodsShow.push(that.data.recommendGoods[i])

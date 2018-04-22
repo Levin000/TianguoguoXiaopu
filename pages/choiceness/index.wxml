@@ -2,7 +2,7 @@
 
 <view wx:if="{{noticeList}}" style="height: 100rpx;"></view>
 
-<scroll-view class="container" style="height:{{height}}rpx;" scroll-y="true" scroll-with-animation="true" bindscrolltolower="getRGshow">
+<view class="container" style="height:{{height}}rpx;" scroll-y="true" scroll-with-animation="true" bindscrolltolower="getRGshow">
 
   <view wx:if="{{noticeList}}" class="notice">
 
@@ -21,41 +21,43 @@
     <wxc-icon size="40" type="{{'arrow-right'}}"></wxc-icon>
   </view>
 
-  <wxc-popup class="banners_warn_Popup" animation-mode="top" align="top">
-    <view class="popup__content">请求轮播图数据出错，请联系管理员</view>
-  </wxc-popup>
+  <scroll-view scroll-y="true" style="width:100%;min-height:100%;">
+    <wxc-popup class="banners_warn_Popup" animation-mode="top" align="top">
+      <view class="popup__content">请求轮播图数据出错，请联系管理员</view>
+    </wxc-popup>
 
-  <view wx:if="{{!showNoBanners}}" class="swiper-container">
-    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current='swiperCurrent' bindchange="swiperchange">
-      <!--<block wx:for="{{banners}}" wx:key="id">-->
-      <swiper-item wx:for="{{banners}}" wx:key="id" style="overflow: visible;border-radius: 50%;">
-        <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}_m" class="slide-image" style="-webkit-transform: scale({{ swiperCurrent == index ? 0.9 : 0.65 }}) translate({{ (swiperCurrent == index - 1 || swiperCurrent == index + 1) ? (swiperCurrent - index) * 30 : 0 }}%, 0); -webkit-transition: 0.6s;"
-          mode="aspectFill" />
-      </swiper-item>
-      <!--</block>-->
-    </swiper>
-    <view class="dots">
-      <block wx:for="{{banners}}" wx:key="unique">
-        <view class="dot{{index === swiperCurrent ? ' active' : ''}}"></view>
-      </block>
-    </view>
-  </view>
-
-  <view class="introduced">
-    <image class="introudced-img" src="{{recommendTitlePicStr}}"></image>
-  </view>
-
-  <view class="type-goods" main="center" cross="center">
-    <view class="goods-container">
-      <view style='margin-left:20rpx;width:730rpx;height:4rpx;background-color:#f4f4f4;'></view>
-      <view style='height:21rpx;background-color:#fff;'></view>
-      <view class="goods-box" wx:for="{{recommendGoodsShow}}" wx:key="id" wx:for-item="item" data-id="{{item.id}}" bindtap="toDetailsTap">
-          <template is="recommend-goods-item" data="{{item}}"> </template>
+    <view wx:if="{{!showNoBanners}}" class="swiper-container">
+      <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current='swiperCurrent' bindchange="swiperchange">
+        <!--<block wx:for="{{banners}}" wx:key="id">-->
+        <swiper-item wx:for="{{banners}}" wx:key="id" style="overflow: visible;border-radius: 50%;">
+          <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}_m" class="slide-image" style="-webkit-transform: scale({{ swiperCurrent == index ? 0.9 : 0.65 }}) translate({{ (swiperCurrent == index - 1 || swiperCurrent == index + 1) ? (swiperCurrent - index) * 30 : 0 }}%, 0); -webkit-transition: 0.6s;"
+            mode="aspectFill" />
+        </swiper-item>
+        <!--</block>-->
+      </swiper>
+      <view class="dots">
+        <block wx:for="{{banners}}" wx:key="unique">
+          <view class="dot{{index === swiperCurrent ? ' active' : ''}}"></view>
+        </block>
       </view>
     </view>
-    <wxc-loadmore wx:if="{{loadingMore}}" text="正在努力加载中..." icon="https://s10.mogucdn.com/mlcdn/c45406/171018_8gj08gbl9fj6igb380dec9k1ifhe2_32x32.png"></wxc-loadmore>
-  </view>
 
-  <wxc-loadmore wx:if="{{isEnd}}" is-end="{{isEnd}}" text="到底啦" icon="https://s10.mogucdn.com/mlcdn/c45406/171016_47j96cl3hdhhdf7ajg8hg2kd13gdc_400x400.png"></wxc-loadmore>
+    <view class="introduced">
+      <image class="introudced-img" src="{{recommendTitlePicStr}}"></image>
+    </view>
 
-</scroll-view>
+    <view class="type-goods">
+      <view class="goods-container">
+        <view style='margin-left:20rpx;width:730rpx;height:4rpx;background-color:#f4f4f4;'></view>
+        <view style='height:21rpx;background-color:#fff;'></view>
+        <view class="goods-box" wx:for="{{recommendGoodsShow}}" wx:key="id" wx:for-item="item" data-id="{{item.id}}" bindtap="toDetailsTap">
+          <template is="recommend-goods-item" data="{{item}}"> </template>
+        </view>
+      </view>
+      <wxc-loadmore wx:if="{{loadingMore}}" text="正在努力加载中..." icon="https://s10.mogucdn.com/mlcdn/c45406/171018_8gj08gbl9fj6igb380dec9k1ifhe2_32x32.png"></wxc-loadmore>
+    </view>
+
+    <wxc-loadmore wx:if="{{isEnd}}" is-end="{{isEnd}}" text="到底啦" icon="https://s10.mogucdn.com/mlcdn/c45406/171016_47j96cl3hdhhdf7ajg8hg2kd13gdc_400x400.png"></wxc-loadmore>
+  </scroll-view>
+
+</view>

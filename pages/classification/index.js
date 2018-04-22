@@ -24,7 +24,9 @@ Page(Object.assign({},Zan.NoticeBar,{
     classifyViewed: null,
     width: 0,
     height: 0,
-    movable: [],
+    movable: {
+      text: '                                                                           '
+    },
   },
   onPullDownRefresh: function () {
     var that = this
@@ -35,6 +37,11 @@ Page(Object.assign({},Zan.NoticeBar,{
   },
   onLoad: function (options) {
     var that = this
+    //动态初始化公告栏
+    setTimeout(function () {
+      that.initZanNoticeBarScroll('movable');
+    }, 500)
+    
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('mallName')
     })
@@ -71,10 +78,6 @@ Page(Object.assign({},Zan.NoticeBar,{
     if (!that.data.onLoadStatus) {
       that.showDialog('.onLoad-err')
     }
-    //动态初始化公告栏
-    setTimeout(function(){
-      that.initZanNoticeBarScroll('movable');
-    },500)
     
   },
   onShareAppMessage: function () {

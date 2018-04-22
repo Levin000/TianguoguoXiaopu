@@ -8,6 +8,7 @@ page {
 
 .container {
   width: 100%;
+  min-height: 100%;
   background-color: #f4f4f4;
 }
 
@@ -102,8 +103,10 @@ page {
   width: 100%;
   height: 100rpx;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background: white;
+  justify-content: center;
+  background-color: white;
   margin-top: 15rpx;
   color: #e64340;
 }
@@ -111,11 +114,11 @@ page {
 .introduced .introudced-img {
   width: 175rpx;
   height: 56rpx;
-  margin: auto;
 }
 
 .type-goods{
   width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
 }
