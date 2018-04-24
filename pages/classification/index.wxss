@@ -107,7 +107,7 @@ page {
   overflow: hidden;
   white-space: nowrap;
   line-height: 40rpx;
-  background: #feb70f;
+  background-color: #fff7cc;
   border: none;
   font-size: 28rpx;
   text-overflow: clip;
@@ -121,9 +121,9 @@ page {
   padding-top: 20rpx;
   padding-right: 0rpx;
   text-align: center;
-  color: #333;
-  font-size: 28rpx;
-  animation: kf-marque-animation 11.3s linear infinite;
+  color: #f60;
+  font-size: 24rpx;
+  animation: kf-marque-animation 9s linear infinite;
   white-space: nowrap;
 }
 

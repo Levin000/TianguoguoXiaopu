@@ -15,23 +15,25 @@
       </view>
     </view>
     <view class="line"></view>
-    <!--<view class='marquee'>
-      <view class="desc">
-        <text>{{shopPrompt}}</text>
-        <text style="display: inline-block; width: 8em;"></text>
-        <text>{{shopPrompt}}</text>
-        <text style="display: inline-block; width: 8em;"></text>
-        <text>{{shopPrompt}}</text>
-        <text style="display: inline-block; width: 8em;"></text>
+    <view class='marquee'>
+      <view style='width:90%'>
+        <view class="desc">
+          <text>{{shopPrompt}}</text>
+          <text style="display: inline-block; width: 8em;"></text>
+          <text>{{shopPrompt}}</text>
+          <text style="display: inline-block; width: 8em;"></text>
+          <text>{{shopPrompt}}</text>
+          <text style="display: inline-block; width: 8em;"></text>
+        </view>
       </view>
-    </view>-->
-    <view style='width:100%;display: flex; flex-direction: column; align-items: center; justify-content: center;background-color: #fff7cc;'>
+    </view>
+
+    <!--<view style='width:100%;display: flex; flex-direction: column; align-items: center; justify-content: center;background-color: #fff7cc;'>
       <view style='width:90%;'>
         <template is="zan-noticebar" data="{{ ...movable, componentId: 'movable'  }}"></template>
       </view>
-      
-    </view>
-    
+    </view>-->
+
 
   </view>
 
