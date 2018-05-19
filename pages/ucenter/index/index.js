@@ -20,18 +20,21 @@ Page({
     wx.stopPullDownRefresh() //停止下拉刷新
   },
   onLoad() {
-
+    let that = this;
+    let userInfo = wx.getStorageSync('userInfo')
+    if (!userInfo) {
+      wx.navigateTo({
+        url: "/pages/authorize/index"
+      })
+    } else {
+      that.setData({
+        userInfo: userInfo,
+        version: app.globalData.version
+      })
+    }
   },
   onShow() {
-    var that = this
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      })
-    })
-    this.setData({
-      version: app.globalData.version
-    });
+    
     this.getUserApiInfo();
     this.getUserAmount();
     this.checkScoreSign();
@@ -75,7 +78,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/bindMobile',
       data: {
-        token: app.globalData.token,
+        token: wx.getStorageSync('token'),
         encryptedData: e.detail.encryptedData,
         iv: e.detail.iv
       },
@@ -102,7 +105,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/detail',
       data: {
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code == 0) {
@@ -120,7 +123,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
       data: {
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code == 0) {
@@ -187,7 +190,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/today-signed',
       data: {
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code == 0) {
@@ -203,7 +206,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/sign',
       data: {
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code == 0) {
@@ -220,28 +223,10 @@ Page({
     })
   },
   relogin: function () {
-    var that = this;
-    wx.authorize({
-      scope: 'scope.userInfo',
-      success() {
-        app.globalData.token = null;
-        app.login();
-        wx.showModal({
-          title: '提示',
-          content: '重新登陆成功',
-          showCancel: false,
-          success: function (res) {
-            if (res.confirm) {
-              that.onShow();
-            }
-          }
-        })
-      },
-      fail(res) {
-        console.log(res);
-        wx.openSetting({});
-      }
+    wx.navigateTo({
+     url: "/pages/authorize/index"
     })
+    this.onLoad()
   },
   recharge: function () {
     wx.navigateTo({

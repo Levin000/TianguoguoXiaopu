@@ -155,10 +155,8 @@ swiper-item image {
   overflow: hidden;
 }
 
-.goods-text .goods-text-label {
-  position: absolute;
-  right: 0;
-  top: 0;
+.goods-text-label {
+  position: relative;
   text-align: center;
   width: 100rpx;
 }

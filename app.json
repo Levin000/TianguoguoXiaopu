@@ -19,8 +19,8 @@
     "pages/recharge/index",
     "pages/withdraw/index",
     "pages/kanjia/index",
+    "pages/authorize/index",
     "pages/ucenter/feedback/feedback",
-    "templates/canvas-clock/index",
     "pages/ucenter/location/location"
   ],
   "window":{

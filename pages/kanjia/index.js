@@ -102,12 +102,13 @@ Page({
       data: {
         kjid: kjid,
         joinerUser: joiner,
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
-            kanjiaInfoMyHelp: res.data.data
+            kanjiaInfoMyHelp: res.data.data,
+            curuid: wx.getStorageSync('uid')
           });
         }
       }
@@ -120,7 +121,7 @@ Page({
       data: {
         kjid: that.data.kjId,
         joinerUser: that.data.joiner,
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code != 0) {
@@ -142,6 +143,11 @@ Page({
         that.getKanjiaInfo(that.data.kjId, that.data.joiner);
         that.getKanjiaInfoMyHelp(that.data.kjId, that.data.joiner);
       }
+    })
+  },
+  tobuy: function () {
+    wx.navigateTo({
+    url: "/pages/goods-details/index?id=" + this.data.kanjiaInfo.kanjiaInfo.goodsId + "&kjId=" + this.data.kanjiaInfo.kanjiaInfo.kjId
     })
   }
 })

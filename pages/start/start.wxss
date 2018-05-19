@@ -95,6 +95,8 @@ page{
   transition: all .35s ease;
 }
 .logo {
+  display: block;
+  overflow: hidden;
   position: absolute;
   z-index: 2;
   left: 50%;

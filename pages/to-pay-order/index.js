@@ -23,12 +23,14 @@ Page({
     //立即购买下单
     if ("buyNow" === that.data.orderType) {
       var buyNowInfoMem = wx.getStorageSync('buyNowInfo');
+      that.data.kjId = buyNowInfoMem.kjId;
       if (buyNowInfoMem && buyNowInfoMem.shopList) {
         shopList = buyNowInfoMem.shopList
       }
     } else {
       //购物车下单
       var shopCarInfoMem = wx.getStorageSync('shopCarInfo');
+      that.data.kjId = buyNowInfoMem.kjId;
       if (shopCarInfoMem && shopCarInfoMem.shopList) {
         // shopList = shopCarInfoMem.shopList
         shopList = shopCarInfoMem.shopList.filter(entity => {
@@ -64,7 +66,7 @@ Page({
   createOrder: function (e) {
     var that = this;
     wx.showLoading();
-    var loginToken = app.globalData.token // 用户登录 token
+    var loginToken = wx.getStorageSync('token') // 用户登录 token
     var remark = ""; // 备注信息
     if (e) {
       remark = e.detail.value.remark; // 备注信息
@@ -75,6 +77,9 @@ Page({
       goodsJsonStr: that.data.goodsJsonStr,
       remark: remark
     };
+    if (that.data.kjId) {
+      postData.kjid = that.data.kjId;
+    }
     if (that.data.isNeedLogistics > 0) {
       if (!that.data.curAddressData) {
         wx.hideLoading();
@@ -137,24 +142,24 @@ Page({
         }
         // 配置模板消息推送
         var postJsonString = {};
-          //订单关闭
-        postJsonString.keyword1 = { value: res.data.data.orderNumber, color: '#173177'  }
+        //订单关闭
+        postJsonString.keyword1 = { value: res.data.data.orderNumber, color: '#173177' }
         postJsonString.keyword2 = { value: res.data.data.dateAdd, color: '#173177' }
-        postJsonString.keyword3 = { value: res.data.data.amountReal + '元', color: '#173177'}
+        postJsonString.keyword3 = { value: res.data.data.amountReal + '元', color: '#173177' }
         postJsonString.keyword4 = { value: '已关闭', color: '#173177' }
         postJsonString.keyword5 = { value: '您可以重新下单，请在30分钟内完成支付', color: '#173177' }
         app.sendTempleMsg(res.data.data.id, -1,
           'gVeVx5mthDBpIuTsSKaaotlFtl5sC4I7TZmx2PtEYn8', e.detail.formId,
-          'pages/classification/index', JSON.stringify(postJsonString),'keyword4.DATA');
-          //订单已发货待确认通知
+          'pages/classification/index', JSON.stringify(postJsonString), 'keyword4.DATA');
+        //订单已发货待确认通知
         postJsonString = {};
-        postJsonString.keyword1 = { value: res.data.data.orderNumber, color: '#173177'}
-        postJsonString.keyword2 = { value: res.data.data.dateAdd, color: '#173177'}
-        postJsonString.keyword3 = { value: '已发货'}
+        postJsonString.keyword1 = { value: res.data.data.orderNumber, color: '#173177' }
+        postJsonString.keyword2 = { value: res.data.data.dateAdd, color: '#173177' }
+        postJsonString.keyword3 = { value: '已发货' }
         postJsonString.keyword4 = { value: '您的订单已发货，请保持手机通常，如有任何问题请联系客服13722396885', color: '#173177' }
         app.sendTempleMsg(res.data.data.id, 2,
           'ul45AoQgIIZwGviaWzIngBqohqK2qrCqS3JPcHKzljU', e.detail.formId,
-          'pages/ucenter/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString),'keyword3.DATA');
+          'pages/ucenter/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString), 'keyword3.DATA');
 
         // 下单成功，跳转到订单管理界面
         wx.redirectTo({
@@ -169,7 +174,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/shipping-address/default',
       data: {
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: (res) => {
         if (res.data.code === 0) {
@@ -230,7 +235,7 @@ Page({
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/discounts/my',
       data: {
-        token: app.globalData.token,
+        token: wx.getStorageSync('token'),
         status: 0
       },
       success: function (res) {

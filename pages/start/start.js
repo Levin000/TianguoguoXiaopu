@@ -4,8 +4,7 @@ var app = getApp();
 Page({
   data: {
     remind: '加载中',
-    angle: 0,
-    userInfo: {}
+    angle: 0
   },
   goToIndex:function(){
     wx.switchTab({
@@ -14,11 +13,6 @@ Page({
   },
   onLoad:function(){
     var that = this
-    app.getUserInfo(function(userInfo){
-      that.setData({
-        userInfo: userInfo
-      })
-    })
   },
   onShow:function(){
 

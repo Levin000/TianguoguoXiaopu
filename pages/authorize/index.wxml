@@ -1,0 +1,9 @@
+<view class="container">
+  <form bindsubmit="bindSave">
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="agree-btn">授权登录</button>
+    <view style='width:100%;padding-left:30rpx;font-size: 24rpx;margin-top:50rpx;'>1.  同意当前小程序获取我的微信头像；</view>
+    <view style='width:100%;padding-left:30rpx;font-size: 24rpx;margin-top:20rpx;'>2.  同意当前小程序获取我的微信昵称等其他信息；</view>
+    <button bindtap='rejectLogin' class="reject-btn">拒绝授权</button>
+  </form>
+  
+</view>

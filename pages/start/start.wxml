@@ -7,7 +7,7 @@
     <image class="title" src="/images/more/title8.png"></image>
     <view class="content">
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
-        <image class="logo" src="{{userInfo.avatarUrl}}"></image>
+        <open-data class='logo' type="userAvatarUrl"></open-data>
         <image class="wave" src="/images/more/wave.png" mode="aspectFill"></image>
         <image class="wave wave-bg" src="/images/more/wave.png" mode="aspectFill"></image>
       </view>

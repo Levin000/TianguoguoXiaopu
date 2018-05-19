@@ -1,8 +1,7 @@
 var app = getApp();
 var starscore = require("../../templates/starscore/starscore.js");
-var Zan = require('../../dist/packages/@zanui/index.js');
 //var server = require('../../utils/server');
-Page(Object.assign({},Zan.NoticeBar,{
+Page(Object.assign({},{
   data: {
     onLoadStatus: true,
     indicatorDots: true,
@@ -37,10 +36,6 @@ Page(Object.assign({},Zan.NoticeBar,{
   },
   onLoad: function (options) {
     var that = this
-    //动态初始化公告栏
-    setTimeout(function () {
-      that.initZanNoticeBarScroll('movable');
-    }, 500)
     
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('mallName')

@@ -36,6 +36,7 @@ Page({
   },
   onLoad: function (e) {
     var that = this;
+    that.data.kjId = e.kjId;
     // 获取购物车数据
     wx.getStorage({
       key: 'shopCarInfo',
@@ -348,6 +349,7 @@ Page({
     } else {
       shopCarInfo.shopList.push(shopCarMap);
     }
+    shopCarInfo.kjId = this.data.kjId;
     return shopCarInfo;
   },
 	/**
@@ -393,12 +395,13 @@ Page({
         }*/
 
     buyNowInfo.shopList.push(shopCarMap);
+    buyNowInfo.kjId = this.data.kjId;
     return buyNowInfo;
   },
   onShareAppMessage: function () {
     return {
       title: this.data.goodsDetail.basicInfo.name,
-      path: '/pages/goods-details/index?id=' + this.data.goodsDetail.basicInfo.id,
+      path: '/pages/goods-details/index?id=' + this.data.goodsDetail.basicInfo.id + '&inviter_id=' + wx.getStorageSync('uid'),
       success: function (res) {
         // 转发成功
       },
@@ -470,7 +473,7 @@ Page({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/kanjia/join',
       data: {
         kjid: that.data.curGoodsKanjia.id,
-        token: app.globalData.token
+        token: wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.code == 0) {

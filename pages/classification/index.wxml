@@ -1,4 +1,3 @@
-<import src="../../dist/packages/@zanui/noticebar/index.wxml" />
 
 <view class="container">
   <view class="header">
@@ -27,14 +26,6 @@
         </view>
       </view>
     </view>
-
-    <!--<view style='width:100%;display: flex; flex-direction: column; align-items: center; justify-content: center;background-color: #fff7cc;'>
-      <view style='width:90%;'>
-        <template is="zan-noticebar" data="{{ ...movable, componentId: 'movable'  }}"></template>
-      </view>
-    </view>-->
-
-
   </view>
 
   <wxc-dialog class="onLoad-err" title="提示" content="加载商品数据失败！" confirm-text="重试" cancel-text="返回" bindconfirm="onConfirm" bindcancel="onCancel"></wxc-dialog>
