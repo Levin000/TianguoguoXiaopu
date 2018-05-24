@@ -447,7 +447,7 @@ Page({
     var that = this;
     if (!app.globalData.kanjiaList || app.globalData.kanjiaList.length == 0) {
       that.setData({
-        curGoodsKanjia: undefined
+        curGoodsKanjia: null
       });
       return;
     }
@@ -460,7 +460,7 @@ Page({
       });
     } else {
       that.setData({
-        curGoodsKanjia: undefined
+        curGoodsKanjia: null
       });
     }
   },

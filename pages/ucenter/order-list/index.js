@@ -167,6 +167,7 @@ Page({
     var that = this;
     var orderId = e.currentTarget.dataset.id;
     var money = e.currentTarget.dataset.money;
+    var needScore = e.currentTarget.dataset.score;
     //wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
@@ -177,6 +178,14 @@ Page({
         if (res.data.code == 0) {
           // res.data.data.balance
           money = money - res.data.data.balance;
+          if (res.data.data.score < needScore) {
+            wx.showModal({
+              title: '错误',
+              content: '您的积分不足，无法支付',
+              showCancel: false
+            })
+            return;
+          }
           if (money <= 0) {
             // 直接使用余额支付
             wx.request({
