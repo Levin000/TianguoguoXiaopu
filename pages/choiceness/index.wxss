@@ -64,6 +64,11 @@ page {
   overflow: visible;
 }
 
+.swiper_item{
+  overflow: visible;
+  border-radius: 50%;
+}
+
 .slide-image {
   /*swiper-item image */
   width: 100%;

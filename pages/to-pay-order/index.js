@@ -22,6 +22,7 @@ Page({
     var shopList = [];
     //立即购买下单
     if ("buyNow" === that.data.orderType) {
+      console.log('buyNow!!')
       var buyNowInfoMem = wx.getStorageSync('buyNowInfo');
       that.data.kjId = buyNowInfoMem.kjId;
       if (buyNowInfoMem && buyNowInfoMem.shopList) {
@@ -30,7 +31,7 @@ Page({
     } else {
       //购物车下单
       var shopCarInfoMem = wx.getStorageSync('shopCarInfo');
-      that.data.kjId = buyNowInfoMem.kjId;
+      that.data.kjId = shopCarInfoMem.kjId;
       if (shopCarInfoMem && shopCarInfoMem.shopList) {
         // shopList = shopCarInfoMem.shopList
         shopList = shopCarInfoMem.shopList.filter(entity => {

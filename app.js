@@ -116,9 +116,12 @@ App({
           });*/
           return;
         }
-
+        var temp;
         for (var i = 0; i < res.data.data.length; i++) {
-          goods.push(res.data.data[i]);
+          temp = res.data.data[i];
+          temp.minPrice = temp.minPrice.toFixed(2);
+          temp.originalPrice = temp.originalPrice.toFixed(2);
+          goods.push(temp);
         }
 
 
@@ -212,7 +215,7 @@ App({
     activeCategoryId: null,
 
     userInfo: null,
-    subDomain: "tgg",// 商城后台个性域名tgg
+    subDomain: "tianguoguoxiaopu",// 商城后台个性域名tgg
     version: "2.0.5",
     shareProfile: '   一流的服务，做超新鲜的水果' // 首页转发的时候术语
   }
