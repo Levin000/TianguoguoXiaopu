@@ -1,6 +1,6 @@
 
 <view class="container">
-  <view class="header">
+  <view class="header" style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.5))'>
     <view class='shop-Info'>
       <image class="logo" src="{{shopLogo}}" />
       <view class='shop-words'>

@@ -14,7 +14,6 @@ page{
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: #69C3AA;
   align-items: stretch;
   padding: 0;
   height: 100%;
@@ -158,7 +157,6 @@ page{
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
-  background: #69C3AA;
   color: #fff;
   text-align: center;
   border-radius: 100rpx;

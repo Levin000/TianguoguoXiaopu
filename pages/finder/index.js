@@ -43,7 +43,12 @@ Page({
   },
   onShow: function () {
     var that = this;
-    
+    that.setData({
+      background_color: app.globalData.globalBGColor,
+      bgRed: app.globalData.bgRed,
+      bgGreen: app.globalData.bgGreen,
+      bgBlue: app.globalData.bgBlue
+    })
   },
   onLoad: function () {
     var that = this
@@ -244,10 +249,24 @@ Page({
               getCoupStatus: -1
             })
           }, 1500)
+        } else if (res.data.code == 600){
+          wx.showModal({
+            title: '权限不足',
+            content: '您当前尚未登陆，是否前往登陆？',
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/authorize/index',
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消授权登陆')
+              }
+            }
+          })
         } else {
           wx.showModal({
             title: '错误',
-            content: res.data.msg,
+            content: res.data.code + res.data.msg,
             showCancel: false
           })
         }

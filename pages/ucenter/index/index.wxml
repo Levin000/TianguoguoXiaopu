@@ -1,27 +1,35 @@
 <view class="container">
-  <view class='userbox'>
-    <view class="userinfo">
+  <view class='userbox' style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.3))'>
+    <view wx:if="{{userInfo}}" class="userinfo">
       <wxc-avatar class="userinfo-avatar" src="{{ userInfo.avatarUrl }}"> </wxc-avatar>
       <view style='width:30rpx;'></view>
-      <view class='userinfo-others'>
+      <view class='userinfo-text'>
         <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
-        <view style='height:40rpx;'></view>
-        <wxc-label wx:if="{{userMobile}}" class="phoneNumber" type='fill' type-color="#747ba1">
-          {{userMobile}}
-        </wxc-label>
-        <button wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="pin-phoneNumber" size='min'>
-          点击绑定手机号码
-        </button>
+        <view style='height:10rpx;'></view>
+        <!-- 部分未通过认证的开发者无权限获得用户绑定电话信息，故暂时隐藏此功能。具体可见微信官方https://developers.weixin.qq.com/miniprogram/dev/api/getPhoneNumber.html -->
+        <!--<wxc-label wx:if="{{userMobile}}" class="phoneNumber" type='fill' type-color="#747ba1">
+            {{userMobile}}
+          </wxc-label>
+          <button wx:else class="pin-phoneNumber" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" size='min'>
+            点击绑定手机号码
+          </button>-->
+      </view>
+
+    </view>
+    <view wx:else class="userinfo">
+      <wxc-avatar class="userinfo-avatar-no" mold="square" src="https://cdn.it120.cc/apifactory/2018/06/10/527a0d6e3b3f1ffc32748193d743da26.jpg" bindtap="relogin"> </wxc-avatar>
+      <view class='userinfo-text'>
+        <text class="userinfo-nickname"> 欢迎您 ，👆 点我登陆 </text>
+        <view style='height:10rpx;'></view>
       </view>
     </view>
-    <view class='user-phone-info'>
-      <wxc-label class='my-sign' wx:if="{{score_sign_continuous == 0}}" bindtap="scoresign" type='fill'>
-        每日签到
-      </wxc-label>
-      <wxc-label class='my-sign' wx:if="{{score_sign_continuous > 0}}" bindtap="scoresign" type='fill' type-color="#747bc1">
-        已连续签到 {{score_sign_continuous}} 天
-      </wxc-label>
-    </view>
+    <view class='userInfoMask'></view>
+    <wxc-label class='my-sign' wx:if="{{score_sign_continuous == 0}}" bindtap="scoresign" type='fill'>
+      每日签到
+    </wxc-label>
+    <wxc-label class='my-sign' wx:if="{{score_sign_continuous > 0}}" bindtap="scoresign" type='fill' type-color="#747bc1">
+      已连续签到 {{score_sign_continuous}} 天
+    </wxc-label>
   </view>
 
   <view class='h-contents'>
@@ -47,9 +55,9 @@
       </view>
     </view>
     <view class='a-item-no-right-border'>
-      <button type='primary' size='mini' bindtap="recharge" style='font-size: 22rpx;background-color:#69C3AA;'>充值</button>
+      <button type='primary' size='mini' bindtap="recharge" style='font-size: 22rpx;background-color:#69C3AA;border-radius: 0rpx;'>充值</button>
       <view style='height:8rpx;'> </view>
-      <button type='warn' size='mini' bindtap="withdraw" style='font-size: 22rpx;background-color:#FF5777;'>提现</button>
+      <button type='warn' size='mini' bindtap="withdraw" style='font-size: 22rpx;background-color:#FF5777;border-radius: 0rpx;'>提现</button>
     </view>
   </view>
 
@@ -111,7 +119,7 @@
   </view>
   <view style="height:20rpx;width:100%;"></view>
   <view class="my-item" style='border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;'>
-    <button type="warn" bindtap="relogin" style='font-size:24rpx;background-color:#FF5777;'>重新授权登录</button>
+    <button type="warn" bindtap="relogin" style='font-size:24rpx;background-color:#FF5777;border-radius: 0rpx;'>重新授权登录</button>
   </view>
 
   <view class="version" style='margin-top:10rpx;font-size:18rpx;'>Copyright © 2017-2018 qindiandadudu(GitHub ID)</view>

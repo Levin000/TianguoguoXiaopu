@@ -21,25 +21,36 @@ Page({
   },
   onLoad() {
     let that = this;
+    that.setData({
+      version: app.globalData.version,
+      background_color: app.globalData.globalBGColor,
+      bgRed: app.globalData.bgRed,
+      bgGreen: app.globalData.bgGreen,
+      bgBlue: app.globalData.bgBlue
+    })
+
     let userInfo = wx.getStorageSync('userInfo')
     if (!userInfo) {
       wx.navigateTo({
         url: "/pages/authorize/index"
       })
-    } else {
-      that.setData({
-        userInfo: userInfo,
-        version: app.globalData.version
-      })
     }
   },
   onShow() {
+    var that = this;
+    that.getUserApiInfo();
+    that.getUserAmount();
+    that.checkScoreSign();
+    that.getAboutUs();
+    that.getservicePhoneNumber();
+
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      that.setData({
+        userInfo: userInfo,
+      })
+    }
     
-    this.getUserApiInfo();
-    this.getUserAmount();
-    this.checkScoreSign();
-    this.getAboutUs();
-    this.getservicePhoneNumber();
   },
   aboutUs: function () {
     var that = this

@@ -21,7 +21,6 @@ page {
 .header {
   width: 100%;
   position: relative;
-  background: #69c3aa; /**/
   color: #000;
   transition: all 0.6s ease-in-out;
 }
@@ -50,15 +49,16 @@ page {
 }
 
 .header .shop-Info .logo {
-  width: 120rpx;
-  height: 120rpx;
+  width: 150rpx;
+  height: 150rpx;
   margin-left: 30rpx;
   margin-right: 20rpx;
   border-radius: 50%;
+  border: 3rpx solid #eee;
 }
 
 .header .shop-Info .shop-words {
-  width: 400rpx;
+  width: 375rpx;
   height: 100%;
 }
 

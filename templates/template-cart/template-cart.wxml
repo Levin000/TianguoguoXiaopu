@@ -16,26 +16,26 @@
   </view>
   <scroll-view class="goodsList" scroll-y="true">
     <view class="a-gooods" wx:for="{{list}}" wx:key="{{index}}">
-      <view class="a-goods-conts {{item.active? 'active':''}}" bindtap="selectTap" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
-        <!--style="{{item.left}}"-->
+      <view class="a-goods-conts {{item.active? 'active':''}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.left}}">
+        <view class="selector {{item.active? 'active':''}}" bindtap="selectTap" data-index="{{index}}"></view>
         <view class="goods-info">
-          <view class="img-box">
+          <view class="img-box" bindtap="selectTap" data-index="{{index}}">
             <image src="{{item.pic}}" class="img" />
           </view>
           <view class="text-box">
-            <view class="goods-title">{{item.name}}</view>
-            <view class="goods-label">{{item.label}}</view>
+            <view class="goods-title" bindtap="selectTap" data-index="{{index}}">{{item.name}}</view>
+            <view class="goods-label" bindtap="selectTap" data-index="{{index}}">{{item.label}}</view>
             <wxc-price class="goods-price" value="{{item.price}}" icon='sub' decimal='small'></wxc-price>
             <view class="buy-num">
               <view class="jian-btn {{item.number==1? 'disabled' : ''}}" catchtap="jianBtnTap" data-index="{{index}}">-</view>
-              <input type="number" value="{{item.number}}" disabled/>
-              <view class="jia-btn {{item.number==curTouchGoodStore? 'disabled' : ''}}" catchtap="jiaBtnTap" data-index="{{index}}">+</view>
+              <input type="number" confirm-type='确定' value="{{item.number}}"  bindblur='setNumberInput' bindconfirm='setNumberInput' data-index="{{index}}"/>
+              <view class="jia-btn {{item.number==curTouchGoodStores? 'disabled' : ''}}" catchtap="jiaBtnTap" data-index="{{index}}">+</view>
             </view>
           </view>
         </view>
-        <!--<view class="delete-btn" data-index="{{index}}" catchtap="delItem">
+        <view class="delete-btn" data-index="{{index}}" catchtap="delItem">
             删除
-        </view>-->
+        </view>
       </view>
     </view>
   </scroll-view>

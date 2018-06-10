@@ -1,71 +1,85 @@
 page {
 	height: 100%;
-	overflow: hidden;
 }
 .container{
   min-height: 100%;
-  overflow: hidden;
   overflow-y: hidden;
   background-color: #f4f4f4;
   font-size: 24rpx;
 }
 
 .userbox {
+  overflow: hidden;
+  display: flex;
+	flex-direction: column;
   width: 100%;
-	display: flex;
-	flex-direction: row;
-  background: -webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105, 195, 170, 0.3));
+  height: 300rpx;
+	margin-bottom: 20rpx;
+  align-items: center;
+  justify-content: center;
 }
 .userbox .userinfo {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+  width: 750rpx;
+  z-index: 100;
+  margin-top: 100rpx;
 	align-items: center;
   justify-content: center;
-  width: 65%;
 }
 
-.userinfo-avatar {
+.userbox .userinfo .userinfo-avatar {
   display: block;
 	width: 160rpx;
 	height: 160rpx;
   margin: 20rpx 0;
+  border: 5rpx solid #eee;
+  border-radius: 50%;
 }
 
-.userinfo-others{
+.userbox .userinfo .userinfo-avatar-no {
+  display: block;
+	width: 160rpx;
+	height: 160rpx;
+  margin: 20rpx 0;
+  border: 5rpx solid #eee;
+  border-radius: 5%;
+}
+
+.userbox .userinfo .userinfo-text{
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   justify-content: center;
 }
 
-.userinfo-nickname {
+.userbox .userinfo .userinfo-text .userinfo-nickname {
   font-size: 28rpx;
   font-weight: bold;
   color: #333;
 }
 
-.userbox .user-phone-info{
-  display: flex;
-	flex-direction: column;
-	align-items: center;
-  width: 35%;
-}
-
-.userbox .user-phone-info .my-sign{
-  position: absolute;
-  right: 30rpx;
-  margin-top: 20rpx;
-  font-size: 24rpx;
+.userbox .userInfoMask{
+  width: 100%;
+  height: 350rpx;
+  z-index: 1;
+  position: relative;
+  bottom: 0rpx;
+  border-top-left-radius: 70%;
+  border-top-right-radius: 70%;
+  background-color: #FFF;
 }
 
 .phoneNumber{
   align-items: center;
   font-size: 24rpx;
   color: #333333;
+  margin-bottom: 20rpx;
 }
 
 .pin-phoneNumber{
   align-items: center;
+  margin-bottom: 20rpx;
   padding: 0 10rpx;
   font-size: 20rpx;
   color: #ff5577;
@@ -73,10 +87,20 @@ page {
   border-radius: 1% solid #ffe8ee;
 }
 
+.userbox .my-sign{
+  position: absolute;
+  top: 10rpx;
+  right: 30rpx;
+  z-index: 100;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+
 .h-contents{
+  z-index: 100;
   width: 100%;
   height: 125rpx;
-  margin-top: 8rpx;
+  margin-bottom: 20rpx;
   background-color: #FFF;
   display: flex;
   flex-direction: row;
@@ -114,7 +138,6 @@ page {
 .user-menu{
   width: 100%;
   height: auto;
-  margin-top: 8rpx;
   overflow: hidden;
   background: #FFF;
 }

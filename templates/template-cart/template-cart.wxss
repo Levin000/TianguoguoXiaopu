@@ -51,27 +51,30 @@
 
 .a-goods-conts {
   display: flex;
-  justify-content: space-between;
-  padding-left: 30rpx;
-  width: 100%;/*870rpx*/
+  justify-content: flex-end;
+  width: 870rpx;/*870*/
   box-sizing: border-box;
   transition: margin-left 0.2s ease-in-out;
-  background: url(https://cdn.it120.cc/images/weappshop/gou.png) no-repeat 30rpx center;
-  background-size: 40rpx auto;
-}
-
-.a-goods-conts.active {
-  background: url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 30rpx center;
-  background-size: 40rpx auto;
 }
 
 .goods-info {
   border-bottom: 1px solid #f4f4f4;
   display: flex;
   justify-content: space-between;
-  padding: 30rpx 0 30rpx 70rpx;
-  width: 720rpx;
+  padding: 30rpx 0 30rpx 0rpx;
+  width: 670rpx;
   box-sizing: border-box;
+}
+
+.selector{
+  width: 80rpx;
+  background: url(https://cdn.it120.cc/apifactory/2018/03/07/8ecdab31cfc3ccda44edd7bebfbdd45f.png) no-repeat 30rpx center;
+  background-size: 34rpx auto;
+}
+
+.selector.active{
+  background: url(https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png) no-repeat 30rpx center;
+  background-size: 34rpx auto;
 }
 
 .goods-info .img-box {
@@ -109,14 +112,14 @@
 }
 
 .goods-info .text-box .buy-num {
-  width: 164rpx;
+  width: 194rpx;
   height: 48rpx;
   line-height: 48rpx;
   position: absolute;
   right: 30rpx;
   bottom: 0;
   display: flex;
-  /*justify-content: space-between;*/
+  justify-content: space-between;
   font-size: 24rpx;
   text-align: center;
 }
@@ -124,6 +127,7 @@
 .goods-info .text-box .buy-num .jian-btn {
   width: 48rpx;
   height: 100%;
+  font-weight: bolder;
   border-left: 1rpx solid #ccc;
   border-bottom: 1rpx solid #ccc;
   border-top: 1rpx solid #ccc;
@@ -132,6 +136,7 @@
 }
 
 .goods-info .text-box .buy-num .jian-btn.disabled {
+  font-weight: inherit;
   background-color: #f5f5f9;
   border-left: 1rpx solid #f4f4f4;
   border-bottom: 1rpx solid #f4f4f4;
@@ -142,6 +147,7 @@
 .goods-info .text-box .buy-num .jia-btn {
   width: 48rpx;
   height: 100%;
+  font-weight: bolder;
   border-right: 1rpx solid #ccc;
   border-bottom: 1rpx solid #ccc;
   border-top: 1rpx solid #ccc;
@@ -150,6 +156,7 @@
 }
 
 .goods-info .text-box .buy-num .jia-btn.disabled {
+  font-weight: inherit;
   background-color: #f5f5f9;
   border-right: 1rpx solid #f4f4f4;
   border-bottom: 1rpx solid #f4f4f4;
@@ -158,7 +165,7 @@
 }
 
 .goods-info .text-box .buy-num input {
-  width: 68rpx;
+  width: 98rpx;
   height: 48rpx;
   min-height: 48rpx;
   text-align: center;

@@ -4,14 +4,12 @@
 
 @import "../../templates/wxSearch/wxSearch.wxss";
 
-page {
+.page {
   min-height: 100%;
-  background-color: rgba(105, 195, 170, 0.3);
 }
 
 .container {
   min-height: 100%;
-  background-color: #69c3aa;
 }
 
 .introduced {
@@ -50,7 +48,6 @@ page {
   position: fixed;
   top: 0;
   z-index: 501;
-  background: #69C3AA;
   width: 100%;
   height: 70rpx;
   padding: 0 50rpx;

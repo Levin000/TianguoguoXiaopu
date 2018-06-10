@@ -7,7 +7,7 @@ Page(Object.assign({},{
     indicatorDots: true,
     loadingStatus: false, // loading
     loadingFinish: false,
-    shopLogo: 'https://cdn.it120.cc/apifactory/2017/12/08/13cf50050ade63f957450f19f0edd756.jpg',
+    shopLogo: 'https://cdn.it120.cc/apifactory/2018/06/10/527a0d6e3b3f1ffc32748193d743da26.jpg',
     shopPrompt: [],
     shopDelivery: [],
     swiperCurrent: 0,
@@ -45,7 +45,11 @@ Page(Object.assign({},{
       goods: app.globalData.goods,
       goodsList: app.globalData.goodsList,
       onLoadStatus: app.globalData.onLoadStatus,
-      activeCategoryId: app.globalData.activeCategoryId
+      activeCategoryId: app.globalData.activeCategoryId,
+      background_color: app.globalData.globalBGColor,
+      bgRed: app.globalData.bgRed,
+      bgGreen: app.globalData.bgGreen,
+      bgBlue: app.globalData.bgBlue
     })
     for (var i = 0; i < that.data.categories.length; i++) {
       if (that.data.activeCategoryId === that.data.categories[i].id) {
@@ -364,12 +368,12 @@ Page(Object.assign({},{
         var x = R * Math.cos(i * Math.PI / 6 - Math.PI / 2);
         var y = R * Math.sin(i * Math.PI / 6 - Math.PI / 2);
         if (i == 11 || i == 12) {//调整数字11和12的位置  
-          context.fillText(i, x - width / 23, y + width / 30);
+          context.fillText(i, x - width / 23, y + width / 50);
         } else if (i == 10) {//调整数字10的位置
-          context.fillText(i, x - width / 25, y + width / 35);
+          context.fillText(i, x - width / 25, y + width / 40);
         }
         else {
-          context.fillText(i, x - width / 45, y + width / 48);
+          context.fillText(i, x - width / 45, y);
         }
       }
     }

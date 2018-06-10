@@ -105,12 +105,13 @@ Page({
             code: res.code
           },
           success: function (res) {
+            console.log(res.data.code)
             if (res.data.code == 10000) {
               // 去注册
               that.registerUser();
               return;
             }
-            if (res.data.code != 0) {
+            else if (res.data.code != 0) {
               // 登录错误
               wx.hideLoading();
               wx.showModal({
@@ -122,7 +123,7 @@ Page({
             }
             wx.setStorageSync('token', res.data.data.token)
             wx.setStorageSync('uid', res.data.data.uid)
-            // 回到原来的地方放
+            // 回到原来的页面
             wx.navigateBack();
           }
         })

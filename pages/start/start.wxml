@@ -1,5 +1,5 @@
 <!--start.wxml-->
-<view class="container">
+<view class="container" style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.1));'>
   <view class="remind-box" wx:if="{{remind}}">
     <image class="remind-img" src="/images/more/loading.gif"></image>
   </view>
@@ -13,7 +13,7 @@
       </view>
       <view class="bd">
         <image class="smalltitle" src="/images/more/confirm-word1.png"></image>
-        <view class="confirm-btn" bindtap='goToIndex'>
+        <view class="confirm-btn" style='background: {{background_color}};' bindtap='goToIndex'>
           <text>进入店铺</text>
         </view>
         <text class="copyright">© 2017 qindiandadudu 倾情巨献</text>

@@ -35,7 +35,11 @@ Page({
       goodsList: app.globalData.goodsList,
       pageSize: app.globalData.pageSize,
       page: app.globalData.page,
-      recommendGoodsShow: []
+      recommendGoodsShow: [],
+      background_color: app.globalData.globalBGColor,
+      bgRed: app.globalData.bgRed,
+      bgGreen: app.globalData.bgGreen,
+      bgBlue: app.globalData.bgBlue
     })
     that.getRecommendTitlePicStr();
     wx.setNavigationBarTitle({

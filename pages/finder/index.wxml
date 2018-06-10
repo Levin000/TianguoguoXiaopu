@@ -3,9 +3,9 @@
 <import src="../../templates/recommend-goods-item/recommend-goods-item.wxml" />
 <import src="../../templates/wxSearch/wxSearch.wxml" />
 
-<view class="container">
+<view class="container" style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.7));'>
 
-  <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105,195,170, 0.3))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
+  <view class="search-view" style="background:-webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.7)); ">
     <view class="serarch-content">
       <view class='search-icon-view'>
         <wxc-icon class='search-icon' type='search-square' size='40' color='#69c3aa'></wxc-icon>
@@ -19,12 +19,12 @@
 
   <view style='height:100rpx;'></view>
 
-  <view class="introduced">
+  <view wx:if='{{!hasNoCoupons}}' class="introduced">
     <wxc-loadmore class='introduced-text' is-end="{{true}}" text="店铺优惠券"></wxc-loadmore>
     <!--<image class="introudced-img" src="{{couponsTitlePicStr}}"></image>-->
   </view>
 
-  <wxc-flex wx:if='{hasNoCoupons}' class='coupons' cross="center" wrap='wrap'>
+  <wxc-flex wx:if='{{!hasNoCoupons}}' class='coupons' cross="center" wrap='wrap'>
     <wxc-toast wx:if="{{!networkStatus}}" is-show="{{true}}" text="联网失败，请刷新重试" icon="warning" icon-color="#ff5777"></wxc-toast>
     <wxc-toast wx:if="{{couponsStatus===0}}" is-show="{{true}}" text="优惠券加载中···"></wxc-toast>
     <wxc-toast wx:elif="{{couponsStatus===1}}" is-show="{{true}}" text="加载成功" icon="yes"></wxc-toast>
@@ -54,10 +54,12 @@
     <wxc-toast wx:elif="{{getCoupStatus===2}}" is-show="{{true}}" text="你领过了，别贪心哦~" icon="no"></wxc-toast>
     <wxc-toast wx:elif="{{getCoupStatus===3}}" is-show="{{true}}" text="您的积分不足~" icon="no"></wxc-toast>
     <wxc-toast wx:elif="{{getCoupStatus===4}}" is-show="{{true}}" text="已过期~" icon="no"></wxc-toast>
-    
+
     <view style='width: 100%;height: 10rpx;'></view>
   </wxc-flex>
 
+  <!--拼团开团-->
+  
 </view>
 
 <view class='more-things'>

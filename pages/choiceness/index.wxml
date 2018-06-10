@@ -4,7 +4,7 @@
 
 <view class="container" style="height:{{height}}rpx;" scroll-y="true" scroll-with-animation="true" bindscrolltolower="getRGshow">
 
-  <view wx:if="{{noticeList}}" class="notice">
+  <view wx:if="{{noticeList}}" class="notice" style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.7));'>
 
     <wxc-icon size='40' type="{{'notice'}}" style='margin-right:10rpx;'> </wxc-icon>
     <wxc-elip style='width: 150rpx; color:#FF0077;text-align: center;'>果果快报</wxc-elip>

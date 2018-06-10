@@ -25,7 +25,6 @@ page {
   align-items: center;
   justify-content: center;
   font-size: 28rpx;
-  background-color: rgba(105, 195, 170,1);
 }
 
 .notice_swiper {
@@ -84,16 +83,16 @@ page {
 .swiper-container .dots {
   position: relative;
   bottom: 10rpx;
-  margin-top: 20rpx;
+  margin: 20rpx 30rpx 0 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .swiper-container .dots .dot {
   margin: 0 10rpx;
-  width: 30rpx;
-  height: 10rpx;
-  border-radius: 2rpx;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
   background-color: #999;
   transition: all 0.6s;
   opacity: 0.5;

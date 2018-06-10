@@ -193,6 +193,38 @@ Page({
 
     this.setGoodsList(this.getSaveHide(), this.totalPrice(), !currentAllSelect, this.noSelect(), list);
   },
+  setNumberInput: function (e) {
+    console.log('setNumberInput-->', e)
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var list = that.data.goodsList.list;
+    if (index !== "" && index != null) {
+      // 添加判断当前商品购买数量是否超过当前商品可购买库存
+      var carShopBean = list[parseInt(index)];
+      var carShopBeanStores = 0;
+      wx.request({
+        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/detail',
+        data: {
+          id: carShopBean.goodsId
+        },
+        success: function (res) {
+          carShopBeanStores = res.data.data.basicInfo.stores;
+          console.log(' currnet good id and stores is :', carShopBean.goodsId, carShopBeanStores)
+          if (parseInt(e.detail.value) < carShopBeanStores) {
+            list[parseInt(index)].number = parseInt(e.detail.value);
+            that.setGoodsList(that.getSaveHide(), that.totalPrice(), that.allSelect(), that.noSelect(), list);
+          }
+          else {
+            list[parseInt(index)].number = carShopBeanStores;
+            that.setGoodsList(that.getSaveHide(), that.totalPrice(), that.allSelect(), that.noSelect(), list);
+          }
+          that.setData({
+            curTouchGoodStores: carShopBeanStores
+          })
+        }
+      })
+    }
+  },
   jiaBtnTap: function (e) {
     var that = this
     var index = e.currentTarget.dataset.index;
@@ -213,8 +245,12 @@ Page({
             list[parseInt(index)].number++;
             that.setGoodsList(that.getSaveHide(), that.totalPrice(), that.allSelect(), that.noSelect(), list);
           }
+          else {
+            list[parseInt(index)].number = carShopBeanStores;
+            that.setGoodsList(that.getSaveHide(), that.totalPrice(), that.allSelect(), that.noSelect(), list);
+          }
           that.setData({
-            curTouchGoodStore: carShopBeanStores
+            curTouchGoodStores: carShopBeanStores
           })
         }
       })

@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.6",
-	"appid": "wx246983b8b8332e17",
-	"projectname": "%E7%94%9C%E6%9E%9C%E6%9E%9C%E5%B0%8F%E9%93%BA-offline-minUI",
+	"appid": "touristappid",
+	"projectname": "tgg",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -43,7 +43,38 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "精选",
+					"pathName": "pages/choiceness/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发现",
+					"pathName": "pages/finder/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/classification/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/ucenter/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/shop-cart/index",
+					"query": ""
+				}
+			]
 		}
 	}
 }
