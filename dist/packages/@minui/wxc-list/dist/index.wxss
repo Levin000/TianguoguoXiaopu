@@ -1,0 +1,47 @@
+.list {}
+.list__body {
+    display: flex;
+    align-items: center;
+    min-height: 90rpx;
+    line-height: 1.4;
+    padding: 20rpx 30rpx 20rpx 0;
+    margin-left: 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #ececec;
+    font-size: 32rpx;
+    color: #333
+}
+.list__none {
+    border: none
+}
+.list__image {
+    width: 38rpx;
+    height: 38rpx;
+    margin-right: 30rpx
+}
+.list__icon {
+    margin-right: 30rpx
+}
+.list__title {
+    flex: 1
+}
+.list__title--sub {
+    margin-top: 14rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #999
+}
+.list__desc {}
+.list__desc--dot {
+    width: 16rpx;
+    height: 16rpx;
+    margin-right: 18rpx;
+    border-radius: 16rpx
+}
+.list__desc--text {
+    color: #999;
+    font-size: 24rpx
+}
+.list__desc--arrow {
+    margin-left: 8rpx
+}

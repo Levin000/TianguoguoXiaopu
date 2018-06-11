@@ -1,8 +1,8 @@
 .badge {
     display: inline-block;
     min-width: 19rpx;
-    height: 25rpx;
-    line-height: 25rpx;
+    height: 30rpx;
+    line-height: 30rpx;
     padding: 0 6rpx;
     font-size: 22rpx;
     text-align: center;

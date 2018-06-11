@@ -1,0 +1,18 @@
+<form report-submit="{{true}}" bindsubmit="onSubmit">
+    <view class="search">
+        <view class="search__form search__content--{{align}}" style="border-radius:{{radius}}rpx;background: {{bgColor}};">
+            <wxc-icon wx:if="{{showIcon}}" class="search__icon" type="search" size="30" color="{{iconColor}}" _pid="{{_pid}}"></wxc-icon>
+
+            <text wx:if="{{mode == 'static'}}" class="search__text" style="color: {{phColor}}">{{placeholder}}</text>
+
+            <block wx:if="{{mode == 'normal'}}">
+                <input class="search__input" style="color: {{color}};" placeholder-style="color: {{phColor}};" placeholder="{{placeholder}}" value="{{value}}" bindinput="onInput" bindconfirm="onConfirm" confirm-type="search"></input>
+                <view wx:if="{{showClear && _showClear}}" class="search__clear" bindtap="onClear">
+                    <wxc-icon type="clear" color="#d5d5d5" size="30" _pid="{{_pid}}"></wxc-icon>
+                </view>
+            </block>
+        </view>
+
+        <button wx:if="{{mode == 'normal' && button}}" class="search__button" style="color: {{btnColor}};" bindtap="onConfirm" form-type="submit">{{button}}</button>
+    </view>
+</form>

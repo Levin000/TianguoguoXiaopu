@@ -1,0 +1,67 @@
+.input {}
+.input__combine {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    line-height: 1.4;
+    padding: 24rpx 30rpx;
+    box-sizing:border-box;
+    font-size: 28rpx;
+    color: #333
+}
+.input__combine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 0 solid #e5e5e5;
+    border-bottom-width: 1rpx
+}
+.input__wrapped:after {
+    border: 1rpx solid #e5e5e5;
+    border-radius: 8rpx
+}
+.input__none::after {
+    display: none
+}
+.input__right {
+    text-align: right
+}
+.input__error {
+    color: #fc3c64
+}
+.input__error:after {
+    border-color: #fc3c64
+}
+.input__label {
+    min-width: 163rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    color: #333
+}
+.input__icon {
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 36rpx;
+    margin-right: 32rpx;
+    color: #999
+}
+.input__form {
+    flex: 1;
+    height: 46rpx;
+    min-height: 46rpx;
+    line-height: 46rpx;
+    font-size: 32rpx
+}
+.input__placeholder {
+    font-size: 28rpx;
+    color: #999
+}

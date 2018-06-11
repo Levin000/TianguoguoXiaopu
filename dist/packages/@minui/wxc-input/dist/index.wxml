@@ -1,0 +1,11 @@
+<view class="input">
+    <view class="input__combine input__{{mode}} {{error? 'input__error': ''}}">
+        <view class="input__label" wx:if="{{title}}">{{title}}</view>
+
+        <image wx:if="{{!title && src}}" class="input__icon" mode="aspectFit" src="{{src}}"></image>
+
+        <wxc-icon wx:if="{{!title && !src && icon}}" class="input__icon" type="{{icon}}" color="{{iconColor || '#999'}}" size="38" _pid="{{_pid}}"></wxc-icon>
+
+        <input class="input__form {{right? 'input__right' : ''}}" value="{{value}}" type="{{type}}" password="{{password}}" placeholder="{{placeholder}}" placeholder-style="{{placeholderStyle}}" placeholder-class="input__placeholder" disabled="{{disabled}}" maxlength="{{maxlength}}" cursor-spacing="{{cursorSpacing}}" focus="{{focus}}" confirm-type="{{confirmType}}" confirm-hold="{{confirmHold}}" cursor="{{cursor}}" selection-start="{{selectionStart}}" selection-end="{{selectionEnd}}" adjust-position="{{adjustPosition}}" bindinput="onInput" bindfocus="onFocus" bindblur="onBlur" bindconfirm="onConfirm"></input>
+    </view>
+</view>

@@ -1,0 +1,45 @@
+.select {}
+.select__group {
+    width: 100%;
+    background: #fff
+}
+.select__cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    color: #666
+}
+.select__cell::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #e5e5e5
+}
+.select__cell:last-child::after {
+    display: none
+}
+.select__text {
+    margin: 0 24rpx;
+    color: #333
+}
+.select__desc {
+    flex: 1
+}
+.select__checked {
+    position: relative;
+    text-align: right;
+    color: #666
+}
+.select__radio {
+    margin-right: 24rpx
+}

@@ -1,0 +1,34 @@
+.panel {
+    position: relative;
+    margin-top: 20rpx;
+    background: #fff;
+    overflow: hidden
+}
+  .panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 0 solid #e5e5e5;
+    border-top-width: 1rpx;
+    border-bottom-width: 1rpx
+}
+  .panel {}
+  .panel__title {
+    font-size: 28rpx;
+    line-height: 1;
+    color: #999;
+    padding: 40rpx 30rpx 0 30rpx
+}
+  .panel__margin {
+    margin-top: 0
+}
+  .panel__border::after {
+    border: 0 none
+}
