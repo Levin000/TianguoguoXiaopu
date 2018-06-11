@@ -99,34 +99,6 @@ page {
   border-bottom: 1px dashed #000;
 }
 
-.header .marquee {
-  position: relative;
-  width: 100%;
-  height: 69rpx;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  line-height: 40rpx;
-  background-color: #fff7cc;
-  border: none;
-  font-size: 28rpx;
-  text-overflow: clip;
-}
-
-.header .marquee .desc {
-  position: relative;
-  display: inline-block;
-  height: 40rpx;
-  line-height: 40rpx;
-  padding-top: 20rpx;
-  padding-right: 0rpx;
-  text-align: center;
-  color: #f60;
-  font-size: 24rpx;
-  animation: kf-marque-animation 9s linear infinite;
-  white-space: nowrap;
-}
-
 .content-container {
   display: -webkit-flex;
   width: 100%;

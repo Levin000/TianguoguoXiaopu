@@ -2,6 +2,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "wxc-abnor": "../../dist/packages/@minui/wxc-abnor/dist/index",
+    "wxc-notice": "../../dist/packages/@minui/wxc-notice/dist/index",
     "wxc-loadmore": "../../dist/packages/@minui/wxc-loadmore/dist/index",
     "wxc-elip": "../../dist/packages/@minui/wxc-elip/dist/index",
     "wxc-price": "../../dist/packages/@minui/wxc-price/dist/index",
