@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": " ",
   "enablePullDownRefresh": false,
-  "disableScroll": true
+  "disableScroll": true,
+  "usingComponents": {
+    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index",
+    "wxc-icon": "../../dist/packages/@minui/wxc-icon/dist/index"
+  }
 }

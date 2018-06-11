@@ -154,12 +154,6 @@ page{
 }
 
 .confirm-btn {
-  font-size: 13pt;
-  line-height: 85rpx;
-  height: 85rpx;
-  color: #fff;
-  text-align: center;
-  border-radius: 100rpx;
   margin: 61.8% 30% 0;
 }
 .confirm-btn:active {
