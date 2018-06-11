@@ -24,12 +24,8 @@
       </view>
     </view>
     <view class='userInfoMask'></view>
-    <wxc-label class='my-sign' wx:if="{{score_sign_continuous == 0}}" bindtap="scoresign" type='fill'>
-      每日签到
-    </wxc-label>
-    <wxc-label class='my-sign' wx:if="{{score_sign_continuous > 0}}" bindtap="scoresign" type='fill' type-color="#747bc1">
-      已连续签到 {{score_sign_continuous}} 天
-    </wxc-label>
+    <wxc-button class='my-sign' wx:if="{{score_sign_continuous == 0}}" size="small" type="beauty" value="每日签到" bindtap="scoresign"></wxc-button>
+    <wxc-button class='my-sign' wx:if="{{score_sign_continuous > 0}}" size="small" type="secondary" value="已连续签到 {{score_sign_continuous}} 天" bindtap="scoresign"></wxc-button>
   </view>
 
   <view class='h-contents'>
@@ -55,9 +51,9 @@
       </view>
     </view>
     <view class='a-item-no-right-border'>
-      <button type='primary' size='mini' bindtap="recharge" style='font-size: 22rpx;background-color:#69C3AA;border-radius: 0rpx;'>充值</button>
+      <wxc-button type="info" size="small" value="充值" bindtap="recharge"></wxc-button>
       <view style='height:8rpx;'> </view>
-      <button type='warn' size='mini' bindtap="withdraw" style='font-size: 22rpx;background-color:#FF5777;border-radius: 0rpx;'>提现</button>
+      <wxc-button type="beauty" size="small" value="提现" bindtap="withdraw"></wxc-button>
     </view>
   </view>
 
@@ -119,7 +115,7 @@
   </view>
   <view style="height:20rpx;width:100%;"></view>
   <view class="my-item" style='border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;'>
-    <button type="warn" bindtap="relogin" style='font-size:24rpx;background-color:#FF5777;border-radius: 0rpx;'>重新授权登录</button>
+    <wxc-button type="danger" value="重新授权登录" bindtap="relogin"></wxc-button>
   </view>
 
   <view class="version" style='margin-top:10rpx;font-size:18rpx;'>Copyright © 2017-2018 qindiandadudu(GitHub ID)</view>
