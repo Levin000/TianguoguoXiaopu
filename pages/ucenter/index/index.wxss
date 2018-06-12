@@ -13,7 +13,6 @@ page {
 	flex-direction: column;
   width: 100%;
   height: 300rpx;
-	margin-bottom: 20rpx;
   align-items: center;
   justify-content: center;
 }
