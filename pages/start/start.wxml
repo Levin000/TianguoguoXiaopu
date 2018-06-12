@@ -13,7 +13,7 @@
       </view>
       <view class="bd">
         <image class="smalltitle" src="/images/more/confirm-word1.png"></image>
-        <wxc-button class="confirm-btn" size='large' btnStyle="width: 282rpx;background: {{background_color}};border-radius: 66rpx;color: #fff;" bindtap='goToIndex'>
+        <wxc-button class="confirm-btn" size='large' btnStyle="width: 282rpx;background: {{background_color}};border-radius: 66rpx;color: #fff;" bindclick='goToIndex'>
           进入店铺 
           <wxc-icon style='margin-left:20rpx;' color="#fff" type="arrow-right"></wxc-icon>
         </wxc-button>

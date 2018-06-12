@@ -3,7 +3,7 @@
     <wxc-button type="success" size='large' btn-style='margin-top:30rpx;' open-type="getUserInfo"  bindgetuserinfo="bindGetUserInfo" value="同意授权登录"></wxc-button>
     <view style='width:100%;padding-left:30rpx;font-size: 24rpx;margin-top:50rpx;'>1.  同意当前小程序获取我的微信头像；</view>
     <view style='width:100%;padding-left:30rpx;font-size: 24rpx;margin-top:20rpx;'>2.  同意当前小程序获取我的微信昵称等其他信息；</view>
-    <wxc-button type="danger" size='large' btn-style='margin-top:30rpx;' bindtap='rejectLogin' value="拒绝授权"></wxc-button>
+    <wxc-button type="danger" size='large' btn-style='margin-top:30rpx;' bindclick='rejectLogin' value="拒绝授权"></wxc-button>
   </form>
   
 </view>

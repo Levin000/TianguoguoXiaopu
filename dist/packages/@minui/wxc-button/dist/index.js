@@ -85,7 +85,7 @@ export default Component({
         btnClick(event) {
             let detail = event.detail;
             let option = {};
-            this.triggerEvent('tap', detail, option);
+            this.triggerEvent('click', detail, option);
         },
         getUserInfo(event) {
             let detail = event.detail;
