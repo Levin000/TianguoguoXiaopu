@@ -50,15 +50,6 @@ page {
   height: 24rpx;
 }
 
-.agree-btn, .reject-btn {
-  width: 690rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;
-  border-radius: 6rpx;
-  box-sizing: border-box;
-}
-
 .agree-btn {
   margin-top: 50rpx;
   color: #000;

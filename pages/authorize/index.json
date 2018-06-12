@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "用户信息授权"
+  "navigationBarTitleText": "用户信息授权",
+  "usingComponents": {
+    "wxc-button": "../../dist/packages/@minui/wxc-button/dist/index"
+  }
 }
