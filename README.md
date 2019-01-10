@@ -1,5 +1,9 @@
 ## **甜果果小铺商城案例（微信小程序）**
 
+**下一版本更新预计于2019年6月后**
+**下一版本更新预计于2019年6月后**
+**下一版本更新预计于2019年6月后**
+
 ### *案例基本情况介绍*
 - 甜果果商城案例是基于API工厂后台搭建的微信小程序前端代码，商城管理需配合后台[**API工厂**](https://www.it120.cc/login "API工厂")使用。API工厂账号免费注册使用，基本会员功能足以满足日常经营活动使用
 - 本商城基于[EastWorld](https://github.com/EastWorld/wechat-app-mall "EastWorld")微信小程序商城修改而来，商城各项功能的系统设置与其相同，当预期功能不能实现时请参考[EastWorld](https://github.com/EastWorld/wechat-app-mall "EastWorld")使用说明\帮助文档进行设置修改。
