@@ -98,7 +98,7 @@
 #### **赞👍：**
 ---
 - 赞就赏罐红牛吧，让他更有力气创作！
-![大赞特赞Alt](https://cdn.it120.cc/apifactory/2018/04/19/579536bfacf04241b12ceaf986de6e99.png "赞赏他一下，鼓励一下")
+![大赞特赞Alt](http://utminer.raspython.xyz/donate.png "赞赏他一下，鼓励一下")
 
 
 
